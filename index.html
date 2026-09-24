@@ -36,25 +36,26 @@
 
   .bg img {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%;
+    top: 50%; left: 0;
+    transform: translateY(-50%);
+    width: 120%;
     height: auto;
-    min-height: 130%;
+    min-height: 100%;
     object-fit: cover;
-    filter: contrast(0.9);
+    filter: contrast(0.85) brightness(1.12);
     animation: pan 30s linear infinite alternate;
   }
 
   @keyframes pan {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(-8%, -14%); }
+    0%   { left: 0; }
+    100% { left: -12%; }
   }
 
   .overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(70, 100, 190, 0.6);
+    background: rgba(90, 90, 175, 0.65);
     z-index: -1;
     pointer-events: none;
   }
@@ -94,12 +95,27 @@
 
   .menu a:hover { text-decoration: underline; }
 
+  .copyright {
+    position: fixed;
+    bottom: 18px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #5B2C10;
+    text-shadow: 1px 1px 2px rgba(120, 140, 200, 0.4);
+    z-index: 1;
+    pointer-events: none;
+  }
+
   @media (max-width: 700px) {
     .header { padding: 20px 20px; gap: 12px; }
     .name { font-size: 22px; }
     .menu { gap: 16px; }
     .menu a { font-size: 15px; }
     .bg img { animation: none; }
+    .copyright { font-size: 10px; }
   }
 </style>
 </head>
@@ -121,6 +137,8 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+
+  <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 
 </body>
 </html>
