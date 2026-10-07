@@ -54,7 +54,7 @@
 
   .header {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     padding: 28px 40px;
     flex-wrap: wrap;
@@ -65,7 +65,7 @@
 
   .signature {
     display: block;
-    height: 40px;
+    height: 120px;
     width: auto;
     text-decoration: none;
   }
@@ -115,10 +115,12 @@
 
   .dropdown a:hover { text-decoration: underline; }
 
+  /* --- Collage: thumbnails arranged in an arc along the bottom third --- */
   .collage {
     position: relative;
-    padding: 20px 40px 120px;
-    min-height: 60vh;
+    width: 100%;
+    height: 65vh;
+    margin-top: 5vh;
   }
 
   .collage img {
@@ -126,25 +128,26 @@
     cursor: pointer;
   }
 
-  .faberage {
+  .thumb {
     position: absolute;
-    top: 10vh;
-    left: 40px;
-    width: 220px;
+    width: 440px;
   }
 
-  .appetite-stack {
-    position: absolute;
-    top: 25vh;
-    left: 45%;
-    width: 220px;
-  }
+  /* Arc positions — 8 slots, first is free-floating, second is Appetite */
+  .thumb-1 { left: 2%;  bottom: 5vh; }
+  .thumb-2 { left: 14%; bottom: 10vh; }
+  .thumb-3 { left: 27%; bottom: 15vh; }
+  .thumb-4 { left: 40%; bottom: 18vh; }
+  .thumb-5 { left: 53%; bottom: 18vh; }
+  .thumb-6 { left: 66%; bottom: 15vh; }
+  .thumb-7 { left: 79%; bottom: 10vh; }
+  .thumb-8 { left: 90%; bottom: 5vh; }
 
-  .appetite-stack .fermacarte {
+  .thumb .fermacarte {
     position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 80px;
+    bottom: -30px;
+    right: -30px;
+    width: 160px;
     cursor: pointer;
   }
 
@@ -163,15 +166,14 @@
 
   @media (max-width: 700px) {
     .header { padding: 20px 20px; gap: 12px; }
-    .signature { height: 28px; }
-    .menu { gap: 16px; }
-    .menu a { font-size: 15px; }
+    .signature { height: 60px; }
+    .menu { gap: 14px; }
+    .menu a { font-size: 14px; }
     .dropdown { min-width: 200px; padding: 12px 16px; }
-    .dropdown a { font-size: 15px; }
-    .collage { padding: 20px 20px 100px; }
-    .faberage { width: 140px; left: 20px; }
-    .appetite-stack { width: 140px; left: 50%; top: 20vh; }
-    .appetite-stack .fermacarte { width: 50px; bottom: -14px; right: -14px; }
+    .dropdown a { font-size: 14px; }
+    .collage { height: auto; padding: 20px; }
+    .thumb { position: static; width: 45%; margin: 8px; display: inline-block; }
+    .thumb .fermacarte { width: 60px; bottom: -10px; right: -10px; }
     .copyright { font-size: 10px; }
   }
 </style>
@@ -186,7 +188,7 @@
   <div class="overlay"></div>
 
   <header class="header">
-    <a href="index.html" class="signature-link">
+    <a href="index.html">
       <img src="my_signature.png" alt="Giulia Fassone" class="signature">
     </a>
     <nav class="menu">
@@ -209,13 +211,13 @@
   </header>
 
   <div class="collage">
-    <!-- Free-floating image, not linked -->
-    <img src="Faberage.png" alt="" class="faberage">
+    <!-- Slot 1: free-floating, not linked -->
+    <img src="Faberge.png" alt="" class="thumb thumb-1">
 
-    <!-- Appetite stack with fermacarte -->
-    <div class="appetite-stack">
+    <!-- Slot 2: Appetite, with fermacarte -->
+    <div class="thumb thumb-2">
       <a href="appetite.html">
-        <img src="Faberage.png" alt="Appetite">
+        <img src="Faberge.png" alt="Appetite">
       </a>
       <img src="Fermentation_Urn.png" alt="Appetite" class="fermacarte">
     </div>
