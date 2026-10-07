@@ -71,7 +71,7 @@
   }
 
   .symbol {
-    height: 108px;
+    height: 54px;
     width: auto;
     display: block;
   }
@@ -80,6 +80,7 @@
     height: 108px;
     width: auto;
     display: block;
+    filter: drop-shadow(0 0 12px rgba(100, 120, 200, 0.9));
   }
 
   .menu {
@@ -130,35 +131,37 @@
   .collage {
     position: relative;
     width: 100%;
-    height: 70vh;
+    height: 75vh;
     margin-top: 2vh;
   }
 
-  .appetite-wrap {
+  .thumb {
     position: absolute;
     width: 160px;
-    left: 35%;
-    top: 40%;
   }
 
-  .appetite-wrap img {
+  .thumb img {
     width: 100%;
     display: block;
     cursor: pointer;
   }
 
-  .faberge-wrap {
+  .thumb .fermacarte {
     position: absolute;
+    bottom: -30px;
+    right: -30px;
     width: 160px;
-    left: 10%;
-    top: 45%;
   }
 
-  .faberge-wrap img {
-    width: 100%;
-    display: block;
-    cursor: pointer;
-  }
+  /* Arc positions */
+  .t1  { left: 2%;  top: 50%; }
+  .t2  { left: 14%; top: 42%; }
+  .t3  { left: 26%; top: 35%; }
+  .t4  { left: 38%; top: 30%; }
+  .t5  { left: 50%; top: 30%; }
+  .t6  { left: 62%; top: 35%; }
+  .t7  { left: 74%; top: 42%; }
+  .t8  { left: 86%; top: 50%; }
 
   .lightbox {
     display: none;
@@ -195,13 +198,14 @@
 
   @media (max-width: 700px) {
     .header { padding: 10px 16px 20px; gap: 10px; }
-    .symbol, .signature { height: 54px; }
+    .symbol { height: 40px; }
+    .signature { height: 60px; }
     .menu { gap: 14px; }
     .menu a { font-size: 14px; }
     .dropdown { min-width: 200px; padding: 12px 16px; }
     .dropdown a { font-size: 14px; }
     .collage { height: auto; padding: 40px 20px 120px; }
-    .appetite-wrap, .faberge-wrap { position: static; width: 120px; margin: 20px; display: inline-block; }
+    .thumb { position: static; width: 120px; margin: 20px; display: inline-block; }
     .copyright { font-size: 10px; }
   }
 </style>
@@ -217,7 +221,7 @@
 
   <header class="header">
     <a href="index.html" class="brand">
-      <img src="Dumpling Venus Symbol very yellow.png" alt="" class="symbol">
+      <img src="symbol.png" alt="" class="symbol">
       <img src="my_signature.png" alt="Giulia Fassone" class="signature">
     </a>
     <nav class="menu">
@@ -227,7 +231,8 @@
           <a href="appetite.html">Appetite</a>
           <a href="lie-soft.html">Lie Soft</a>
           <a href="archaeology-of-self.html">Archaeology Of Self</a>
-          <a href="ruderal.html">Ruderal</a>
+          <a href="ruderal-i.html">Ruderal I</a>
+          <a href="ruderal-ii.html">Ruderal II</a>
           <a href="fruits-of-labour.html">Fruits of Labour</a>
           <a href="the-remains-of-a-meal.html">The Remains Of A Meal</a>
           <a href="tools.html">Tools</a>
@@ -240,14 +245,47 @@
   </header>
 
   <div class="collage">
-    <div class="appetite-wrap">
-      <a href="appetite.html">
-        <img src="Fermentation_Urn.png" alt="Appetite">
-      </a>
+    <!-- Free-floating (lightbox only) -->
+    <div class="thumb t1"><img src="Faberge.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb t2"><img src="apple-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb t3"><img src="butter-fingers-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb t4"><img src="she-hath-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb t5"><img src="Sin-Eater-thumbnail.png" alt="" class="lightbox-trigger"></div>
+
+    <!-- Projects -->
+    <div class="thumb t6">
+      <a href="lie-soft.html"><img src="lie-soft-thumbnail.png" alt="Lie Soft"></a>
+    </div>
+    <div class="thumb t7">
+      <a href="fruits-of-labour.html"><img src="Fruits-of-labour-thumbnail.png" alt="Fruits of Labour"></a>
+    </div>
+    <div class="thumb t8">
+      <a href="the-remains-of-a-meal.html"><img src="remains-of-a-meal-thumbnail.png" alt="The Remains Of A Meal"></a>
     </div>
 
-    <div class="faberge-wrap">
-      <img src="Faberge.png" alt="" class="faberge-lightbox">
+    <!-- Appetite — fermacarte only -->
+    <div class="thumb" style="left: 20%; top: 65%;">
+      <a href="appetite.html"><img src="Fermentation_Urn.png" alt="Appetite"></a>
+    </div>
+
+    <!-- Archaeology Of Self — fermacarte -->
+    <div class="thumb" style="left: 45%; top: 65%;">
+      <a href="archaeology-of-self.html"><img src="stalactite-thumbnail.png" alt="Archaeology Of Self"></a>
+    </div>
+
+    <!-- Ruderal I -->
+    <div class="thumb" style="left: 70%; top: 65%;">
+      <a href="ruderal-i.html"><img src="Ruderal-I-thumbnail.png" alt="Ruderal I"></a>
+    </div>
+
+    <!-- Ruderal II -->
+    <div class="thumb" style="left: 85%; top: 72%;">
+      <a href="ruderal-ii.html"><img src="ruderal-II-thumbnail.png" alt="Ruderal II"></a>
+    </div>
+
+    <!-- Tools -->
+    <div class="thumb" style="left: 6%; top: 70%;">
+      <a href="tools.html"><img src="self-care-object-thumbnail.png" alt="Tools"></a>
     </div>
   </div>
 
@@ -275,7 +313,7 @@
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
-    document.querySelectorAll('.faberge-lightbox').forEach(img => {
+    document.querySelectorAll('.lightbox-trigger').forEach(img => {
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
         lightbox.classList.add('open');
