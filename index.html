@@ -131,7 +131,7 @@
   .collage {
     position: relative;
     width: 100%;
-    height: 75vh;
+    height: 90vh;
     margin-top: 2vh;
   }
 
@@ -146,22 +146,28 @@
     cursor: pointer;
   }
 
-  .thumb .fermacarte {
-    position: absolute;
-    bottom: -30px;
-    right: -30px;
-    width: 160px;
-  }
+  /* Sizes */
+  .size-130 { width: 208px; }
+  .size-80  { width: 128px; }
 
-  /* Arc positions */
-  .t1  { left: 2%;  top: 50%; }
-  .t2  { left: 14%; top: 42%; }
-  .t3  { left: 26%; top: 35%; }
-  .t4  { left: 38%; top: 30%; }
-  .t5  { left: 50%; top: 30%; }
-  .t6  { left: 62%; top: 35%; }
-  .t7  { left: 74%; top: 42%; }
-  .t8  { left: 86%; top: 50%; }
+  /* Top arc — projects */
+  .t1  { left: 2%;  top: 30%; }
+  .t2  { left: 15%; top: 22%; }
+  .t3  { left: 28%; top: 16%; }
+  .t4  { left: 41%; top: 12%; }
+  .t5  { left: 54%; top: 12%; }
+  .t6  { left: 67%; top: 16%; }
+  .t7  { left: 80%; top: 22%; }
+
+  /* Stalactite, top right, near menu */
+  .stalactite { right: 2%; top: 8%; }
+
+  /* Lower rainbow — free-floating */
+  .r1 { left: 8%;  top: 62%; }
+  .r2 { left: 24%; top: 58%; }
+  .r3 { left: 40%; top: 56%; }
+  .r4 { left: 56%; top: 56%; }
+  .r5 { left: 72%; top: 58%; }
 
   .lightbox {
     display: none;
@@ -205,7 +211,7 @@
     .dropdown { min-width: 200px; padding: 12px 16px; }
     .dropdown a { font-size: 14px; }
     .collage { height: auto; padding: 40px 20px 120px; }
-    .thumb { position: static; width: 120px; margin: 20px; display: inline-block; }
+    .thumb, .size-130, .size-80 { position: static; width: 100px; margin: 12px; display: inline-block; }
     .copyright { font-size: 10px; }
   }
 </style>
@@ -221,7 +227,7 @@
 
   <header class="header">
     <a href="index.html" class="brand">
-      <img src="symbol.png" alt="" class="symbol">
+      <img src="Symbol.png" alt="" class="symbol">
       <img src="my_signature.png" alt="Giulia Fassone" class="signature">
     </a>
     <nav class="menu">
@@ -245,48 +251,40 @@
   </header>
 
   <div class="collage">
-    <!-- Free-floating (lightbox only) -->
-    <div class="thumb t1"><img src="Faberge.png" alt="" class="lightbox-trigger"></div>
-    <div class="thumb t2"><img src="apple-thumbnail.png" alt="" class="lightbox-trigger"></div>
-    <div class="thumb t3"><img src="butter-fingers-thumbnail.png" alt="" class="lightbox-trigger"></div>
-    <div class="thumb t4"><img src="she-hath-thumbnail.png" alt="" class="lightbox-trigger"></div>
-    <div class="thumb t5"><img src="Sin-Eater-thumbnail.png" alt="" class="lightbox-trigger"></div>
-
-    <!-- Projects -->
-    <div class="thumb t6">
+    <!-- Top arc — projects -->
+    <div class="thumb t1">
+      <a href="appetite.html"><img src="Fermentation_Urn.png" alt="Appetite"></a>
+    </div>
+    <div class="thumb t2">
+      <a href="tools.html"><img src="self-care-object-thumbnail.png" alt="Tools"></a>
+    </div>
+    <div class="thumb t3">
+      <a href="ruderal-i.html"><img src="Ruderal-1-thumbnail.png" alt="Ruderal I"></a>
+    </div>
+    <div class="thumb t4 size-130">
       <a href="lie-soft.html"><img src="lie-soft-thumbnail.png" alt="Lie Soft"></a>
     </div>
-    <div class="thumb t7">
+    <div class="thumb t5 size-130">
       <a href="fruits-of-labour.html"><img src="Fruits-of-labour-thumbnail.png" alt="Fruits of Labour"></a>
     </div>
-    <div class="thumb t8">
+    <div class="thumb t6">
+      <a href="ruderal-ii.html"><img src="ruderal-II-thumbnail.png" alt="Ruderal II" class="size-130"></a>
+    </div>
+    <div class="thumb t7 size-130">
       <a href="the-remains-of-a-meal.html"><img src="remains-of-a-meal-thumbnail.png" alt="The Remains Of A Meal"></a>
     </div>
 
-    <!-- Appetite — fermacarte only -->
-    <div class="thumb" style="left: 20%; top: 65%;">
-      <a href="appetite.html"><img src="Fermentation_Urn.png" alt="Appetite"></a>
-    </div>
-
-    <!-- Archaeology Of Self — fermacarte -->
-    <div class="thumb" style="left: 45%; top: 65%;">
+    <!-- Stalactite — top right, near menu -->
+    <div class="thumb stalactite">
       <a href="archaeology-of-self.html"><img src="stalactite-thumbnail.png" alt="Archaeology Of Self"></a>
     </div>
 
-    <!-- Ruderal I -->
-    <div class="thumb" style="left: 70%; top: 65%;">
-      <a href="ruderal-i.html"><img src="Ruderal-I-thumbnail.png" alt="Ruderal I"></a>
-    </div>
-
-    <!-- Ruderal II -->
-    <div class="thumb" style="left: 85%; top: 72%;">
-      <a href="ruderal-ii.html"><img src="ruderal-II-thumbnail.png" alt="Ruderal II"></a>
-    </div>
-
-    <!-- Tools -->
-    <div class="thumb" style="left: 6%; top: 70%;">
-      <a href="tools.html"><img src="self-care-object-thumbnail.png" alt="Tools"></a>
-    </div>
+    <!-- Lower rainbow — free-floating (lightbox only) -->
+    <div class="thumb r1"><img src="Faberge.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb r2"><img src="apple-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb r3"><img src="butter-fingers-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb r4"><img src="she-hath-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb r5 size-130"><img src="Sin-Eater-thumbnail.png" alt="" class="lightbox-trigger"></div>
   </div>
 
   <div class="lightbox" id="lightbox">
