@@ -63,11 +63,23 @@
     z-index: 10;
   }
 
-  .signature {
-    display: block;
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .symbol {
     height: 108px;
     width: auto;
-    text-decoration: none;
+    display: block;
+  }
+
+  .signature {
+    height: 108px;
+    width: auto;
+    display: block;
   }
 
   .menu {
@@ -122,11 +134,6 @@
     margin-top: 2vh;
   }
 
-  .thumb {
-    position: absolute;
-    width: 160px;
-  }
-
   .appetite-wrap {
     position: absolute;
     width: 160px;
@@ -134,17 +141,9 @@
     top: 40%;
   }
 
-  .appetite-wrap a img {
+  .appetite-wrap img {
     width: 100%;
     display: block;
-    cursor: pointer;
-  }
-
-  .appetite-wrap .fermacarte {
-    position: absolute;
-    bottom: -30px;
-    right: -30px;
-    width: 160px;
     cursor: pointer;
   }
 
@@ -196,16 +195,13 @@
 
   @media (max-width: 700px) {
     .header { padding: 10px 16px 20px; gap: 10px; }
-    .signature { height: 54px; }
+    .symbol, .signature { height: 54px; }
     .menu { gap: 14px; }
     .menu a { font-size: 14px; }
     .dropdown { min-width: 200px; padding: 12px 16px; }
     .dropdown a { font-size: 14px; }
     .collage { height: auto; padding: 40px 20px 120px; }
-    .thumb { position: static; width: 120px; margin: 20px; display: inline-block; }
-    .appetite-wrap { position: static; width: 120px; margin: 20px; display: inline-block; }
-    .appetite-wrap .fermacarte { width: 90px; bottom: -12px; right: -12px; }
-    .faberge-wrap { position: static; width: 120px; margin: 20px; display: inline-block; }
+    .appetite-wrap, .faberge-wrap { position: static; width: 120px; margin: 20px; display: inline-block; }
     .copyright { font-size: 10px; }
   }
 </style>
@@ -220,7 +216,8 @@
   <div class="overlay"></div>
 
   <header class="header">
-    <a href="index.html">
+    <a href="index.html" class="brand">
+      <img src="Dumpling Venus Symbol very yellow.png" alt="" class="symbol">
       <img src="my_signature.png" alt="Giulia Fassone" class="signature">
     </a>
     <nav class="menu">
@@ -245,9 +242,8 @@
   <div class="collage">
     <div class="appetite-wrap">
       <a href="appetite.html">
-        <img src="Faberge.png" alt="Appetite">
+        <img src="Fermentation_Urn.png" alt="Appetite">
       </a>
-      <img src="Fermentation_Urn.png" alt="Appetite" class="fermacarte">
     </div>
 
     <div class="faberge-wrap">
