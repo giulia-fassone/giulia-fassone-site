@@ -77,7 +77,7 @@
     height: 108px;
     width: auto;
     display: block;
-    filter: drop-shadow(0 0 12px rgba(100, 120, 200, 0.9));
+    filter: drop-shadow(0 0 10px #FFED00);
   }
 
   .menu {
@@ -94,7 +94,7 @@
     color: #FFED00;
     text-decoration: none;
     cursor: pointer;
-    text-shadow: 2px 2px 6px #6C58F8;
+    text-shadow: 2px 2px 6px #5454E5;
   }
 
   .menu a:hover { text-decoration: underline; }
@@ -121,7 +121,7 @@
     padding: 6px 0;
     white-space: nowrap;
     color: #FFED00;
-    text-shadow: 2px 2px 6px #6C58F8;
+    text-shadow: 2px 2px 6px #5454E5;
   }
 
   .dropdown a:hover { text-decoration: underline; }
@@ -145,38 +145,20 @@
     cursor: pointer;
   }
 
-  /* Size classes */
   .size-130 { width: 182px; }
   .size-140 { width: 196px; }
   .size-300 { width: 420px; }
   .size-400 { width: 560px; }
 
-  /* Positions — tuned to fit within viewport */
-  /* Urn — centre */
   .urn { left: 44%; top: 38%; }
-
-  /* Ruderal I */
   .ruderal-1 { left: 22%; top: 22%; }
-
-  /* Lie Soft — more central */
   .lie-soft { left: 32%; top: 50%; }
-
-  /* Fruits of Labour */
   .fruits { left: 52%; top: 18%; }
-
-  /* Ruderal II — +40% */
   .ruderal-2 { left: 66%; top: 28%; }
-
-  /* Remains of a meal */
   .remains { left: 78%; top: 20%; }
-
-  /* Stalactite — very close to top edge, ~30px right */
-  .stalactite { right: calc(33% - 30px); top: 0; }
-
-  /* Tools / self-care */
+  .stalactite { right: calc(33% - 50px); top: 0; }
   .tools { left: 6%; top: 62%; }
 
-  /* Lower rainbow */
   .faberge    { left: 6%;  top: 42%; }
   .apple      { left: 14%; top: 46%; }
   .butter     { left: 24%; top: 30%; }
@@ -266,7 +248,6 @@
   </header>
 
   <div class="collage">
-    <!-- Projects -->
     <div class="thumb urn">
       <a href="appetite.html"><img src="Fermentation_Urn.png" alt="Appetite"></a>
     </div>
@@ -292,7 +273,6 @@
       <a href="tools.html"><img src="self-care-object-thumbnail.png" alt="Tools"></a>
     </div>
 
-    <!-- Free-floating -->
     <div class="thumb faberge"><img src="Faberge.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb apple"><img src="apple-thumbnail.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb butter size-300"><img src="butter-fingers-thumbnail.png" alt="" class="lightbox-trigger"></div>
