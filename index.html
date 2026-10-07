@@ -96,9 +96,10 @@
   .menu a {
     font-family: Arial, sans-serif;
     font-size: 20px;
-    color: #5B2C10;
+    color: #FFED00;
     text-decoration: none;
     cursor: pointer;
+    text-shadow: 1px 1px 4px #6C58F8;
   }
 
   .menu a:hover { text-decoration: underline; }
@@ -124,6 +125,8 @@
     font-size: 18px;
     padding: 6px 0;
     white-space: nowrap;
+    color: #FFED00;
+    text-shadow: 1px 1px 4px #6C58F8;
   }
 
   .dropdown a:hover { text-decoration: underline; }
@@ -131,7 +134,7 @@
   .collage {
     position: relative;
     width: 100%;
-    height: 90vh;
+    height: 120vh;
     margin-top: 2vh;
   }
 
@@ -146,28 +149,33 @@
     cursor: pointer;
   }
 
-  /* Sizes */
-  .size-130 { width: 208px; }
-  .size-80  { width: 128px; }
+  /* Size classes */
+  .size-130 { width: 208px; }   /* +30% */
+  .size-80  { width: 128px; }   /* -20% */
+  .size-150 { width: 240px; }   /* +50% */
+  .size-400 { width: 640px; }   /* +400% */
 
   /* Top arc — projects */
-  .t1  { left: 2%;  top: 30%; }
-  .t2  { left: 15%; top: 22%; }
-  .t3  { left: 28%; top: 16%; }
-  .t4  { left: 41%; top: 12%; }
-  .t5  { left: 54%; top: 12%; }
-  .t6  { left: 67%; top: 16%; }
-  .t7  { left: 80%; top: 22%; }
+  .t1  { left: 40%; top: 20%; }   /* urn — centre of screen */
+  .t2  { left: 2%;  top: 30%; }   /* self-care — was top-left, moving down to faberge area */
+  .t3  { left: 28%; top: 16%; }   /* ruderal I */
+  .t4  { left: 12%; top: 55%; }   /* lie soft — 1/3 further down, 50% bigger */
+  .t5  { left: 54%; top: 12%; }   /* fruits of labour */
+  .t6  { left: 68%; top: 30%; }   /* ruderal II */
+  .t7  { left: 80%; top: 22%; }   /* remains of a meal */
 
-  /* Stalactite, top right, near menu */
-  .stalactite { right: 2%; top: 8%; }
+  /* Stalactite — top right, ~1/3 in from right */
+  .stalactite { right: 33%; top: 1%; }
 
   /* Lower rainbow — free-floating */
-  .r1 { left: 8%;  top: 62%; }
-  .r2 { left: 24%; top: 58%; }
-  .r3 { left: 40%; top: 56%; }
-  .r4 { left: 56%; top: 56%; }
-  .r5 { left: 72%; top: 58%; }
+  .r1 { left: 8%;  top: 70%; }     /* Faberge */
+  .r2 { left: 20%; top: 72%; }     /* apple */
+  .r3 { left: 32%; top: 60%; }     /* butter-fingers — 400% */
+  .r4 { left: 78%; top: 65%; }     /* she-hath */
+  .r5 { left: 62%; top: 70%; }     /* Sin-Eater */
+
+  /* Self-care object — moving down close to faberge/apple */
+  .tools { left: 8%; top: 82%; }
 
   .lightbox {
     display: none;
@@ -211,7 +219,7 @@
     .dropdown { min-width: 200px; padding: 12px 16px; }
     .dropdown a { font-size: 14px; }
     .collage { height: auto; padding: 40px 20px 120px; }
-    .thumb, .size-130, .size-80 { position: static; width: 100px; margin: 12px; display: inline-block; }
+    .thumb, .size-130, .size-80, .size-150, .size-400 { position: static; width: 100px; margin: 12px; display: inline-block; }
     .copyright { font-size: 10px; }
   }
 </style>
@@ -255,34 +263,36 @@
     <div class="thumb t1">
       <a href="appetite.html"><img src="Fermentation_Urn.png" alt="Appetite"></a>
     </div>
-    <div class="thumb t2">
-      <a href="tools.html"><img src="self-care-object-thumbnail.png" alt="Tools"></a>
-    </div>
     <div class="thumb t3">
       <a href="ruderal-i.html"><img src="Ruderal-1-thumbnail.png" alt="Ruderal I"></a>
     </div>
-    <div class="thumb t4 size-130">
+    <div class="thumb t4 size-150">
       <a href="lie-soft.html"><img src="lie-soft-thumbnail.png" alt="Lie Soft"></a>
     </div>
     <div class="thumb t5 size-130">
       <a href="fruits-of-labour.html"><img src="Fruits-of-labour-thumbnail.png" alt="Fruits of Labour"></a>
     </div>
-    <div class="thumb t6">
-      <a href="ruderal-ii.html"><img src="ruderal-II-thumbnail.png" alt="Ruderal II" class="size-130"></a>
+    <div class="thumb t6 size-130">
+      <a href="ruderal-ii.html"><img src="ruderal-II-thumbnail.png" alt="Ruderal II"></a>
     </div>
     <div class="thumb t7 size-130">
       <a href="the-remains-of-a-meal.html"><img src="remains-of-a-meal-thumbnail.png" alt="The Remains Of A Meal"></a>
     </div>
 
-    <!-- Stalactite — top right, near menu -->
+    <!-- Stalactite — top right -->
     <div class="thumb stalactite">
       <a href="archaeology-of-self.html"><img src="stalactite-thumbnail.png" alt="Archaeology Of Self"></a>
+    </div>
+
+    <!-- Tools / self-care object — down near faberge and apple -->
+    <div class="thumb tools size-80">
+      <a href="tools.html"><img src="self-care-object-thumbnail.png" alt="Tools"></a>
     </div>
 
     <!-- Lower rainbow — free-floating (lightbox only) -->
     <div class="thumb r1"><img src="Faberge.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb r2"><img src="apple-thumbnail.png" alt="" class="lightbox-trigger"></div>
-    <div class="thumb r3"><img src="butter-fingers-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb r3 size-400"><img src="butter-fingers-thumbnail.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb r4"><img src="she-hath-thumbnail.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb r5 size-130"><img src="Sin-Eater-thumbnail.png" alt="" class="lightbox-trigger"></div>
   </div>
