@@ -198,19 +198,15 @@
   }
 
   .viewer-stage {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 90vw;
-    max-height: 85vh;
   }
 
   .viewer-stage img {
-    max-width: 90vw;
-    max-height: 85vh;
+    height: 66vh;
     width: auto;
-    height: auto;
+    max-width: 78vw;
     object-fit: contain;
     display: block;
     cursor: default;
@@ -218,7 +214,7 @@
     -webkit-user-drag: none;
   }
 
-  /* PREVIOUS AND NEXT ARROWS — hug the image */
+  /* PREVIOUS AND NEXT ARROWS — fixed in place */
 
   .viewer-arrow {
     position: absolute;
@@ -252,15 +248,8 @@
     outline-offset: 4px;
   }
 
-  .viewer-arrow.prev {
-    right: 100%;
-    margin-right: 16px;
-  }
-
-  .viewer-arrow.next {
-    left: 100%;
-    margin-left: 16px;
-  }
+  .viewer-arrow.prev { left: 6vw; }
+  .viewer-arrow.next { right: 6vw; }
 
   /* IMAGE COUNTER */
 
@@ -315,21 +304,16 @@
     }
 
     .viewer-stage img {
-      max-width: 78vw;
-      max-height: 78vh;
+      height: 55vh;
+      max-width: 70vw;
     }
 
     .viewer-arrow {
       font-size: 40px;
     }
 
-    .viewer-arrow.prev {
-      margin-right: 6px;
-    }
-
-    .viewer-arrow.next {
-      margin-left: 6px;
-    }
+    .viewer-arrow.prev { left: 3vw; }
+    .viewer-arrow.next { right: 3vw; }
 
     .viewer-counter { bottom: 14px; font-size: 12px; }
     .copyright { font-size: 10px; }
@@ -394,11 +378,11 @@
   </main>
 
   <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Lie Soft image gallery" aria-hidden="true">
+    <button class="viewer-arrow prev" id="viewer-prev" type="button" aria-label="Previous image">&#8249;</button>
     <div class="viewer-stage">
-      <button class="viewer-arrow prev" id="viewer-prev" type="button" aria-label="Previous image">&#8249;</button>
       <img id="viewer-img" src="" alt="">
-      <button class="viewer-arrow next" id="viewer-next" type="button" aria-label="Next image">&#8250;</button>
     </div>
+    <button class="viewer-arrow next" id="viewer-next" type="button" aria-label="Next image">&#8250;</button>
     <div class="viewer-counter" id="viewer-counter" aria-live="polite"></div>
   </div>
 
