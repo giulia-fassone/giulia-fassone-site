@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,8 +159,6 @@
     height: auto;
   }
 
-  /* Desktop positions based on your annotated screenshot */
-
   .img-text { left: 49%; top: 8%; width: 600px; }
 
   .img-1    { left: 4%;  top: 4%;  width: 238px; }
@@ -217,18 +214,15 @@
   /* PREVIOUS AND NEXT ARROWS */
 
   .viewer-arrow {
-    position: fixed;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 48px;
-    height: 48px;
     padding: 0;
     border: none;
-    border-radius: 50%;
-    background: #FFED00;
-    color: #5B2C10;
+    background: transparent;
+    color: #FFED00;
     font-family: Arial, sans-serif;
-    font-size: 34px;
+    font-size: 60px;
     font-weight: normal;
     line-height: 1;
     display: flex;
@@ -236,57 +230,33 @@
     justify-content: center;
     cursor: pointer;
     z-index: 100001;
-    transition: background 0.2s, transform 0.2s;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    transition: color 0.2s, transform 0.2s;
     -webkit-tap-highlight-color: transparent;
   }
 
   .viewer-arrow:hover {
-    background: #ffffff;
-    transform: translateY(-50%) scale(1.08);
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.12);
   }
 
-  .viewer-arrow:focus-visible,
-  .viewer-close:focus-visible {
+  .viewer-arrow:focus-visible {
     outline: 2px solid #ffffff;
     outline-offset: 4px;
   }
 
-  .viewer-prev {
+  .viewer-arrow.prev {
     left: 20px;
   }
 
-  .viewer-next {
+  .viewer-arrow.next {
     right: 20px;
-  }
-
-  /* CLOSE BUTTON */
-
-  .viewer-close {
-    position: fixed;
-    top: 18px;
-    right: 24px;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border: none;
-    background: transparent;
-    color: #FFED00;
-    font-family: Arial, sans-serif;
-    font-size: 38px;
-    font-weight: normal;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 100002;
-  }
-
-  .viewer-close:hover {
-    color: #ffffff;
   }
 
   /* IMAGE COUNTER */
 
   .viewer-counter {
-    position: fixed;
+    position: absolute;
     bottom: 18px;
     left: 0;
     width: 100%;
@@ -311,38 +281,14 @@
     pointer-events: none;
   }
 
-  /* MOBILE LAYOUT */
-
   @media (max-width: 700px) {
-    .header {
-      padding: 6px 16px 10px;
-      gap: 8px;
-    }
-
-    .symbol {
-      height: 40px;
-      margin-right: -6px;
-    }
-
-    .signature {
-      height: 60px;
-    }
-
-    .menu {
-      gap: 14px;
-    }
-
-    .menu a {
-      font-size: 14px;
-    }
-
-    .dropdown {
-      min-width: 200px;
-    }
-
-    .dropdown a {
-      font-size: 14px;
-    }
+    .header { padding: 6px 16px 10px; gap: 8px; }
+    .symbol { height: 40px; margin-right: -6px; }
+    .signature { height: 60px; }
+    .menu { gap: 14px; }
+    .menu a { font-size: 14px; }
+    .dropdown { min-width: 200px; }
+    .dropdown a { font-size: 14px; }
 
     .project {
       min-height: auto;
@@ -369,40 +315,19 @@
     }
 
     .viewer-arrow {
-      width: 36px;
-      height: 36px;
-      font-size: 26px;
+      font-size: 40px;
     }
 
-    .viewer-prev {
-      left: 6px;
-    }
+    .viewer-arrow.prev { left: 6px; }
+    .viewer-arrow.next { right: 6px; }
 
-    .viewer-next {
-      right: 6px;
-    }
-
-    .viewer-close {
-      top: 12px;
-      right: 14px;
-      font-size: 32px;
-    }
-
-    .viewer-counter {
-      bottom: 14px;
-      font-size: 12px;
-    }
-
-    .copyright {
-      font-size: 10px;
-    }
+    .viewer-counter { bottom: 14px; font-size: 12px; }
+    .copyright { font-size: 10px; }
   }
 </style>
 </head>
 
 <body>
-
-  <!-- BACKGROUND -->
 
   <div class="bg">
     <img src="P10907.jpg" alt="">
@@ -410,21 +335,15 @@
 
   <div class="overlay"></div>
 
-  <!-- HEADER AND NAVIGATION -->
-
   <header class="header">
     <a href="index.html" class="brand">
       <img src="Symbol.png" alt="" class="symbol">
-      <img src="my_signature-2-thick.png"
-           alt="Giulia Fassone"
-           class="signature">
+      <img src="my_signature-2-thick.png" alt="Giulia Fassone" class="signature">
     </a>
 
     <nav class="menu">
       <div class="menu-item">
-        <a id="projects-toggle"
-           href="#projects-dropdown"
-           aria-expanded="false">Projects</a>
+        <a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a>
 
         <div class="dropdown" id="projects-dropdown">
           <a href="appetite.html">Appetite</a>
@@ -444,242 +363,102 @@
     </nav>
   </header>
 
-  <!-- PROJECT IMAGE GALLERY -->
-
   <main class="project" id="project-gallery">
-
-    <img src="Lie_soft_text.png"
-         alt="Lie Soft"
-         class="project-img scatter img-text">
-
-    <img src="Baton-P1100275-1-2.jpg"
-         alt=""
-         class="project-img scatter img-1">
-
-    <img src="Butter2.jpg"
-         alt=""
-         class="project-img scatter img-2">
-
-    <img src="Butter3.jpg"
-         alt=""
-         class="project-img scatter img-3">
-
-    <img src="Cast-Moss-Fingers.jpg"
-         alt=""
-         class="project-img scatter img-4">
-
-    <img src="Givetake2.jpg"
-         alt=""
-         class="project-img scatter img-5">
-
-    <!-- Replaced the blue-circled image -->
-    <img src="Hooked-stone-thumbnail.png"
-         alt=""
-         class="project-img scatter img-6">
-
-    <img src="Lie-Soft2.jpg"
-         alt=""
-         class="project-img scatter img-7">
-
-    <img src="Sin-Proof-2025.jpg"
-         alt=""
-         class="project-img scatter img-8">
-
-    <img src="1.jpg"
-         alt=""
-         class="project-img scatter img-9">
-
-    <img src="2.jpg"
-         alt=""
-         class="project-img scatter img-10">
-
-    <img src="Butter-Fingers.jpg"
-         alt=""
-         class="project-img scatter img-11">
-
-    <img src="ClippedClamped.jpg"
-         alt=""
-         class="project-img scatter img-12">
-
-    <img src="Cushion.jpg"
-         alt=""
-         class="project-img scatter img-13">
-
-    <img src="Givetake.jpg"
-         alt=""
-         class="project-img scatter img-14">
-
-    <img src="Joint-pain.jpg"
-         alt=""
-         class="project-img scatter img-15">
-
-    <img src="Cushion-P1100288.jpg"
-         alt=""
-         class="project-img scatter img-16">
-
+    <img src="Lie_soft_text.png" alt="Lie Soft" class="project-img scatter img-text">
+    <img src="Baton-P1100275-1-2.jpg" alt="" class="project-img scatter img-1">
+    <img src="Butter2.jpg" alt="" class="project-img scatter img-2">
+    <img src="Butter3.jpg" alt="" class="project-img scatter img-3">
+    <img src="Cast-Moss-Fingers.jpg" alt="" class="project-img scatter img-4">
+    <img src="Givetake2.jpg" alt="" class="project-img scatter img-5">
+    <img src="Hooked-stone-thumbnail.png" alt="" class="project-img scatter img-6">
+    <img src="Lie-Soft2.jpg" alt="" class="project-img scatter img-7">
+    <img src="Sin-Proof-2025.jpg" alt="" class="project-img scatter img-8">
+    <img src="1.jpg" alt="" class="project-img scatter img-9">
+    <img src="2.jpg" alt="" class="project-img scatter img-10">
+    <img src="Butter-Fingers.jpg" alt="" class="project-img scatter img-11">
+    <img src="ClippedClamped.jpg" alt="" class="project-img scatter img-12">
+    <img src="Cushion.jpg" alt="" class="project-img scatter img-13">
+    <img src="Givetake.jpg" alt="" class="project-img scatter img-14">
+    <img src="Joint-pain.jpg" alt="" class="project-img scatter img-15">
+    <img src="Cushion-P1100288.jpg" alt="" class="project-img scatter img-16">
   </main>
 
-  <!-- FULL-SCREEN IMAGE CAROUSEL -->
-
-  <div class="viewer"
-       id="viewer"
-       role="dialog"
-       aria-modal="true"
-       aria-label="Lie Soft image gallery"
-       aria-hidden="true">
-
-    <button class="viewer-close"
-            id="viewer-close"
-            type="button"
-            aria-label="Close gallery">&times;</button>
-
-    <button class="viewer-arrow viewer-prev"
-            id="viewer-prev"
-            type="button"
-            aria-label="Previous image">&#8249;</button>
-
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Lie Soft image gallery" aria-hidden="true">
+    <button class="viewer-arrow prev" id="viewer-prev" type="button" aria-label="Previous image">&#8249;</button>
     <img id="viewer-img" src="" alt="">
-
-    <button class="viewer-arrow viewer-next"
-            id="viewer-next"
-            type="button"
-            aria-label="Next image">&#8250;</button>
-
-    <div class="viewer-counter"
-         id="viewer-counter"
-         aria-live="polite"></div>
-
+    <button class="viewer-arrow next" id="viewer-next" type="button" aria-label="Next image">&#8250;</button>
+    <div class="viewer-counter" id="viewer-counter" aria-live="polite"></div>
   </div>
 
-  <div class="copyright">
-    © Giulia Fassone 2026. All rights reserved.
-  </div>
+  <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 
   <script>
-    /* PROJECTS DROPDOWN */
-
     const toggle = document.getElementById('projects-toggle');
     const dropdown = document.getElementById('projects-dropdown');
 
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
-
       const isOpen = dropdown.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(isOpen));
     });
 
     document.addEventListener('click', (e) => {
-      if (!toggle.contains(e.target) &&
-          !dropdown.contains(e.target)) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
         dropdown.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
 
-
-    /* IMAGE CAROUSEL */
-
     const viewer = document.getElementById('viewer');
     const viewerImg = document.getElementById('viewer-img');
     const viewerPrev = document.getElementById('viewer-prev');
     const viewerNext = document.getElementById('viewer-next');
-    const viewerClose = document.getElementById('viewer-close');
     const viewerCounter = document.getElementById('viewer-counter');
-
-    const projectImages = Array.from(
-      document.querySelectorAll('.project-img')
-    );
+    const projectImages = Array.from(document.querySelectorAll('.project-img'));
 
     let currentIndex = 0;
-    let previouslyFocusedElement = null;
-
-    /* Display the image at the requested index. */
 
     function showImage(index) {
       if (projectImages.length === 0) return;
-
-      currentIndex =
-        (index + projectImages.length) % projectImages.length;
-
+      currentIndex = (index + projectImages.length) % projectImages.length;
       const image = projectImages[currentIndex];
-
       viewerImg.src = image.src;
       viewerImg.alt = image.alt || 'Lie Soft project image';
-
-      viewerCounter.textContent =
-        `${currentIndex + 1} / ${projectImages.length}`;
+      viewerCounter.textContent = `${currentIndex + 1} / ${projectImages.length}`;
     }
-
-    /* Open the carousel on the image that was clicked. */
 
     function openViewer(index) {
-      previouslyFocusedElement = document.activeElement;
-
       showImage(index);
-
       viewer.classList.add('open');
       viewer.setAttribute('aria-hidden', 'false');
-
       document.body.style.overflow = 'hidden';
-
-      viewerClose.focus();
     }
-
-    /* Close the carousel and restore the page. */
 
     function closeViewer() {
       viewer.classList.remove('open');
       viewer.setAttribute('aria-hidden', 'true');
-
       viewerImg.src = '';
       viewerCounter.textContent = '';
-
       document.body.style.overflow = '';
-
-      if (previouslyFocusedElement &&
-          typeof previouslyFocusedElement.focus === 'function') {
-        previouslyFocusedElement.focus();
-      }
     }
 
-    /* Make every project image clickable. */
-
     projectImages.forEach((image, index) => {
-      image.addEventListener('click', () => {
-        openViewer(index);
-      });
+      image.addEventListener('click', () => openViewer(index));
     });
-
-    /* Previous image. */
 
     viewerPrev.addEventListener('click', (e) => {
       e.stopPropagation();
       showImage(currentIndex - 1);
     });
 
-    /* Next image. */
-
     viewerNext.addEventListener('click', (e) => {
       e.stopPropagation();
       showImage(currentIndex + 1);
     });
 
-    /* Close button. */
-
-    viewerClose.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeViewer();
-    });
-
-    /* Clicking the dark background closes the carousel. */
-
     viewer.addEventListener('click', (e) => {
-      if (e.target === viewer) {
-        closeViewer();
-      }
+      if (e.target === viewer) closeViewer();
     });
-
-    /* Keyboard navigation. */
 
     document.addEventListener('keydown', (e) => {
       if (!viewer.classList.contains('open')) return;
