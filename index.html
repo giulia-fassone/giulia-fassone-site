@@ -67,12 +67,16 @@
   .brand {
     display: flex;
     align-items: center;
-    gap: 4px;
     margin-left: -20px;
     text-decoration: none;
   }
 
-  .symbol { height: 54px; width: auto; display: block; }
+  .symbol {
+    height: 54px;
+    width: auto;
+    display: block;
+    margin-right: -10px;
+  }
 
   .signature {
     height: 108px;
@@ -207,7 +211,7 @@
   @media (max-width: 700px) {
     html, body { overflow: auto; height: auto; }
     .header { padding: 6px 16px 10px; gap: 8px; }
-    .symbol { height: 40px; }
+    .symbol { height: 40px; margin-right: -6px; }
     .signature { height: 60px; }
     .menu { gap: 14px; }
     .menu a { font-size: 14px; }
@@ -246,7 +250,7 @@
   <header class="header">
     <a href="index.html" class="brand">
       <img src="Symbol.png" alt="" class="symbol">
-      <img src="my_signature-inner-glow.png" alt="Giulia Fassone" class="signature">
+      <img src="my_signature-2-thick.png" alt="Giulia Fassone" class="signature">
     </a>
     <nav class="menu">
       <div class="menu-item">
@@ -337,7 +341,6 @@
       lightboxImg.src = '';
     });
 
-    /* Click empty space to go home */
     document.addEventListener('click', (e) => {
       const clickedImg = e.target.closest('img');
       const clickedLink = e.target.closest('a');
