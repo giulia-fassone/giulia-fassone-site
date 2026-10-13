@@ -70,24 +70,11 @@
     text-decoration: none;
   }
 
-  .symbol {
-    height: 54px;
-    width: auto;
-    display: block;
-    margin-right: -10px;
-  }
+  .symbol { height: 54px; width: auto; display: block; margin-right: -10px; }
 
-  .signature {
-    height: 108px;
-    width: auto;
-    display: block;
-  }
+  .signature { height: 108px; width: auto; display: block; }
 
-  .menu {
-    display: flex;
-    gap: 28px;
-    align-items: baseline;
-  }
+  .menu { display: flex; gap: 28px; align-items: baseline; }
 
   .menu-item { position: relative; }
 
@@ -100,10 +87,7 @@
     text-shadow: 2px 2px 6px #5454E5;
   }
 
-  .menu a:hover {
-    text-decoration: none;
-    color: #FFED00;
-  }
+  .menu a:hover { text-decoration: none; color: #FFED00; }
 
   .dropdown {
     display: none;
@@ -129,17 +113,14 @@
     text-shadow: 2px 2px 6px #5454E5;
   }
 
-  .dropdown a:hover {
-    text-decoration: none;
-    color: #FFED00;
-  }
+  .dropdown a:hover { text-decoration: none; color: #FFED00; }
 
   /* Scattered project layout */
   .project {
     position: relative;
     width: 100%;
-    min-height: 200vh;
-    padding: 0 0 120px;
+    min-height: 160vh;
+    padding: 0;
   }
 
   .project img {
@@ -148,39 +129,30 @@
     display: block;
   }
 
-  /* Text image — fixed to top right */
-  .lie-soft-text {
-    position: relative;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: 6vw;
-    margin-top: 12vh;
-    z-index: 1;
+  /* Text image — now scattered, not fixed at top */
+  .img-text {
+    left: 55%;
+    top: 12%;
+    width: 480px;
   }
 
-  .lie-soft-text img {
-    position: static;
-    width: 100%;
-    height: auto;
-  }
-
-  /* Scattered artwork */
-  .img-1  { left: 4%;  top: 15%; width: 240px; }
-  .img-2  { left: 12%; top: 32%; width: 180px; }
-  .img-3  { left: 3%;  top: 52%; width: 220px; }
-  .img-4  { left: 18%; top: 68%; width: 260px; }
-  .img-5  { left: 6%;  top: 88%; width: 200px; }
-  .img-6  { left: 30%; top: 22%; width: 160px; }
-  .img-7  { left: 38%; top: 40%; width: 200px; }
-  .img-8  { left: 35%; top: 58%; width: 240px; }
-  .img-9  { left: 28%; top: 78%; width: 180px; }
-  .img-10 { left: 24%; top: 95%; width: 220px; }
-  .img-11 { left: 60%; top: 30%; width: 200px; }
-  .img-12 { left: 68%; top: 48%; width: 260px; }
-  .img-13 { left: 55%; top: 66%; width: 180px; }
-  .img-14 { left: 62%; top: 85%; width: 240px; }
-  .img-15 { left: 80%; top: 40%; width: 180px; }
-  .img-16 { left: 84%; top: 72%; width: 220px; }
+  /* Large images — 50% bigger */
+  .img-1  { left: 3%;  top: 8%;  width: 360px; }  /* Baton */
+  .img-2  { left: 10%; top: 28%; width: 270px; }  /* Butter2 */
+  .img-3  { left: 3%;  top: 48%; width: 330px; }  /* Butter3 */
+  .img-4  { left: 18%; top: 65%; width: 390px; }  /* Cast-Moss */
+  .img-5  { left: 6%;  top: 85%; width: 300px; }  /* Givetake2 */
+  .img-6  { left: 30%; top: 18%; width: 240px; }  /* Hooked2 */
+  .img-7  { left: 36%; top: 36%; width: 300px; }  /* Lie-Soft2 */
+  .img-8  { left: 32%; top: 55%; width: 360px; }  /* Sin-Proof */
+  .img-9  { left: 28%; top: 78%; width: 270px; }  /* 1 */
+  .img-10 { left: 22%; top: 92%; width: 330px; }  /* 2 */
+  .img-11 { left: 62%; top: 32%; width: 300px; }  /* Butter-Fingers */
+  .img-12 { left: 70%; top: 50%; width: 390px; }  /* ClippedClamped */
+  .img-13 { left: 58%; top: 68%; width: 270px; }  /* Cushion */
+  .img-14 { left: 65%; top: 85%; width: 360px; }  /* Givetake */
+  .img-15 { left: 82%; top: 42%; width: 270px; }  /* Joint-pain */
+  .img-16 { left: 86%; top: 72%; width: 330px; }  /* Cushion-P1100288 */
 
   /* Carousel overlay */
   .carousel {
@@ -266,12 +238,6 @@
       margin: 4px;
     }
 
-    .lie-soft-text {
-      max-width: 100%;
-      margin: 20px auto;
-      width: 100%;
-    }
-
     .carousel-btn { font-size: 40px; padding: 8px; }
     .carousel-btn.prev { left: -20px; }
     .carousel-btn.next { right: -20px; }
@@ -314,9 +280,7 @@
   </header>
 
   <div class="project">
-    <div class="lie-soft-text">
-      <img src="Lie_soft_text.png" alt="Lie Soft — 2026">
-    </div>
+    <img src="Lie_soft_text.png" alt="Lie Soft — 2026" class="project-img img-text">
 
     <img src="Baton-P1100275-1-2.jpg" alt="" class="project-img img-1">
     <img src="Butter2.jpg" alt="" class="project-img img-2">
@@ -369,16 +333,19 @@
     const nextBtn = document.getElementById('next');
     const projectImages = Array.from(document.querySelectorAll('.project-img'));
     let currentIndex = 0;
+    let carouselOpen = false;
 
     function openCarousel(index) {
       currentIndex = index;
       carouselImg.src = projectImages[currentIndex].src;
       carousel.classList.add('open');
+      carouselOpen = true;
     }
 
     function closeCarousel() {
       carousel.classList.remove('open');
       carouselImg.src = '';
+      carouselOpen = false;
     }
 
     function showNext() {
@@ -401,18 +368,23 @@
     nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
     prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
 
+    /* Click outside the image (on the overlay) closes the carousel */
     carousel.addEventListener('click', (e) => {
       if (e.target === carousel || e.target.classList.contains('carousel-inner')) {
+        e.stopPropagation();
         closeCarousel();
       }
     });
 
-    /* Click empty space on the project page → home */
+    /* Click empty space on the project page → home, but ONLY if carousel is closed */
     document.addEventListener('click', (e) => {
+      if (carouselOpen) return;
+
       const clickedImg = e.target.closest('img');
       const clickedLink = e.target.closest('a');
       const clickedDropdown = e.target.closest('.dropdown');
       const clickedBtn = e.target.closest('button');
+
       if (!clickedImg && !clickedLink && !clickedDropdown && !clickedBtn) {
         window.location.href = 'index.html';
       }
