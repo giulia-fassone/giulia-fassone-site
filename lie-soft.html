@@ -378,18 +378,6 @@
       }
     });
 
-    document.addEventListener('click', (e) => {
-      if (carouselOpen) return;
-
-      const clickedImg = e.target.closest('img');
-      const clickedLink = e.target.closest('a');
-      const clickedDropdown = e.target.closest('.dropdown');
-      const clickedBtn = e.target.closest('button');
-
-      if (!clickedImg && !clickedLink && !clickedDropdown && !clickedBtn) {
-        window.location.href = 'index.html';
-      }
-    });
   </script>
 
 </body>
