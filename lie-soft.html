@@ -115,7 +115,7 @@
 
   .dropdown a:hover { text-decoration: none; color: #FFED00; }
 
-  /* Scattered project layout — taller page */
+  /* Scattered project layout */
   .project {
     position: relative;
     width: 100%;
@@ -123,44 +123,43 @@
     padding: 0;
   }
 
-  .project img {
+  .project .scatter {
     position: absolute;
     cursor: pointer;
     display: block;
   }
 
-  /* Text image — intermingled */
   .img-text {
     left: 50%;
     top: 5%;
     width: 460px;
   }
 
-  /* Scattered — loose overlaps, some corners touching, some edges */
-  .img-1  { left: 4%;  top: 4%;   width: 340px; }   /* Baton */
-  .img-2  { left: 14%; top: 14%;  width: 250px; }   /* Butter2 */
-  .img-3  { left: 2%;  top: 25%;  width: 320px; }   /* Butter3 */
-  .img-4  { left: 16%; top: 33%;  width: 380px; }   /* Cast-Moss */
-  .img-5  { left: 5%;  top: 45%;  width: 290px; }   /* Givetake2 */
-  .img-6  { left: 28%; top: 6%;   width: 230px; }   /* Hooked2 */
-  .img-7  { left: 34%; top: 18%;  width: 300px; }   /* Lie-Soft2 */
-  .img-8  { left: 30%; top: 30%;  width: 370px; }   /* Sin-Proof */
-  .img-9  { left: 26%; top: 44%;  width: 260px; }   /* 1 */
-  .img-10 { left: 20%; top: 55%;  width: 340px; }   /* 2 */
-  .img-11 { left: 60%; top: 8%;   width: 290px; }   /* Butter-Fingers */
-  .img-12 { left: 68%; top: 20%;  width: 400px; }   /* ClippedClamped */
-  .img-13 { left: 56%; top: 34%;  width: 260px; }   /* Cushion */
-  .img-14 { left: 63%; top: 46%;  width: 370px; }   /* Givetake */
-  .img-15 { left: 80%; top: 18%;  width: 260px; }   /* Joint-pain */
-  .img-16 { left: 84%; top: 36%;  width: 330px; }   /* Cushion-P1100288 */
+  /* Large — 30% smaller than before */
+  .img-1  { left: 4%;  top: 4%;   width: 238px; }
+  .img-2  { left: 14%; top: 14%;  width: 175px; }
+  .img-3  { left: 2%;  top: 25%;  width: 224px; }
+  .img-4  { left: 16%; top: 33%;  width: 266px; }
+  .img-5  { left: 5%;  top: 45%;  width: 203px; }
+  .img-6  { left: 28%; top: 6%;   width: 161px; }
+  .img-7  { left: 34%; top: 18%;  width: 210px; }
+  .img-8  { left: 30%; top: 30%;  width: 259px; }
+  .img-9  { left: 26%; top: 44%;  width: 182px; }
+  .img-10 { left: 20%; top: 55%;  width: 238px; }
+  .img-11 { left: 60%; top: 8%;   width: 203px; }
+  .img-12 { left: 68%; top: 20%;  width: 280px; }
+  .img-13 { left: 56%; top: 34%;  width: 182px; }
+  .img-14 { left: 63%; top: 46%;  width: 259px; }
+  .img-15 { left: 80%; top: 18%;  width: 182px; }
+  .img-16 { left: 84%; top: 36%;  width: 231px; }
 
-  /* Carousel overlay */
+  /* Carousel overlay — isolated from .project rules */
   .carousel {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 200;
-    background: rgba(30, 20, 10, 0.7);
+    z-index: 500;
+    background: rgba(30, 20, 10, 0.75);
     align-items: center;
     justify-content: center;
   }
@@ -169,41 +168,47 @@
 
   .carousel-inner {
     position: relative;
-    max-width: 80vw;
-    max-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .carousel img {
     max-width: 80vw;
     max-height: 80vh;
+  }
+
+  .carousel-inner > img {
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
     object-fit: contain;
     display: block;
+    position: static;
   }
 
   .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
+    background: rgba(30, 20, 10, 0.5);
     border: none;
     color: #FFED00;
-    font-size: 60px;
+    font-size: 50px;
     cursor: pointer;
-    padding: 8px;
-    text-shadow: 2px 2px 8px #5454E5;
-    font-family: Arial, sans-serif;
-    z-index: 210;
-    line-height: 1;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    text-shadow: 2px 2px 8px #5454E5;
+    font-family: Arial, sans-serif;
+    z-index: 510;
+    line-height: 1;
   }
 
-  .carousel-btn.prev { left: -70px; }
-  .carousel-btn.next { right: -70px; }
+  .carousel-btn.prev { left: -80px; }
+  .carousel-btn.next { right: -80px; }
 
   .copyright {
     position: fixed;
@@ -235,15 +240,15 @@
       gap: 12px;
     }
 
-    .project img {
+    .project .scatter {
       position: static;
       width: 45% !important;
       margin: 4px;
     }
 
-    .carousel-btn { font-size: 40px; }
-    .carousel-btn.prev { left: -12px; }
-    .carousel-btn.next { right: -12px; }
+    .carousel-btn { font-size: 36px; width: 44px; height: 44px; }
+    .carousel-btn.prev { left: -10px; }
+    .carousel-btn.next { right: -10px; }
     .copyright { font-size: 10px; }
   }
 </style>
@@ -283,24 +288,24 @@
   </header>
 
   <div class="project">
-    <img src="Lie_soft_text.png" alt="Lie Soft — 2026" class="project-img img-text">
+    <img src="Lie_soft_text.png" alt="Lie Soft — 2026" class="project-img scatter img-text">
 
-    <img src="Baton-P1100275-1-2.jpg" alt="" class="project-img img-1">
-    <img src="Butter2.jpg" alt="" class="project-img img-2">
-    <img src="Butter3.jpg" alt="" class="project-img img-3">
-    <img src="Cast-Moss-Fingers.jpg" alt="" class="project-img img-4">
-    <img src="Givetake2.jpg" alt="" class="project-img img-5">
-    <img src="Hooked2.jpg" alt="" class="project-img img-6">
-    <img src="Lie-Soft2.jpg" alt="" class="project-img img-7">
-    <img src="Sin-Proof-2025.jpg" alt="" class="project-img img-8">
-    <img src="1.jpg" alt="" class="project-img img-9">
-    <img src="2.jpg" alt="" class="project-img img-10">
-    <img src="Butter-Fingers.jpg" alt="" class="project-img img-11">
-    <img src="ClippedClamped.jpg" alt="" class="project-img img-12">
-    <img src="Cushion.jpg" alt="" class="project-img img-13">
-    <img src="Givetake.jpg" alt="" class="project-img img-14">
-    <img src="Joint-pain.jpg" alt="" class="project-img img-15">
-    <img src="Cushion-P1100288.jpg" alt="" class="project-img img-16">
+    <img src="Baton-P1100275-1-2.jpg" alt="" class="project-img scatter img-1">
+    <img src="Butter2.jpg" alt="" class="project-img scatter img-2">
+    <img src="Butter3.jpg" alt="" class="project-img scatter img-3">
+    <img src="Cast-Moss-Fingers.jpg" alt="" class="project-img scatter img-4">
+    <img src="Givetake2.jpg" alt="" class="project-img scatter img-5">
+    <img src="Hooked2.jpg" alt="" class="project-img scatter img-6">
+    <img src="Lie-Soft2.jpg" alt="" class="project-img scatter img-7">
+    <img src="Sin-Proof-2025.jpg" alt="" class="project-img scatter img-8">
+    <img src="1.jpg" alt="" class="project-img scatter img-9">
+    <img src="2.jpg" alt="" class="project-img scatter img-10">
+    <img src="Butter-Fingers.jpg" alt="" class="project-img scatter img-11">
+    <img src="ClippedClamped.jpg" alt="" class="project-img scatter img-12">
+    <img src="Cushion.jpg" alt="" class="project-img scatter img-13">
+    <img src="Givetake.jpg" alt="" class="project-img scatter img-14">
+    <img src="Joint-pain.jpg" alt="" class="project-img scatter img-15">
+    <img src="Cushion-P1100288.jpg" alt="" class="project-img scatter img-16">
   </div>
 
   <div class="carousel" id="carousel">
@@ -314,7 +319,6 @@
   <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 
   <script>
-    /* Menu */
     const toggle = document.getElementById('projects-toggle');
     const dropdown = document.getElementById('projects-dropdown');
 
@@ -329,7 +333,6 @@
       }
     });
 
-    /* Carousel */
     const carousel = document.getElementById('carousel');
     const carouselImg = document.getElementById('carousel-img');
     const prevBtn = document.getElementById('prev');
@@ -377,7 +380,6 @@
         closeCarousel();
       }
     });
-
   </script>
 
 </body>
