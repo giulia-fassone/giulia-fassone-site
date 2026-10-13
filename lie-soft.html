@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,6 +144,8 @@
     color: #FFED00;
   }
 
+  /* PROJECT IMAGE LAYOUT */
+
   .project {
     position: relative;
     width: 100%;
@@ -154,29 +157,31 @@
     position: absolute;
     cursor: pointer;
     display: block;
+    height: auto;
   }
 
-  .img-text { left: 50%; top: 5%; width: 460px; }
+  /* Desktop positions based on your annotated screenshot */
+
+  .img-text { left: 49%; top: 8%; width: 600px; }
+
+  .img-1    { left: 4%;  top: 4%;  width: 238px; }
   .img-2    { left: 14%; top: 14%; width: 250px; }
-  .img-6    { left: 28%; top: 6%; width: 230px; }
-  .img-9    { left: 26%; top: 44%; width: 260px; }
-  .img-11   { left: 60%; top: 8%; width: 290px; }
-  .img-13   { left: 56%; top: 34%; width: 260px; }
-  .img-15   { left: 80%; top: 18%; width: 260px; }
-  .img-16   { left: 84%; top: 36%; width: 330px; }
-  .img-1    { left: 4%; top: 4%; width: 238px; }
-  .img-3    { left: 2%; top: 25%; width: 224px; }
+  .img-3    { left: 22%; top: 25%; width: 224px; }
   .img-4    { left: 16%; top: 33%; width: 266px; }
-  .img-5    { left: 5%; top: 45%; width: 203px; }
+  .img-5    { left: 5%;  top: 45%; width: 203px; }
+  .img-6    { left: 28%; top: 6%;  width: 230px; }
   .img-7    { left: 34%; top: 18%; width: 210px; }
   .img-8    { left: 30%; top: 30%; width: 259px; }
-  .img-10   { left: 20%; top: 55%; width: 238px; }
+  .img-9    { left: 22%; top: 8%;  width: 260px; }
+  .img-10   { left: 39%; top: 26%; width: 238px; }
+  .img-11   { left: 72%; top: 9%;  width: 290px; }
   .img-12   { left: 68%; top: 20%; width: 280px; }
-  .img-14   { left: 63%; top: 46%; width: 259px; }
+  .img-13   { left: 56%; top: 34%; width: 260px; }
+  .img-14   { left: 67%; top: 27%; width: 259px; }
+  .img-15   { left: 79%; top: 15%; width: 260px; }
+  .img-16   { left: 84%; top: 36%; width: 330px; }
 
-  /* =========================
-     FULL-SCREEN IMAGE CAROUSEL
-     ========================= */
+  /* FULL-SCREEN IMAGE CAROUSEL */
 
   .viewer {
     display: none;
@@ -209,7 +214,7 @@
     -webkit-user-drag: none;
   }
 
-  /* Previous and next arrows */
+  /* PREVIOUS AND NEXT ARROWS */
 
   .viewer-arrow {
     position: fixed;
@@ -254,7 +259,7 @@
     right: 20px;
   }
 
-  /* Close button */
+  /* CLOSE BUTTON */
 
   .viewer-close {
     position: fixed;
@@ -278,7 +283,7 @@
     color: #ffffff;
   }
 
-  /* Image counter */
+  /* IMAGE COUNTER */
 
   .viewer-counter {
     position: fixed;
@@ -290,6 +295,8 @@
     font: 14px Arial, sans-serif;
     pointer-events: none;
   }
+
+  /* COPYRIGHT */
 
   .copyright {
     position: fixed;
@@ -304,7 +311,7 @@
     pointer-events: none;
   }
 
-  /* Mobile layout */
+  /* MOBILE LAYOUT */
 
   @media (max-width: 700px) {
     .header {
@@ -395,11 +402,15 @@
 
 <body>
 
+  <!-- BACKGROUND -->
+
   <div class="bg">
     <img src="P10907.jpg" alt="">
   </div>
 
   <div class="overlay"></div>
+
+  <!-- HEADER AND NAVIGATION -->
 
   <header class="header">
     <a href="index.html" class="brand">
@@ -411,7 +422,8 @@
 
     <nav class="menu">
       <div class="menu-item">
-        <a id="projects-toggle" href="#projects-dropdown"
+        <a id="projects-toggle"
+           href="#projects-dropdown"
            aria-expanded="false">Projects</a>
 
         <div class="dropdown" id="projects-dropdown">
@@ -432,61 +444,85 @@
     </nav>
   </header>
 
+  <!-- PROJECT IMAGE GALLERY -->
+
   <main class="project" id="project-gallery">
-    <img src="Lie_soft_text.png" alt="Lie Soft"
+
+    <img src="Lie_soft_text.png"
+         alt="Lie Soft"
          class="project-img scatter img-text">
 
-    <img src="Baton-P1100275-1-2.jpg" alt=""
+    <img src="Baton-P1100275-1-2.jpg"
+         alt=""
          class="project-img scatter img-1">
 
-    <img src="Butter2.jpg" alt=""
+    <img src="Butter2.jpg"
+         alt=""
          class="project-img scatter img-2">
 
-    <img src="Butter3.jpg" alt=""
+    <img src="Butter3.jpg"
+         alt=""
          class="project-img scatter img-3">
 
-    <img src="Cast-Moss-Fingers.jpg" alt=""
+    <img src="Cast-Moss-Fingers.jpg"
+         alt=""
          class="project-img scatter img-4">
 
-    <img src="Givetake2.jpg" alt=""
+    <img src="Givetake2.jpg"
+         alt=""
          class="project-img scatter img-5">
 
-    <img src="Hooked2.jpg" alt=""
+    <!-- Replaced the blue-circled image -->
+    <img src="Hooked-stone-thumbnail.png"
+         alt=""
          class="project-img scatter img-6">
 
-    <img src="Lie-Soft2.jpg" alt=""
+    <img src="Lie-Soft2.jpg"
+         alt=""
          class="project-img scatter img-7">
 
-    <img src="Sin-Proof-2025.jpg" alt=""
+    <img src="Sin-Proof-2025.jpg"
+         alt=""
          class="project-img scatter img-8">
 
-    <img src="1.jpg" alt=""
+    <img src="1.jpg"
+         alt=""
          class="project-img scatter img-9">
 
-    <img src="2.jpg" alt=""
+    <img src="2.jpg"
+         alt=""
          class="project-img scatter img-10">
 
-    <img src="Butter-Fingers.jpg" alt=""
+    <img src="Butter-Fingers.jpg"
+         alt=""
          class="project-img scatter img-11">
 
-    <img src="ClippedClamped.jpg" alt=""
+    <img src="ClippedClamped.jpg"
+         alt=""
          class="project-img scatter img-12">
 
-    <img src="Cushion.jpg" alt=""
+    <img src="Cushion.jpg"
+         alt=""
          class="project-img scatter img-13">
 
-    <img src="Givetake.jpg" alt=""
+    <img src="Givetake.jpg"
+         alt=""
          class="project-img scatter img-14">
 
-    <img src="Joint-pain.jpg" alt=""
+    <img src="Joint-pain.jpg"
+         alt=""
          class="project-img scatter img-15">
 
-    <img src="Cushion-P1100288.jpg" alt=""
+    <img src="Cushion-P1100288.jpg"
+         alt=""
          class="project-img scatter img-16">
+
   </main>
 
-  <!-- Full-screen carousel -->
-  <div class="viewer" id="viewer"
+  <!-- FULL-SCREEN IMAGE CAROUSEL -->
+
+  <div class="viewer"
+       id="viewer"
        role="dialog"
        aria-modal="true"
        aria-label="Lie Soft image gallery"
@@ -512,6 +548,7 @@
     <div class="viewer-counter"
          id="viewer-counter"
          aria-live="polite"></div>
+
   </div>
 
   <div class="copyright">
@@ -519,9 +556,7 @@
   </div>
 
   <script>
-    /* =========================
-       PROJECTS DROPDOWN
-       ========================= */
+    /* PROJECTS DROPDOWN */
 
     const toggle = document.getElementById('projects-toggle');
     const dropdown = document.getElementById('projects-dropdown');
@@ -542,9 +577,7 @@
     });
 
 
-    /* =========================
-       IMAGE CAROUSEL
-       ========================= */
+    /* IMAGE CAROUSEL */
 
     const viewer = document.getElementById('viewer');
     const viewerImg = document.getElementById('viewer-img');
@@ -561,10 +594,10 @@
     let previouslyFocusedElement = null;
 
     /* Display the image at the requested index. */
+
     function showImage(index) {
       if (projectImages.length === 0) return;
 
-      // Loop from the last image to the first, and vice versa.
       currentIndex =
         (index + projectImages.length) % projectImages.length;
 
@@ -578,6 +611,7 @@
     }
 
     /* Open the carousel on the image that was clicked. */
+
     function openViewer(index) {
       previouslyFocusedElement = document.activeElement;
 
@@ -592,6 +626,7 @@
     }
 
     /* Close the carousel and restore the page. */
+
     function closeViewer() {
       viewer.classList.remove('open');
       viewer.setAttribute('aria-hidden', 'true');
@@ -608,6 +643,7 @@
     }
 
     /* Make every project image clickable. */
+
     projectImages.forEach((image, index) => {
       image.addEventListener('click', () => {
         openViewer(index);
@@ -615,25 +651,28 @@
     });
 
     /* Previous image. */
+
     viewerPrev.addEventListener('click', (e) => {
       e.stopPropagation();
       showImage(currentIndex - 1);
     });
 
     /* Next image. */
+
     viewerNext.addEventListener('click', (e) => {
       e.stopPropagation();
       showImage(currentIndex + 1);
     });
 
     /* Close button. */
+
     viewerClose.addEventListener('click', (e) => {
       e.stopPropagation();
       closeViewer();
     });
 
-    /* Clicking the dark background closes the carousel.
-       Clicking the image or arrows does not. */
+    /* Clicking the dark background closes the carousel. */
+
     viewer.addEventListener('click', (e) => {
       if (e.target === viewer) {
         closeViewer();
@@ -641,6 +680,7 @@
     });
 
     /* Keyboard navigation. */
+
     document.addEventListener('keydown', (e) => {
       if (!viewer.classList.contains('open')) return;
 
