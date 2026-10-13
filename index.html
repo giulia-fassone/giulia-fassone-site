@@ -78,7 +78,6 @@
     height: 108px;
     width: auto;
     display: block;
-    filter: drop-shadow(0 0 2px #5454E5) drop-shadow(0 0 2px #5454E5);
   }
 
   .menu {
@@ -231,11 +230,6 @@
       margin: 0;
     }
 
-    /* Mobile-only butter-fingers thumbnail */
-    .butter img {
-      content: url('butter-fingers-mobile.png');
-    }
-
     .copyright { font-size: 10px; }
   }
 </style>
@@ -252,7 +246,7 @@
   <header class="header">
     <a href="index.html" class="brand">
       <img src="Symbol.png" alt="" class="symbol">
-      <img src="my_signature.png" alt="Giulia Fassone" class="signature">
+      <img src="my_signature-inner-glow.png" alt="Giulia Fassone" class="signature">
     </a>
     <nav class="menu">
       <div class="menu-item">
@@ -302,9 +296,9 @@
 
     <div class="thumb faberge"><img src="Faberge.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb apple"><img src="apple-thumbnail.png" alt="" class="lightbox-trigger"></div>
-    <div class="thumb butter size-300"><img src="butter-fingers-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb butter size-300"><img src="Hooked-stone-thumbnail.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb she-hath size-400"><img src="she-hath-thumbnail.png" alt="" class="lightbox-trigger"></div>
-    <div class="thumb sin-eater size-130"><img src="Sin-Eater-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb sin-eater size-130"><img src="Sin-Eater-Full-thumbnail.png" alt="" class="lightbox-trigger"></div>
   </div>
 
   <div class="lightbox" id="lightbox">
@@ -341,6 +335,16 @@
     lightbox.addEventListener('click', () => {
       lightbox.classList.remove('open');
       lightboxImg.src = '';
+    });
+
+    /* Click empty space to go home */
+    document.addEventListener('click', (e) => {
+      const clickedImg = e.target.closest('img');
+      const clickedLink = e.target.closest('a');
+      const clickedDropdown = e.target.closest('.dropdown');
+      if (!clickedImg && !clickedLink && !clickedDropdown) {
+        window.location.href = 'index.html';
+      }
     });
   </script>
 
