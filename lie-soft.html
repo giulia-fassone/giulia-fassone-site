@@ -129,8 +129,6 @@
   }
 
   .img-text { left: 50%; top: 5%; width: 460px; }
-
-  /* Small + medium — original sizes */
   .img-2  { left: 14%; top: 14%;  width: 250px; }
   .img-6  { left: 28%; top: 6%;   width: 230px; }
   .img-9  { left: 26%; top: 44%;  width: 260px; }
@@ -138,8 +136,6 @@
   .img-13 { left: 56%; top: 34%;  width: 260px; }
   .img-15 { left: 80%; top: 18%;  width: 260px; }
   .img-16 { left: 84%; top: 36%;  width: 330px; }
-
-  /* Large — 30% smaller */
   .img-1  { left: 4%;  top: 4%;   width: 238px; }
   .img-3  { left: 2%;  top: 25%;  width: 224px; }
   .img-4  { left: 16%; top: 33%;  width: 266px; }
@@ -150,62 +146,27 @@
   .img-12 { left: 68%; top: 20%;  width: 280px; }
   .img-14 { left: 63%; top: 46%;  width: 259px; }
 
-  /* Carousel */
-  .carousel {
+  /* Simple viewer */
+  .viewer {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 9999;
-    background: rgba(30, 20, 10, 0.85);
+    background: rgba(30, 20, 10, 0.9);
     align-items: center;
     justify-content: center;
+    z-index: 99999;
+    cursor: pointer;
   }
 
-  .carousel.open { display: flex; }
+  .viewer.open { display: flex; }
 
-  .carousel-inner {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 80vw;
-    max-height: 80vh;
-  }
-
-  .carousel-inner img {
-    max-width: 80vw;
-    max-height: 80vh;
-    width: auto;
-    height: auto;
+  .viewer img {
+    max-width: 85vw;
+    max-height: 85vh;
     display: block;
   }
-
-  .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(30, 20, 10, 0.6);
-    border: none;
-    color: #FFED00;
-    font-size: 50px;
-    cursor: pointer;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    z-index: 10000;
-    line-height: 1;
-  }
-
-  .carousel-btn.prev { left: -80px; }
-  .carousel-btn.next { right: -80px; }
 
   .copyright {
     position: fixed;
@@ -243,9 +204,6 @@
       margin: 4px;
     }
 
-    .carousel-btn { font-size: 36px; width: 44px; height: 44px; }
-    .carousel-btn.prev { left: -10px; }
-    .carousel-btn.next { right: -10px; }
     .copyright { font-size: 10px; }
   }
 </style>
@@ -285,7 +243,7 @@
   </header>
 
   <div class="project">
-    <img src="Lie_soft_text.png" alt="Lie Soft — 2026" class="project-img scatter img-text">
+    <img src="Lie_soft_text.png" alt="" class="project-img scatter img-text">
     <img src="Baton-P1100275-1-2.jpg" alt="" class="project-img scatter img-1">
     <img src="Butter2.jpg" alt="" class="project-img scatter img-2">
     <img src="Butter3.jpg" alt="" class="project-img scatter img-3">
@@ -304,18 +262,13 @@
     <img src="Cushion-P1100288.jpg" alt="" class="project-img scatter img-16">
   </div>
 
-  <div class="carousel" id="carousel">
-    <button class="carousel-btn prev" id="prev">&#8249;</button>
-    <div class="carousel-inner">
-      <img id="carousel-img" src="" alt="">
-    </div>
-    <button class="carousel-btn next" id="next">&#8250;</button>
+  <div class="viewer" id="viewer">
+    <img id="viewer-img" src="" alt="">
   </div>
 
   <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 
   <script>
-    /* Menu */
     const toggle = document.getElementById('projects-toggle');
     const dropdown = document.getElementById('projects-dropdown');
 
@@ -330,73 +283,21 @@
       }
     });
 
-    /* Carousel */
-    const carousel = document.getElementById('carousel');
-    const carouselImg = document.getElementById('carousel-img');
-    const prevBtn = document.getElementById('prev');
-    const nextBtn = document.getElementById('next');
-    const projectImages = Array.from(document.querySelectorAll('.project-img'));
-    let currentIndex = 0;
+    const viewer = document.getElementById('viewer');
+    const viewerImg = document.getElementById('viewer-img');
+    const projectImages = document.querySelectorAll('.project-img');
 
-    function openCarousel(index) {
-      currentIndex = index;
-      carouselImg.src = projectImages[currentIndex].src;
-      carousel.classList.add('open');
-    }
-
-    function closeCarousel() {
-      carousel.classList.remove('open');
-      carouselImg.src = '';
-    }
-
-    function showNext() {
-      currentIndex = (currentIndex + 1) % projectImages.length;
-      carouselImg.src = projectImages[currentIndex].src;
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + projectImages.length) % projectImages.length;
-      carouselImg.src = projectImages[currentIndex].src;
-    }
-
-    projectImages.forEach((img, i) => {
+    projectImages.forEach(img => {
       img.addEventListener('click', (e) => {
         e.stopPropagation();
-        openCarousel(i);
+        viewerImg.src = img.src;
+        viewer.classList.add('open');
       });
     });
 
-    nextBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      showNext();
-    });
-
-    prevBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      showPrev();
-    });
-
-    carousel.addEventListener('click', (e) => {
-      if (e.target === carousel || e.target.classList.contains('carousel-inner')) {
-        e.stopPropagation();
-        closeCarousel();
-      }
-    });
-
-    /* Click empty space on the project page → home */
-    document.addEventListener('click', (e) => {
-      if (carousel.classList.contains('open')) return;
-
-      const clickedImg = e.target.closest('img');
-      const clickedLink = e.target.closest('a');
-      const clickedDropdown = e.target.closest('.dropdown');
-      const clickedBtn = e.target.closest('button');
-
-      if (!clickedImg && !clickedLink && !clickedDropdown && !clickedBtn) {
-        window.location.href = 'index.html';
-      }
+    viewer.addEventListener('click', () => {
+      viewer.classList.remove('open');
+      viewerImg.src = '';
     });
   </script>
 
