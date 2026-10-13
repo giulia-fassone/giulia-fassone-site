@@ -66,12 +66,16 @@
   .brand {
     display: flex;
     align-items: center;
-    gap: 4px;
     margin-left: -20px;
     text-decoration: none;
   }
 
-  .symbol { height: 54px; width: auto; display: block; }
+  .symbol {
+    height: 54px;
+    width: auto;
+    display: block;
+    margin-right: -10px;
+  }
 
   .signature {
     height: 108px;
@@ -130,21 +134,101 @@
     color: #FFED00;
   }
 
-  .project-text {
+  /* Scattered project layout */
+  .project {
     position: relative;
-    z-index: 1;
+    width: 100%;
+    min-height: 200vh;
+    padding: 0 0 120px;
+  }
+
+  .project img {
+    position: absolute;
+    cursor: pointer;
+    display: block;
+  }
+
+  /* Text image — fixed to top right */
+  .lie-soft-text {
+    position: relative;
     max-width: 520px;
     margin-left: auto;
     margin-right: 6vw;
     margin-top: 12vh;
-    padding: 0 20px 80px;
+    z-index: 1;
   }
 
-  .project-text img {
+  .lie-soft-text img {
+    position: static;
     width: 100%;
     height: auto;
+  }
+
+  /* Scattered artwork */
+  .img-1  { left: 4%;  top: 15%; width: 240px; }
+  .img-2  { left: 12%; top: 32%; width: 180px; }
+  .img-3  { left: 3%;  top: 52%; width: 220px; }
+  .img-4  { left: 18%; top: 68%; width: 260px; }
+  .img-5  { left: 6%;  top: 88%; width: 200px; }
+  .img-6  { left: 30%; top: 22%; width: 160px; }
+  .img-7  { left: 38%; top: 40%; width: 200px; }
+  .img-8  { left: 35%; top: 58%; width: 240px; }
+  .img-9  { left: 28%; top: 78%; width: 180px; }
+  .img-10 { left: 24%; top: 95%; width: 220px; }
+  .img-11 { left: 60%; top: 30%; width: 200px; }
+  .img-12 { left: 68%; top: 48%; width: 260px; }
+  .img-13 { left: 55%; top: 66%; width: 180px; }
+  .img-14 { left: 62%; top: 85%; width: 240px; }
+  .img-15 { left: 80%; top: 40%; width: 180px; }
+  .img-16 { left: 84%; top: 72%; width: 220px; }
+
+  /* Carousel overlay */
+  .carousel {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(30, 20, 10, 0.7);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel.open { display: flex; }
+
+  .carousel-inner {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
     display: block;
   }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #FFED00;
+    font-size: 60px;
+    cursor: pointer;
+    padding: 16px;
+    text-shadow: 2px 2px 8px #5454E5;
+    font-family: Arial, sans-serif;
+    z-index: 210;
+    line-height: 1;
+  }
+
+  .carousel-btn.prev { left: -80px; }
+  .carousel-btn.next { right: -80px; }
 
   .copyright {
     position: fixed;
@@ -161,13 +245,36 @@
 
   @media (max-width: 700px) {
     .header { padding: 6px 16px 10px; gap: 8px; }
-    .symbol { height: 40px; }
+    .symbol { height: 40px; margin-right: -6px; }
     .signature { height: 60px; }
     .menu { gap: 14px; }
     .menu a { font-size: 14px; }
     .dropdown { min-width: 200px; }
     .dropdown a { font-size: 14px; }
-    .project-text { margin: 6vh 20px 60px; max-width: 100%; }
+
+    .project {
+      min-height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px 16px 120px;
+      gap: 12px;
+    }
+
+    .project img {
+      position: static;
+      width: 45% !important;
+      margin: 4px;
+    }
+
+    .lie-soft-text {
+      max-width: 100%;
+      margin: 20px auto;
+      width: 100%;
+    }
+
+    .carousel-btn { font-size: 40px; padding: 8px; }
+    .carousel-btn.prev { left: -20px; }
+    .carousel-btn.next { right: -20px; }
     .copyright { font-size: 10px; }
   }
 </style>
@@ -184,7 +291,7 @@
   <header class="header">
     <a href="index.html" class="brand">
       <img src="Symbol.png" alt="" class="symbol">
-      <img src="my_signature-inner-glow.png" alt="Giulia Fassone" class="signature">
+      <img src="my_signature-2-thick.png" alt="Giulia Fassone" class="signature">
     </a>
     <nav class="menu">
       <div class="menu-item">
@@ -206,13 +313,41 @@
     </nav>
   </header>
 
-  <div class="project-text">
-    <img src="Lie_soft_text.png" alt="Lie Soft — 2026">
+  <div class="project">
+    <div class="lie-soft-text">
+      <img src="Lie_soft_text.png" alt="Lie Soft — 2026">
+    </div>
+
+    <img src="Baton-P1100275-1-2.jpg" alt="" class="project-img img-1">
+    <img src="Butter2.jpg" alt="" class="project-img img-2">
+    <img src="Butter3.jpg" alt="" class="project-img img-3">
+    <img src="Cast-Moss-Fingers.jpg" alt="" class="project-img img-4">
+    <img src="Givetake2.jpg" alt="" class="project-img img-5">
+    <img src="Hooked2.jpg" alt="" class="project-img img-6">
+    <img src="Lie-Soft2.jpg" alt="" class="project-img img-7">
+    <img src="Sin-Proof-2025.jpg" alt="" class="project-img img-8">
+    <img src="1.jpg" alt="" class="project-img img-9">
+    <img src="2.jpg" alt="" class="project-img img-10">
+    <img src="Butter-Fingers.jpg" alt="" class="project-img img-11">
+    <img src="ClippedClamped.jpg" alt="" class="project-img img-12">
+    <img src="Cushion.jpg" alt="" class="project-img img-13">
+    <img src="Givetake.jpg" alt="" class="project-img img-14">
+    <img src="Joint-pain.jpg" alt="" class="project-img img-15">
+    <img src="Cushion-P1100288.jpg" alt="" class="project-img img-16">
+  </div>
+
+  <div class="carousel" id="carousel">
+    <button class="carousel-btn prev" id="prev">&#8249;</button>
+    <div class="carousel-inner">
+      <img id="carousel-img" src="" alt="">
+    </div>
+    <button class="carousel-btn next" id="next">&#8250;</button>
   </div>
 
   <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 
   <script>
+    /* Menu */
     const toggle = document.getElementById('projects-toggle');
     const dropdown = document.getElementById('projects-dropdown');
 
@@ -227,11 +362,58 @@
       }
     });
 
+    /* Carousel */
+    const carousel = document.getElementById('carousel');
+    const carouselImg = document.getElementById('carousel-img');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const projectImages = Array.from(document.querySelectorAll('.project-img'));
+    let currentIndex = 0;
+
+    function openCarousel(index) {
+      currentIndex = index;
+      carouselImg.src = projectImages[currentIndex].src;
+      carousel.classList.add('open');
+    }
+
+    function closeCarousel() {
+      carousel.classList.remove('open');
+      carouselImg.src = '';
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % projectImages.length;
+      carouselImg.src = projectImages[currentIndex].src;
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + projectImages.length) % projectImages.length;
+      carouselImg.src = projectImages[currentIndex].src;
+    }
+
+    projectImages.forEach((img, i) => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openCarousel(i);
+      });
+    });
+
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+
+    carousel.addEventListener('click', (e) => {
+      if (e.target === carousel || e.target.classList.contains('carousel-inner')) {
+        closeCarousel();
+      }
+    });
+
+    /* Click empty space on the project page → home */
     document.addEventListener('click', (e) => {
       const clickedImg = e.target.closest('img');
       const clickedLink = e.target.closest('a');
       const clickedDropdown = e.target.closest('.dropdown');
-      if (!clickedImg && !clickedLink && !clickedDropdown) {
+      const clickedBtn = e.target.closest('button');
+      if (!clickedImg && !clickedLink && !clickedDropdown && !clickedBtn) {
         window.location.href = 'index.html';
       }
     });
