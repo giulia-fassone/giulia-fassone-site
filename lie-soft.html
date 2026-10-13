@@ -115,11 +115,11 @@
 
   .dropdown a:hover { text-decoration: none; color: #FFED00; }
 
-  /* Scattered project layout */
+  /* Scattered project layout — taller page */
   .project {
     position: relative;
     width: 100%;
-    min-height: 160vh;
+    min-height: 280vh;
     padding: 0;
   }
 
@@ -129,30 +129,30 @@
     display: block;
   }
 
-  /* Text image — now scattered, not fixed at top */
+  /* Text image — intermingled */
   .img-text {
-    left: 55%;
-    top: 12%;
-    width: 480px;
+    left: 50%;
+    top: 5%;
+    width: 460px;
   }
 
-  /* Large images — 50% bigger */
-  .img-1  { left: 3%;  top: 8%;  width: 360px; }  /* Baton */
-  .img-2  { left: 10%; top: 28%; width: 270px; }  /* Butter2 */
-  .img-3  { left: 3%;  top: 48%; width: 330px; }  /* Butter3 */
-  .img-4  { left: 18%; top: 65%; width: 390px; }  /* Cast-Moss */
-  .img-5  { left: 6%;  top: 85%; width: 300px; }  /* Givetake2 */
-  .img-6  { left: 30%; top: 18%; width: 240px; }  /* Hooked2 */
-  .img-7  { left: 36%; top: 36%; width: 300px; }  /* Lie-Soft2 */
-  .img-8  { left: 32%; top: 55%; width: 360px; }  /* Sin-Proof */
-  .img-9  { left: 28%; top: 78%; width: 270px; }  /* 1 */
-  .img-10 { left: 22%; top: 92%; width: 330px; }  /* 2 */
-  .img-11 { left: 62%; top: 32%; width: 300px; }  /* Butter-Fingers */
-  .img-12 { left: 70%; top: 50%; width: 390px; }  /* ClippedClamped */
-  .img-13 { left: 58%; top: 68%; width: 270px; }  /* Cushion */
-  .img-14 { left: 65%; top: 85%; width: 360px; }  /* Givetake */
-  .img-15 { left: 82%; top: 42%; width: 270px; }  /* Joint-pain */
-  .img-16 { left: 86%; top: 72%; width: 330px; }  /* Cushion-P1100288 */
+  /* Scattered — loose overlaps, some corners touching, some edges */
+  .img-1  { left: 4%;  top: 4%;   width: 340px; }   /* Baton */
+  .img-2  { left: 14%; top: 14%;  width: 250px; }   /* Butter2 */
+  .img-3  { left: 2%;  top: 25%;  width: 320px; }   /* Butter3 */
+  .img-4  { left: 16%; top: 33%;  width: 380px; }   /* Cast-Moss */
+  .img-5  { left: 5%;  top: 45%;  width: 290px; }   /* Givetake2 */
+  .img-6  { left: 28%; top: 6%;   width: 230px; }   /* Hooked2 */
+  .img-7  { left: 34%; top: 18%;  width: 300px; }   /* Lie-Soft2 */
+  .img-8  { left: 30%; top: 30%;  width: 370px; }   /* Sin-Proof */
+  .img-9  { left: 26%; top: 44%;  width: 260px; }   /* 1 */
+  .img-10 { left: 20%; top: 55%;  width: 340px; }   /* 2 */
+  .img-11 { left: 60%; top: 8%;   width: 290px; }   /* Butter-Fingers */
+  .img-12 { left: 68%; top: 20%;  width: 400px; }   /* ClippedClamped */
+  .img-13 { left: 56%; top: 34%;  width: 260px; }   /* Cushion */
+  .img-14 { left: 63%; top: 46%;  width: 370px; }   /* Givetake */
+  .img-15 { left: 80%; top: 18%;  width: 260px; }   /* Joint-pain */
+  .img-16 { left: 84%; top: 36%;  width: 330px; }   /* Cushion-P1100288 */
 
   /* Carousel overlay */
   .carousel {
@@ -169,16 +169,16 @@
 
   .carousel-inner {
     position: relative;
-    max-width: 90vw;
-    max-height: 85vh;
+    max-width: 80vw;
+    max-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .carousel img {
-    max-width: 90vw;
-    max-height: 85vh;
+    max-width: 80vw;
+    max-height: 80vh;
     object-fit: contain;
     display: block;
   }
@@ -192,15 +192,18 @@
     color: #FFED00;
     font-size: 60px;
     cursor: pointer;
-    padding: 16px;
+    padding: 8px;
     text-shadow: 2px 2px 8px #5454E5;
     font-family: Arial, sans-serif;
     z-index: 210;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .carousel-btn.prev { left: -80px; }
-  .carousel-btn.next { right: -80px; }
+  .carousel-btn.prev { left: -70px; }
+  .carousel-btn.next { right: -70px; }
 
   .copyright {
     position: fixed;
@@ -238,9 +241,9 @@
       margin: 4px;
     }
 
-    .carousel-btn { font-size: 40px; padding: 8px; }
-    .carousel-btn.prev { left: -20px; }
-    .carousel-btn.next { right: -20px; }
+    .carousel-btn { font-size: 40px; }
+    .carousel-btn.prev { left: -12px; }
+    .carousel-btn.next { right: -12px; }
     .copyright { font-size: 10px; }
   }
 </style>
@@ -368,7 +371,6 @@
     nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
     prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
 
-    /* Click outside the image (on the overlay) closes the carousel */
     carousel.addEventListener('click', (e) => {
       if (e.target === carousel || e.target.classList.contains('carousel-inner')) {
         e.stopPropagation();
@@ -376,7 +378,6 @@
       }
     });
 
-    /* Click empty space on the project page → home, but ONLY if carousel is closed */
     document.addEventListener('click', (e) => {
       if (carouselOpen) return;
 
