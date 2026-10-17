@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,17 @@
     font-style: normal;
   }
 
+  :root {
+    --page-gap: 0.5in;
+    --page-margin: 0.5in;
+    --text-colour: #5B2C10;
+    --yellow: #FFED00;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
   html, body {
     margin: 0;
     padding: 0;
@@ -23,13 +35,14 @@
 
   body {
     font-family: Arial, sans-serif;
-    color: #5B2C10;
+    color: var(--text-colour);
   }
+
+  /* BACKGROUND */
 
   .bg {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     z-index: -2;
@@ -38,8 +51,7 @@
 
   .bg img {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -48,14 +60,13 @@
 
   .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(120, 140, 210, 0.4);
     z-index: -1;
     pointer-events: none;
   }
+
+  /* HEADER */
 
   .header {
     display: flex;
@@ -101,15 +112,14 @@
   .menu a {
     font-family: Arial, sans-serif;
     font-size: 20px;
-    color: #FFED00;
+    color: var(--yellow);
     text-decoration: none;
     cursor: pointer;
     text-shadow: 2px 2px 6px #5454E5;
   }
 
   .menu a:hover {
-    text-decoration: none;
-    color: #FFED00;
+    color: var(--yellow);
   }
 
   .dropdown {
@@ -118,10 +128,10 @@
     top: 100%;
     left: 0;
     margin-top: 10px;
-    background: none;
     padding: 0;
-    box-shadow: none;
     min-width: 240px;
+    background: none;
+    box-shadow: none;
     z-index: 20;
   }
 
@@ -134,55 +144,69 @@
     font-size: 18px;
     padding: 6px 0;
     white-space: nowrap;
-    color: #FFED00;
-    text-shadow: 2px 2px 6px #5454E5;
   }
 
-  .dropdown a:hover {
-    text-decoration: none;
-    color: #FFED00;
-  }
-
-  /* CAITLIN STYLE 3-COLUMN GRID */
+  /* PROJECT GALLERY */
 
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px; /* Tiny gap like Cait */
+
+    /* Four equal columns keep images at a manageable size. */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    /* Half-inch spacing between all grid items. */
+    gap: var(--page-gap);
+
+    /* Half-inch margins on every side. */
     width: 100%;
-    margin: 0;
-    padding: 0 0 120px 0;
+    padding: var(--page-margin);
+    margin: 0 auto 100px;
+    align-items: start;
   }
 
   .project-item {
-    display: block;
-    cursor: pointer;
+    min-width: 0;
+    width: 100%;
+    align-self: start;
     overflow: hidden;
+    cursor: pointer;
   }
 
   .project-item img {
-    width: 100%;
-    height: auto; /* No cropping */
     display: block;
-    transition: opacity 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: opacity 0.25s ease;
   }
 
-  /* Grid spans */
-  .span-2 { grid-column: span 2; }
-  .span-3 { grid-column: span 3; }
-
-  /* Text image gets a tiny padding so it doesn't touch the edges */
-  .item-text { 
-    padding: 10px; 
-    background: rgba(0,0,0,0.02); 
-    display: flex; 
-    align-items: center; 
-  }
-  .item-text img { 
-    object-fit: contain; 
+  .project-item:hover img {
+    opacity: 0.88;
   }
 
-  /* FULL-SCREEN IMAGE CAROUSEL */
+  /* Selected images can be wider, but never span the full page. */
+
+  .span-2 {
+    grid-column: span 2;
+  }
+
+  .item-text {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.025);
+  }
+
+  .item-text img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+  }
+
+  /* FULL-SCREEN IMAGE VIEWER */
 
   .viewer {
     display: none;
@@ -190,7 +214,8 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    background: rgba(30, 20, 10, 0.92);
+    padding: 60px 90px;
+    background: rgba(30, 20, 10, 0.94);
     align-items: center;
     justify-content: center;
     z-index: 99999;
@@ -203,20 +228,25 @@
 
   .viewer-stage {
     display: flex;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
   }
 
   .viewer-stage img {
-    height: 66vh;
-    width: auto;
-    max-width: 78vw;
-    object-fit: contain;
     display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
     cursor: default;
     user-select: none;
     -webkit-user-drag: none;
   }
+
+  /* VIEWER CONTROLS */
 
   .viewer-arrow {
     position: absolute;
@@ -225,9 +255,9 @@
     padding: 0;
     border: none;
     background: transparent;
-    color: #FFED00;
+    color: var(--yellow);
     font-family: Arial, sans-serif;
-    font-size: 60px;
+    font-size: 56px;
     font-weight: normal;
     line-height: 1;
     display: flex;
@@ -235,29 +265,60 @@
     justify-content: center;
     cursor: pointer;
     z-index: 100001;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     transition: color 0.2s, transform 0.2s;
-    -webkit-tap-highlight-color: transparent;
   }
 
   .viewer-arrow:hover {
-    color: #ffffff;
-    transform: translateY(-50%) scale(1.12);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
   }
 
-  .viewer-arrow.prev { left: 6vw; }
-  .viewer-arrow.next { right: 6vw; }
+  .viewer-arrow.prev {
+    left: 24px;
+  }
+
+  .viewer-arrow.next {
+    right: 24px;
+  }
+
+  .viewer-close {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--yellow);
+    font-family: Arial, sans-serif;
+    font-size: 38px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 100002;
+  }
+
+  .viewer-close:hover {
+    color: white;
+  }
 
   .viewer-counter {
     position: absolute;
     bottom: 18px;
     left: 0;
     width: 100%;
-    color: #FFED00;
+    color: var(--yellow);
     text-align: center;
     font: 14px Arial, sans-serif;
     pointer-events: none;
   }
+
+  .viewer button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+  }
+
+  /* COPYRIGHT */
 
   .copyright {
     position: fixed;
@@ -267,44 +328,122 @@
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 12px;
-    color: #5B2C10;
-    z-index: 1;
+    color: var(--text-colour);
+    z-index: 5;
     pointer-events: none;
   }
 
-  @media (max-width: 700px) {
-    .header { padding: 6px 16px 10px; gap: 8px; }
-    .symbol { height: 40px; margin-right: -6px; }
-    .signature { height: 60px; }
-    .menu { gap: 14px; }
-    .menu a { font-size: 14px; }
-    .dropdown { min-width: 200px; }
-    .dropdown a { font-size: 14px; }
+  /* TABLET */
+
+  @media (min-width: 701px) and (max-width: 1100px) {
+    :root {
+      --page-gap: 18px;
+      --page-margin: 18px;
+    }
 
     .project-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      padding: 10px 0 80px 0;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .span-3 { grid-column: span 2; }
+    .item-text {
+      grid-column: span 2;
+    }
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 700px) {
+    :root {
+      --page-gap: 12px;
+      --page-margin: 12px;
+    }
+
+    .header {
+      padding: 6px 16px 10px;
+      gap: 8px;
+    }
+
+    .symbol {
+      height: 40px;
+      margin-right: -6px;
+    }
+
+    .signature {
+      height: 60px;
+    }
+
+    .menu {
+      gap: 14px;
+    }
+
+    .menu a {
+      font-size: 14px;
+    }
+
+    .dropdown {
+      min-width: 200px;
+    }
+
+    .dropdown a {
+      font-size: 14px;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding-bottom: 80px;
+    }
+
+    .span-2,
+    .item-text {
+      grid-column: span 2;
+    }
+
+    .item-text img {
+      max-height: 300px;
+    }
+
+    .viewer {
+      padding: 50px 42px;
+    }
 
     .viewer-stage img {
-      height: 55vh;
-      max-width: 70vw;
+      max-width: 100%;
+      max-height: 72vh;
     }
 
-    .viewer-arrow { font-size: 40px; }
-    .viewer-arrow.prev { left: 3vw; }
-    .viewer-arrow.next { right: 3vw; }
+    .viewer-arrow {
+      font-size: 40px;
+    }
 
-    .viewer-counter { bottom: 14px; font-size: 12px; }
-    .copyright { font-size: 10px; }
+    .viewer-arrow.prev {
+      left: 4px;
+    }
+
+    .viewer-arrow.next {
+      right: 4px;
+    }
+
+    .viewer-close {
+      top: 10px;
+      right: 12px;
+      font-size: 32px;
+    }
+
+    .viewer-counter {
+      bottom: 14px;
+      font-size: 12px;
+    }
+
+    .copyright {
+      font-size: 10px;
+    }
   }
 </style>
 </head>
 
 <body>
+
+  <!-- BACKGROUND -->
 
   <div class="bg">
     <img src="P10907.jpg" alt="">
@@ -312,15 +451,21 @@
 
   <div class="overlay"></div>
 
+  <!-- HEADER -->
+
   <header class="header">
     <a href="index.html" class="brand">
       <img src="Symbol.png" alt="" class="symbol">
-      <img src="my_signature-2-thick.png" alt="Giulia Fassone" class="signature">
+      <img src="my_signature-2-thick.png"
+           alt="Giulia Fassone"
+           class="signature">
     </a>
 
     <nav class="menu">
       <div class="menu-item">
-        <a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a>
+        <a id="projects-toggle"
+           href="#projects-dropdown"
+           aria-expanded="false">Projects</a>
 
         <div class="dropdown" id="projects-dropdown">
           <a href="appetite.html">Appetite</a>
@@ -340,135 +485,239 @@
     </nav>
   </header>
 
+  <!-- PROJECT GALLERY -->
+
   <main class="project-grid" id="project-gallery">
-    
-    <!-- Large Images (Span 2) -->
-    <div class="project-item span-2">
-      <img src="Butter2.jpg" alt="" class="project-img">
-    </div>
+
     <div class="project-item">
-      <img src="Lie-Soft2.jpg" alt="" class="project-img">
+      <img src="Butter2.jpg"
+           alt=""
+           class="project-img">
     </div>
 
     <div class="project-item">
-      <img src="Cast-Moss-Fingers.jpg" alt="" class="project-img">
-    </div>
-    <div class="project-item">
-      <img src="Sin-Proof-2025.jpg" alt="" class="project-img">
-    </div>
-    <div class="project-item">
-      <img src="Baton-P1100275-1-2.jpg" alt="" class="project-img">
-    </div>
-
-    <div class="project-item">
-      <img src="Hooked-stone-thumbnail.png" alt="" class="project-img">
-    </div>
-    <div class="project-item span-2">
-      <img src="Butter3.jpg" alt="" class="project-img">
-    </div>
-
-    <!-- Text Image (Span 3, full width) -->
-    <div class="project-item span-3 item-text">
-      <img src="Lie_soft_text.png" alt="Lie Soft — 2026" class="project-img">
-    </div>
-
-    <!-- Remaining Images -->
-    <div class="project-item span-2">
-      <img src="Givetake2.jpg" alt="" class="project-img">
-    </div>
-    <div class="project-item">
-      <img src="1.jpg" alt="" class="project-img">
-    </div>
-
-    <div class="project-item">
-      <img src="2.jpg" alt="" class="project-img">
-    </div>
-    <div class="project-item">
-      <img src="Butter-Fingers.jpg" alt="" class="project-img">
-    </div>
-    <div class="project-item">
-      <img src="ClippedClamped.jpg" alt="" class="project-img">
+      <img src="Lie-Soft2.jpg"
+           alt=""
+           class="project-img">
     </div>
 
     <div class="project-item span-2">
-      <img src="Cushion.jpg" alt="" class="project-img">
-    </div>
-    <div class="project-item">
-      <img src="Givetake.jpg" alt="" class="project-img">
+      <img src="Cast-Moss-Fingers.jpg"
+           alt=""
+           class="project-img">
     </div>
 
     <div class="project-item">
-      <img src="Joint-pain.jpg" alt="" class="project-img">
+      <img src="Sin-Proof-2025.jpg"
+           alt=""
+           class="project-img">
     </div>
+
+    <div class="project-item">
+      <img src="Baton-P1100275-1-2.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item">
+      <img src="Hooked-stone-thumbnail.png"
+           alt=""
+           class="project-img">
+    </div>
+
     <div class="project-item span-2">
-      <img src="Cushion-P1100288.jpg" alt="" class="project-img">
+      <img src="Butter3.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item">
+      <img src="Lie_soft_text.png"
+           alt="Lie Soft — 2026"
+           class="project-img">
+    </div>
+
+    <div class="project-item">
+      <img src="Givetake2.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item span-2">
+      <img src="1.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item">
+      <img src="2.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item">
+      <img src="Butter-Fingers.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item span-2">
+      <img src="ClippedClamped.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item">
+      <img src="Cushion.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item">
+      <img src="Givetake.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item span-2">
+      <img src="Joint-pain.jpg"
+           alt=""
+           class="project-img">
+    </div>
+
+    <div class="project-item span-2">
+      <img src="Cushion-P1100288.jpg"
+           alt=""
+           class="project-img">
     </div>
 
   </main>
 
-  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Lie Soft image gallery" aria-hidden="true">
-    <button class="viewer-arrow prev" id="viewer-prev" type="button" aria-label="Previous image">&#8249;</button>
+  <!-- FULL-SCREEN VIEWER -->
+
+  <div class="viewer"
+       id="viewer"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Lie Soft image gallery"
+       aria-hidden="true">
+
+    <button class="viewer-close"
+            id="viewer-close"
+            type="button"
+            aria-label="Close gallery">&times;</button>
+
+    <button class="viewer-arrow prev"
+            id="viewer-prev"
+            type="button"
+            aria-label="Previous image">&#8249;</button>
+
     <div class="viewer-stage">
       <img id="viewer-img" src="" alt="">
     </div>
-    <button class="viewer-arrow next" id="viewer-next" type="button" aria-label="Next image">&#8250;</button>
-    <div class="viewer-counter" id="viewer-counter" aria-live="polite"></div>
+
+    <button class="viewer-arrow next"
+            id="viewer-next"
+            type="button"
+            aria-label="Next image">&#8250;</button>
+
+    <div class="viewer-counter"
+         id="viewer-counter"
+         aria-live="polite"></div>
+
   </div>
 
-  <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
+  <!-- COPYRIGHT -->
+
+  <div class="copyright">
+    © Giulia Fassone 2026. All rights reserved.
+  </div>
 
   <script>
+    /* PROJECTS DROPDOWN */
+
     const toggle = document.getElementById('projects-toggle');
     const dropdown = document.getElementById('projects-dropdown');
 
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
+
       const isOpen = dropdown.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(isOpen));
     });
 
     document.addEventListener('click', (e) => {
-      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+      if (!toggle.contains(e.target) &&
+          !dropdown.contains(e.target)) {
         dropdown.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
 
+
+    /* IMAGE VIEWER */
+
     const viewer = document.getElementById('viewer');
     const viewerImg = document.getElementById('viewer-img');
     const viewerPrev = document.getElementById('viewer-prev');
     const viewerNext = document.getElementById('viewer-next');
+    const viewerClose = document.getElementById('viewer-close');
     const viewerCounter = document.getElementById('viewer-counter');
-    const projectImages = Array.from(document.querySelectorAll('.project-img'));
+
+    const projectImages = Array.from(
+      document.querySelectorAll('.project-img')
+    );
 
     let currentIndex = 0;
+    let previouslyFocusedElement = null;
 
     function showImage(index) {
       if (projectImages.length === 0) return;
-      currentIndex = (index + projectImages.length) % projectImages.length;
+
+      currentIndex =
+        (index + projectImages.length) % projectImages.length;
+
       const image = projectImages[currentIndex];
+
       viewerImg.src = image.src;
       viewerImg.alt = image.alt || 'Lie Soft project image';
-      viewerCounter.textContent = `${currentIndex + 1} / ${projectImages.length}`;
+
+      viewerCounter.textContent =
+        `${currentIndex + 1} / ${projectImages.length}`;
     }
 
     function openViewer(index) {
+      previouslyFocusedElement = document.activeElement;
+
       showImage(index);
+
       viewer.classList.add('open');
       viewer.setAttribute('aria-hidden', 'false');
+
       document.body.style.overflow = 'hidden';
+
+      viewerClose.focus();
     }
 
     function closeViewer() {
       viewer.classList.remove('open');
       viewer.setAttribute('aria-hidden', 'true');
+
       viewerImg.src = '';
       viewerCounter.textContent = '';
+
       document.body.style.overflow = '';
+
+      if (previouslyFocusedElement &&
+          typeof previouslyFocusedElement.focus === 'function') {
+        previouslyFocusedElement.focus();
+      }
     }
 
     projectImages.forEach((image, index) => {
-      image.addEventListener('click', () => openViewer(index));
+      image.addEventListener('click', () => {
+        openViewer(index);
+      });
     });
 
     viewerPrev.addEventListener('click', (e) => {
@@ -481,8 +730,15 @@
       showImage(currentIndex + 1);
     });
 
+    viewerClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeViewer();
+    });
+
     viewer.addEventListener('click', (e) => {
-      if (e.target === viewer) closeViewer();
+      if (e.target === viewer) {
+        closeViewer();
+      }
     });
 
     document.addEventListener('keydown', (e) => {
