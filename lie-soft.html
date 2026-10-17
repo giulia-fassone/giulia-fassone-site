@@ -179,12 +179,8 @@ body {
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  transition: opacity 0.25s ease;
 }
 
-.project-item:hover img {
-  opacity: 0.88;
-}
 
 /* Larger images */
 
@@ -255,25 +251,42 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  padding: 0;
-  border: none;
-  background: transparent;
-  color: var(--yellow);
-  font-family: Arial, sans-serif;
-  font-size: 56px;
-  font-weight: normal;
-  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 34px;
+  height: 56px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  background: transparent !important;
+  color: var(--yellow);
   cursor: pointer;
   z-index: 100001;
-  transition: color 0.2s, transform 0.2s;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.viewer-arrow svg {
+  display: block;
+  width: 23px;
+  height: 38px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .viewer-arrow:hover {
-  color: white;
-  transform: translateY(-50%) scale(1.1);
+  opacity: 1;
+  transform: translateY(-50%);
+  color: var(--yellow);
+  background: transparent !important;
+  box-shadow: none;
 }
 
 .viewer-arrow.prev {
@@ -296,8 +309,8 @@ body {
 }
 
 .viewer button:focus-visible {
-  outline: 2px solid white;
-  outline-offset: 4px;
+  outline: none;
+  box-shadow: none;
 }
 
 /* COPYRIGHT */
@@ -386,15 +399,21 @@ body {
   }
 
   .viewer-arrow {
-    font-size: 40px;
+    width: 28px;
+    height: 46px;
+  }
+
+  .viewer-arrow svg {
+    width: 18px;
+    height: 30px;
   }
 
   .viewer-arrow.prev {
-    left: 4px;
+    left: 2px;
   }
 
   .viewer-arrow.next {
-    right: 4px;
+    right: 2px;
   }
 
   .viewer-counter {
@@ -460,11 +479,9 @@ body {
 
 <main class="project-grid" id="project-gallery">
 
-  <!-- FIRST ROW -->
-
-  <div class="project-item">
+  <div class="project-item span-2">
     <img
-      src="Butter2.jpg"
+      src="optimized/Butter2.webp"
       alt="Lie Soft project"
       class="project-img"
       fetchpriority="high"
@@ -473,16 +490,24 @@ body {
 
   <div class="project-item">
     <img
-      src="Lie-Soft2.jpg"
+      src="optimized/Lie-Soft2.webp"
       alt="Lie Soft project"
       class="project-img"
       fetchpriority="high"
+      decoding="async">
+  </div>
+
+  <div class="project-item item-text">
+    <img
+      src="optimized/Lie_soft_text.webp"
+      alt="Lie Soft — 2026"
+      class="project-img"
       decoding="async">
   </div>
 
   <div class="project-item span-2">
     <img
-      src="Cast-Moss-Fingers.jpg"
+      src="optimized/Cast-Moss-Fingers.webp"
       alt="Cast Moss Fingers"
       class="project-img"
       fetchpriority="high"
@@ -491,25 +516,15 @@ body {
 
   <div class="project-item">
     <img
-      src="Sin-Proof-2025.jpg"
+      src="optimized/Sin-Proof-2025.webp"
       alt="Sin Proof, 2025"
       class="project-img"
       decoding="async">
   </div>
 
-  <!-- TEXT IMAGE: NEAR THE TOP, HALF WIDTH -->
-
-  <div class="project-item item-text">
+  <div class="project-item span-2">
     <img
-      src="Lie_soft_text.png"
-      alt="Lie Soft — 2026"
-      class="project-img"
-      decoding="async">
-  </div>
-
-  <div class="project-item">
-    <img
-      src="Baton-P1100275-1-2.jpg"
+      src="optimized/Baton-P1100275-1-2.webp"
       alt="Lie Soft project"
       class="project-img"
       loading="lazy"
@@ -518,7 +533,7 @@ body {
 
   <div class="project-item">
     <img
-      src="Hooked-stone-thumbnail.png"
+      src="optimized/Hooked-stone-thumbnail.webp"
       alt="Hooked stone"
       class="project-img"
       loading="lazy"
@@ -527,7 +542,7 @@ body {
 
   <div class="project-item span-2">
     <img
-      src="Butter3.jpg"
+      src="optimized/Butter3.webp"
       alt="Lie Soft project"
       class="project-img"
       loading="lazy"
@@ -536,7 +551,7 @@ body {
 
   <div class="project-item">
     <img
-      src="Givetake2.jpg"
+      src="optimized/Givetake2.webp"
       alt="Give Take"
       class="project-img"
       loading="lazy"
@@ -545,7 +560,7 @@ body {
 
   <div class="project-item span-2">
     <img
-      src="1.jpg"
+      src="optimized/1.webp"
       alt="Lie Soft project"
       class="project-img"
       loading="lazy"
@@ -554,7 +569,7 @@ body {
 
   <div class="project-item">
     <img
-      src="2.jpg"
+      src="optimized/2.webp"
       alt="Lie Soft project"
       class="project-img"
       loading="lazy"
@@ -563,7 +578,7 @@ body {
 
   <div class="project-item">
     <img
-      src="Butter-Fingers.jpg"
+      src="optimized/Butter-Fingers.webp"
       alt="Butter Fingers"
       class="project-img"
       loading="lazy"
@@ -572,7 +587,7 @@ body {
 
   <div class="project-item span-2">
     <img
-      src="ClippedClamped.jpg"
+      src="optimized/ClippedClamped.webp"
       alt="Clipped Clamped"
       class="project-img"
       loading="lazy"
@@ -581,17 +596,8 @@ body {
 
   <div class="project-item">
     <img
-      src="Cushion.jpg"
+      src="optimized/Cushion.webp"
       alt="Lie Soft project"
-      class="project-img"
-      loading="lazy"
-      decoding="async">
-  </div>
-
-  <div class="project-item">
-    <img
-      src="Givetake.jpg"
-      alt="Give Take"
       class="project-img"
       loading="lazy"
       decoding="async">
@@ -599,7 +605,16 @@ body {
 
   <div class="project-item span-2">
     <img
-      src="Joint-pain.jpg"
+      src="optimized/Givetake.webp"
+      alt="Give Take"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item">
+    <img
+      src="optimized/Joint-pain.webp"
       alt="Joint Pain"
       class="project-img"
       loading="lazy"
@@ -608,7 +623,7 @@ body {
 
   <div class="project-item span-2">
     <img
-      src="Cushion-P1100288.jpg"
+      src="optimized/Cushion-P1100288.webp"
       alt="Lie Soft project"
       class="project-img"
       loading="lazy"
@@ -631,7 +646,7 @@ body {
     class="viewer-arrow prev"
     id="viewer-prev"
     type="button"
-    aria-label="Previous image">&#8249;</button>
+    aria-label="Previous image"><svg viewBox="0 0 24 40" aria-hidden="true"><path d="M19 3 L5 20 L19 37"/></svg></button>
 
   <div class="viewer-stage">
     <img id="viewer-img" src="" alt="">
@@ -641,7 +656,7 @@ body {
     class="viewer-arrow next"
     id="viewer-next"
     type="button"
-    aria-label="Next image">&#8250;</button>
+    aria-label="Next image"><svg viewBox="0 0 24 40" aria-hidden="true"><path d="M5 3 L19 20 L5 37"/></svg></button>
 
   <div
     class="viewer-counter"
