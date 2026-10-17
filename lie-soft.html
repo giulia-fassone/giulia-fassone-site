@@ -143,51 +143,56 @@
     color: #FFED00;
   }
 
-  /* PROJECT GRID LAYOUT (Caitlin style) */
+  /* FULL WIDTH MASONRY GRID */
 
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 20px 120px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 4px; /* Very tight gap, edge-to-edge feel */
+    width: 100%;
+    margin: 0;
+    padding: 0 0 120px 0;
   }
 
   .project-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     cursor: pointer;
     overflow: hidden;
   }
 
   .project-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto; /* Allow natural height, no cropping */
     display: block;
-    transition: transform 0.3s ease;
+    transition: opacity 0.3s ease;
   }
 
   .project-item:hover img {
-    transform: scale(1.02);
+    opacity: 0.85;
   }
 
-  /* Grid spans */
-  .span-2 { grid-column: span 2; }
-  .span-3 { grid-column: span 3; }
+  /* Custom placement to shuffle and mix sizes */
 
-  /* Specific aspect ratios/rows for a dynamic feel */
-  .row-tall { grid-row: span 2; }
-  .row-tall .project-item { height: 100%; }
-  .row-tall img { height: 100%; object-fit: cover; }
+  .item-butter2 { grid-column: span 7; }
+  .item-liesoft2 { grid-column: span 5; }
+  .item-castmoss { grid-column: span 4; }
+  .item-sinproof { grid-column: span 4; }
+  .item-baton { grid-column: span 4; }
+  .item-hooked { grid-column: span 5; }
+  
+  .item-text { grid-column: span 7; display: flex; align-items: center; padding: 20px; background: rgba(0,0,0,0.02); }
+  .item-text img { width: 100%; height: auto; object-fit: contain; }
 
-  /* Image alignment for the text */
-  .text-image img {
-    object-fit: contain;
-    background: rgba(0,0,0,0.05); /* slight background to make text legible if transparent */
-  }
+  .item-butter3 { grid-column: span 6; }
+  .item-givetake2 { grid-column: span 6; }
+  .item-1 { grid-column: span 4; }
+  .item-2 { grid-column: span 4; }
+  .item-butterfingers { grid-column: span 4; }
+  .item-clipped { grid-column: span 5; }
+  .item-cushion { grid-column: span 7; }
+  .item-givetake { grid-column: span 6; }
+  .item-jointpain { grid-column: span 6; }
+  .item-cushion2 { grid-column: span 12; } /* Wide bottom */
 
   /* FULL-SCREEN IMAGE CAROUSEL */
 
@@ -289,12 +294,16 @@
     .dropdown a { font-size: 14px; }
 
     .project-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      padding: 20px 10px 80px;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 10px 0 80px 0;
     }
 
-    .span-3 { grid-column: span 2; }
+    .project-item, .item-text {
+      grid-column: 1 / -1 !important;
+    }
+
+    .item-text { padding: 10px; }
 
     .viewer-stage img {
       height: 55vh;
@@ -349,74 +358,74 @@
 
   <main class="project-grid" id="project-gallery">
     
-    <!-- Very large images (Red X marks) -->
-    <div class="project-item span-2 row-tall">
+    <!-- Very large images / Red X marks -->
+    <div class="project-item item-butter2">
       <img src="Butter2.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-liesoft2">
       <img src="Lie-Soft2.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-castmoss">
       <img src="Cast-Moss-Fingers.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-sinproof">
       <img src="Sin-Proof-2025.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-baton">
       <img src="Baton-P1100275-1-2.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-hooked">
       <img src="Hooked-stone-thumbnail.png" alt="" class="project-img">
     </div>
 
     <!-- Text image -->
-    <div class="project-item span-3 text-image">
+    <div class="project-item item-text">
       <img src="Lie_soft_text.png" alt="Lie Soft — 2026" class="project-img">
     </div>
 
-    <!-- Remaining images -->
-    <div class="project-item">
+    <!-- Remaining images shuffled to fit the grid -->
+    <div class="project-item item-butter3">
       <img src="Butter3.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-givetake2">
       <img src="Givetake2.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-1">
       <img src="1.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-2">
       <img src="2.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-butterfingers">
       <img src="Butter-Fingers.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-clipped">
       <img src="ClippedClamped.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item span-2">
+    <div class="project-item item-cushion">
       <img src="Cushion.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-givetake">
       <img src="Givetake.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-jointpain">
       <img src="Joint-pain.jpg" alt="" class="project-img">
     </div>
 
-    <div class="project-item">
+    <div class="project-item item-cushion2">
       <img src="Cushion-P1100288.jpg" alt="" class="project-img">
     </div>
 
