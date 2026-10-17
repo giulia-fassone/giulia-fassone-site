@@ -4,758 +4,817 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5B2C10">
 <title>Lie Soft — Giulia Fassone</title>
 
 <style>
-  @font-face {
-    font-family: 'TaylorGothic';
-    src: url('Taylor-Gothic.woff2') format('woff2'),
-         url('Taylor-Gothic.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
+@font-face {
+  font-family: 'TaylorGothic';
+  src: url('Taylor-Gothic.woff2') format('woff2'),
+       url('Taylor-Gothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
+:root {
+  --page-margin: 0.5in;
+  --grid-gap: 18px;
+  --grid-row: 8px;
+  --text-colour: #5B2C10;
+  --yellow: #FFED00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: transparent;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-colour);
+}
+
+/* BACKGROUND */
+
+.bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(120, 140, 210, 0.4);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: relative;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  margin-left: -20px;
+  text-decoration: none;
+}
+
+.symbol {
+  height: 54px;
+  width: auto;
+  display: block;
+  margin-right: -10px;
+}
+
+.signature {
+  height: 108px;
+  width: auto;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  gap: 28px;
+  align-items: baseline;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu a {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: var(--yellow);
+  text-decoration: none;
+  cursor: pointer;
+  text-shadow: 2px 2px 6px #5454E5;
+}
+
+.menu a:hover {
+  color: var(--yellow);
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+  padding: 0;
+  min-width: 240px;
+  background: none;
+  box-shadow: none;
+  z-index: 20;
+}
+
+.dropdown.open {
+  display: block;
+}
+
+.dropdown a {
+  display: block;
+  font-size: 18px;
+  padding: 6px 0;
+  white-space: nowrap;
+}
+
+/* PROJECT GALLERY */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: var(--grid-row);
+  grid-auto-flow: dense;
+  gap: var(--grid-gap);
+
+  width: 100%;
+  padding: var(--page-margin);
+  margin: 0 auto 100px;
+  align-items: start;
+}
+
+.project-item {
+  min-width: 0;
+  width: 100%;
+  align-self: start;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.project-item img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: opacity 0.25s ease;
+}
+
+.project-item:hover img {
+  opacity: 0.88;
+}
+
+/* Larger images */
+
+.span-2 {
+  grid-column: span 2;
+}
+
+/* PROJECT TEXT: HALF THE GALLERY */
+
+.item-text {
+  grid-column: span 2;
+  width: 100%;
+  align-self: start;
+}
+
+.item-text img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* FULL-SCREEN IMAGE VIEWER */
+
+.viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 60px 90px;
+  background: rgba(30, 20, 10, 0.94);
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  cursor: zoom-out;
+}
+
+.viewer.open {
+  display: flex;
+}
+
+.viewer-stage {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.viewer-stage img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  cursor: default;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* VIEWER ARROWS */
+
+.viewer-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--yellow);
+  font-family: Arial, sans-serif;
+  font-size: 56px;
+  font-weight: normal;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100001;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.viewer-arrow:hover {
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.viewer-arrow.prev {
+  left: 24px;
+}
+
+.viewer-arrow.next {
+  right: 24px;
+}
+
+.viewer-counter {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  width: 100%;
+  color: var(--yellow);
+  text-align: center;
+  font: 14px Arial, sans-serif;
+  pointer-events: none;
+}
+
+.viewer button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+/* COPYRIGHT */
+
+.copyright {
+  position: fixed;
+  bottom: 14px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: var(--text-colour);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* TABLET */
+
+@media (min-width: 701px) and (max-width: 1100px) {
   :root {
-    --page-gap: 0.5in;
-    --page-margin: 0.5in;
-    --text-colour: #5B2C10;
-    --yellow: #FFED00;
+    --grid-gap: 14px;
+    --page-margin: 18px;
   }
 
-  * {
-    box-sizing: border-box;
+  .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-    background: transparent;
+/* MOBILE */
+
+@media (max-width: 700px) {
+  :root {
+    --grid-gap: 12px;
+    --page-margin: 12px;
   }
-
-  body {
-    font-family: Arial, sans-serif;
-    color: var(--text-colour);
-  }
-
-  /* BACKGROUND */
-
-  .bg {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    overflow: hidden;
-  }
-
-  .bg img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center bottom;
-  }
-
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(120, 140, 210, 0.4);
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  /* HEADER */
 
   .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4px 20px;
-    flex-wrap: wrap;
-    gap: 12px;
-    position: relative;
-    z-index: 10;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    margin-left: -20px;
-    text-decoration: none;
+    padding: 6px 16px 10px;
+    gap: 8px;
   }
 
   .symbol {
-    height: 54px;
-    width: auto;
-    display: block;
-    margin-right: -10px;
+    height: 40px;
+    margin-right: -6px;
   }
 
   .signature {
-    height: 108px;
-    width: auto;
-    display: block;
+    height: 60px;
   }
 
   .menu {
-    display: flex;
-    gap: 28px;
-    align-items: baseline;
-  }
-
-  .menu-item {
-    position: relative;
+    gap: 14px;
   }
 
   .menu a {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    color: var(--yellow);
-    text-decoration: none;
-    cursor: pointer;
-    text-shadow: 2px 2px 6px #5454E5;
-  }
-
-  .menu a:hover {
-    color: var(--yellow);
+    font-size: 14px;
   }
 
   .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: 10px;
-    padding: 0;
-    min-width: 240px;
-    background: none;
-    box-shadow: none;
-    z-index: 20;
-  }
-
-  .dropdown.open {
-    display: block;
+    min-width: 200px;
   }
 
   .dropdown a {
-    display: block;
-    font-size: 18px;
-    padding: 6px 0;
-    white-space: nowrap;
+    font-size: 14px;
   }
-
-  /* PROJECT GALLERY */
 
   .project-grid {
-    display: grid;
-
-    /* Four equal columns keep images at a manageable size. */
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    /* Half-inch spacing between all grid items. */
-    gap: var(--page-gap);
-
-    /* Half-inch margins on every side. */
-    width: 100%;
-    padding: var(--page-margin);
-    margin: 0 auto 100px;
-    align-items: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-bottom: 80px;
   }
 
-  .project-item {
-    min-width: 0;
-    width: 100%;
-    align-self: start;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
-  .project-item img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    transition: opacity 0.25s ease;
-  }
-
-  .project-item:hover img {
-    opacity: 0.88;
-  }
-
-  /* Selected images can be wider, but never span the full page. */
-
-  .span-2 {
-    grid-column: span 2;
-  }
-
+  .span-2,
   .item-text {
     grid-column: span 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.025);
   }
-
-  .item-text img {
-    width: 100%;
-    max-height: 420px;
-    object-fit: contain;
-  }
-
-  /* FULL-SCREEN IMAGE VIEWER */
 
   .viewer {
-    display: none;
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    padding: 60px 90px;
-    background: rgba(30, 20, 10, 0.94);
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-    cursor: default;
-  }
-
-  .viewer.open {
-    display: flex;
-  }
-
-  .viewer-stage {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+    padding: 50px 42px;
   }
 
   .viewer-stage img {
-    display: block;
-    width: auto;
-    height: auto;
     max-width: 100%;
-    max-height: 78vh;
-    object-fit: contain;
-    cursor: default;
-    user-select: none;
-    -webkit-user-drag: none;
+    max-height: 72vh;
   }
-
-  /* VIEWER CONTROLS */
 
   .viewer-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0;
-    border: none;
-    background: transparent;
-    color: var(--yellow);
-    font-family: Arial, sans-serif;
-    font-size: 56px;
-    font-weight: normal;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 100001;
-    transition: color 0.2s, transform 0.2s;
-  }
-
-  .viewer-arrow:hover {
-    color: white;
-    transform: translateY(-50%) scale(1.1);
+    font-size: 40px;
   }
 
   .viewer-arrow.prev {
-    left: 24px;
+    left: 4px;
   }
 
   .viewer-arrow.next {
-    right: 24px;
-  }
-
-  .viewer-close {
-    position: absolute;
-    top: 16px;
-    right: 24px;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border: none;
-    background: transparent;
-    color: var(--yellow);
-    font-family: Arial, sans-serif;
-    font-size: 38px;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 100002;
-  }
-
-  .viewer-close:hover {
-    color: white;
+    right: 4px;
   }
 
   .viewer-counter {
-    position: absolute;
-    bottom: 18px;
-    left: 0;
-    width: 100%;
-    color: var(--yellow);
-    text-align: center;
-    font: 14px Arial, sans-serif;
-    pointer-events: none;
+    bottom: 14px;
+    font-size: 12px;
   }
-
-  .viewer button:focus-visible {
-    outline: 2px solid white;
-    outline-offset: 4px;
-  }
-
-  /* COPYRIGHT */
 
   .copyright {
-    position: fixed;
-    bottom: 14px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    color: var(--text-colour);
-    z-index: 5;
-    pointer-events: none;
+    font-size: 10px;
   }
-
-  /* TABLET */
-
-  @media (min-width: 701px) and (max-width: 1100px) {
-    :root {
-      --page-gap: 18px;
-      --page-margin: 18px;
-    }
-
-    .project-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .item-text {
-      grid-column: span 2;
-    }
-  }
-
-  /* MOBILE */
-
-  @media (max-width: 700px) {
-    :root {
-      --page-gap: 12px;
-      --page-margin: 12px;
-    }
-
-    .header {
-      padding: 6px 16px 10px;
-      gap: 8px;
-    }
-
-    .symbol {
-      height: 40px;
-      margin-right: -6px;
-    }
-
-    .signature {
-      height: 60px;
-    }
-
-    .menu {
-      gap: 14px;
-    }
-
-    .menu a {
-      font-size: 14px;
-    }
-
-    .dropdown {
-      min-width: 200px;
-    }
-
-    .dropdown a {
-      font-size: 14px;
-    }
-
-    .project-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      padding-bottom: 80px;
-    }
-
-    .span-2,
-    .item-text {
-      grid-column: span 2;
-    }
-
-    .item-text img {
-      max-height: 300px;
-    }
-
-    .viewer {
-      padding: 50px 42px;
-    }
-
-    .viewer-stage img {
-      max-width: 100%;
-      max-height: 72vh;
-    }
-
-    .viewer-arrow {
-      font-size: 40px;
-    }
-
-    .viewer-arrow.prev {
-      left: 4px;
-    }
-
-    .viewer-arrow.next {
-      right: 4px;
-    }
-
-    .viewer-close {
-      top: 10px;
-      right: 12px;
-      font-size: 32px;
-    }
-
-    .viewer-counter {
-      bottom: 14px;
-      font-size: 12px;
-    }
-
-    .copyright {
-      font-size: 10px;
-    }
-  }
+}
 </style>
 </head>
 
 <body>
 
-  <!-- BACKGROUND -->
+<!-- BACKGROUND -->
 
-  <div class="bg">
-    <img src="P10907.jpg" alt="">
-  </div>
+<div class="bg">
+  <img src="P10907.jpg" alt="">
+</div>
 
-  <div class="overlay"></div>
+<div class="overlay"></div>
 
-  <!-- HEADER -->
+<!-- HEADER -->
 
-  <header class="header">
-    <a href="index.html" class="brand">
-      <img src="Symbol.png" alt="" class="symbol">
-      <img src="my_signature-2-thick.png"
-           alt="Giulia Fassone"
-           class="signature">
-    </a>
+<header class="header">
+  <a href="index.html" class="brand">
+    <img src="Symbol.png" alt="" class="symbol">
+    <img
+      src="my_signature-2-thick.png"
+      alt="Giulia Fassone"
+      class="signature">
+  </a>
 
-    <nav class="menu">
-      <div class="menu-item">
-        <a id="projects-toggle"
-           href="#projects-dropdown"
-           aria-expanded="false">Projects</a>
+  <nav class="menu">
+    <div class="menu-item">
+      <a
+        id="projects-toggle"
+        href="#projects-dropdown"
+        aria-expanded="false"
+        aria-controls="projects-dropdown">Projects</a>
 
-        <div class="dropdown" id="projects-dropdown">
-          <a href="appetite.html">Appetite</a>
-          <a href="lie-soft.html">Lie Soft</a>
-          <a href="archaeology-of-self.html">Archaeology Of Self</a>
-          <a href="ruderal-i.html">Ruderal I</a>
-          <a href="ruderal-ii.html">Ruderal II</a>
-          <a href="fruits-of-labour.html">Fruits of Labour</a>
-          <a href="the-remains-of-a-meal.html">The Remains Of A Meal</a>
-          <a href="tools.html">Tools</a>
-        </div>
+      <div class="dropdown" id="projects-dropdown">
+        <a href="appetite.html">Appetite</a>
+        <a href="lie-soft.html">Lie Soft</a>
+        <a href="archaeology-of-self.html">Archaeology Of Self</a>
+        <a href="ruderal-i.html">Ruderal I</a>
+        <a href="ruderal-ii.html">Ruderal II</a>
+        <a href="fruits-of-labour.html">Fruits of Labour</a>
+        <a href="the-remains-of-a-meal.html">The Remains Of A Meal</a>
+        <a href="tools.html">Tools</a>
       </div>
-
-      <a href="archive.html">Archive</a>
-      <a href="cv.html">CV</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <!-- PROJECT GALLERY -->
-
-  <main class="project-grid" id="project-gallery">
-
-    <div class="project-item">
-      <img src="Butter2.jpg"
-           alt=""
-           class="project-img">
     </div>
 
-    <div class="project-item">
-      <img src="Lie-Soft2.jpg"
-           alt=""
-           class="project-img">
-    </div>
+    <a href="archive.html">Archive</a>
+    <a href="cv.html">CV</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-    <div class="project-item span-2">
-      <img src="Cast-Moss-Fingers.jpg"
-           alt=""
-           class="project-img">
-    </div>
+<!-- PROJECT GALLERY -->
 
-    <div class="project-item">
-      <img src="Sin-Proof-2025.jpg"
-           alt=""
-           class="project-img">
-    </div>
+<main class="project-grid" id="project-gallery">
 
-    <div class="project-item">
-      <img src="Baton-P1100275-1-2.jpg"
-           alt=""
-           class="project-img">
-    </div>
+  <!-- FIRST ROW -->
 
-    <div class="project-item">
-      <img src="Hooked-stone-thumbnail.png"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item span-2">
-      <img src="Butter3.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item">
-      <img src="Lie_soft_text.png"
-           alt="Lie Soft — 2026"
-           class="project-img">
-    </div>
-
-    <div class="project-item">
-      <img src="Givetake2.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item span-2">
-      <img src="1.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item">
-      <img src="2.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item">
-      <img src="Butter-Fingers.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item span-2">
-      <img src="ClippedClamped.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item">
-      <img src="Cushion.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item">
-      <img src="Givetake.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item span-2">
-      <img src="Joint-pain.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-    <div class="project-item span-2">
-      <img src="Cushion-P1100288.jpg"
-           alt=""
-           class="project-img">
-    </div>
-
-  </main>
-
-  <!-- FULL-SCREEN VIEWER -->
-
-  <div class="viewer"
-       id="viewer"
-       role="dialog"
-       aria-modal="true"
-       aria-label="Lie Soft image gallery"
-       aria-hidden="true">
-
-    <button class="viewer-close"
-            id="viewer-close"
-            type="button"
-            aria-label="Close gallery">&times;</button>
-
-    <button class="viewer-arrow prev"
-            id="viewer-prev"
-            type="button"
-            aria-label="Previous image">&#8249;</button>
-
-    <div class="viewer-stage">
-      <img id="viewer-img" src="" alt="">
-    </div>
-
-    <button class="viewer-arrow next"
-            id="viewer-next"
-            type="button"
-            aria-label="Next image">&#8250;</button>
-
-    <div class="viewer-counter"
-         id="viewer-counter"
-         aria-live="polite"></div>
-
+  <div class="project-item">
+    <img
+      src="Butter2.jpg"
+      alt="Lie Soft project"
+      class="project-img"
+      fetchpriority="high"
+      decoding="async">
   </div>
 
-  <!-- COPYRIGHT -->
-
-  <div class="copyright">
-    © Giulia Fassone 2026. All rights reserved.
+  <div class="project-item">
+    <img
+      src="Lie-Soft2.jpg"
+      alt="Lie Soft project"
+      class="project-img"
+      fetchpriority="high"
+      decoding="async">
   </div>
 
-  <script>
-    /* PROJECTS DROPDOWN */
+  <div class="project-item span-2">
+    <img
+      src="Cast-Moss-Fingers.jpg"
+      alt="Cast Moss Fingers"
+      class="project-img"
+      fetchpriority="high"
+      decoding="async">
+  </div>
 
-    const toggle = document.getElementById('projects-toggle');
-    const dropdown = document.getElementById('projects-dropdown');
+  <div class="project-item">
+    <img
+      src="Sin-Proof-2025.jpg"
+      alt="Sin Proof, 2025"
+      class="project-img"
+      decoding="async">
+  </div>
 
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
+  <!-- TEXT IMAGE: NEAR THE TOP, HALF WIDTH -->
 
-      const isOpen = dropdown.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
+  <div class="project-item item-text">
+    <img
+      src="Lie_soft_text.png"
+      alt="Lie Soft — 2026"
+      class="project-img"
+      decoding="async">
+  </div>
+
+  <div class="project-item">
+    <img
+      src="Baton-P1100275-1-2.jpg"
+      alt="Lie Soft project"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item">
+    <img
+      src="Hooked-stone-thumbnail.png"
+      alt="Hooked stone"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item span-2">
+    <img
+      src="Butter3.jpg"
+      alt="Lie Soft project"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item">
+    <img
+      src="Givetake2.jpg"
+      alt="Give Take"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item span-2">
+    <img
+      src="1.jpg"
+      alt="Lie Soft project"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item">
+    <img
+      src="2.jpg"
+      alt="Lie Soft project"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item">
+    <img
+      src="Butter-Fingers.jpg"
+      alt="Butter Fingers"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item span-2">
+    <img
+      src="ClippedClamped.jpg"
+      alt="Clipped Clamped"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item">
+    <img
+      src="Cushion.jpg"
+      alt="Lie Soft project"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item">
+    <img
+      src="Givetake.jpg"
+      alt="Give Take"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item span-2">
+    <img
+      src="Joint-pain.jpg"
+      alt="Joint Pain"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="project-item span-2">
+    <img
+      src="Cushion-P1100288.jpg"
+      alt="Lie Soft project"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+</main>
+
+<!-- FULL-SCREEN IMAGE VIEWER: NO CLOSE BUTTON -->
+
+<div
+  class="viewer"
+  id="viewer"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Lie Soft image gallery"
+  aria-hidden="true">
+
+  <button
+    class="viewer-arrow prev"
+    id="viewer-prev"
+    type="button"
+    aria-label="Previous image">&#8249;</button>
+
+  <div class="viewer-stage">
+    <img id="viewer-img" src="" alt="">
+  </div>
+
+  <button
+    class="viewer-arrow next"
+    id="viewer-next"
+    type="button"
+    aria-label="Next image">&#8250;</button>
+
+  <div
+    class="viewer-counter"
+    id="viewer-counter"
+    aria-live="polite"></div>
+</div>
+
+<!-- COPYRIGHT -->
+
+<div class="copyright">
+  © Giulia Fassone 2026. All rights reserved.
+</div>
+
+<script>
+/* PROJECTS DROPDOWN */
+
+const toggle = document.getElementById('projects-toggle');
+const dropdown = document.getElementById('projects-dropdown');
+
+toggle.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const isOpen = dropdown.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+document.addEventListener('click', (e) => {
+  if (!toggle.contains(e.target) &&
+      !dropdown.contains(e.target)) {
+    dropdown.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+/* DENSE GRID LAYOUT */
+
+const gallery = document.getElementById('project-gallery');
+
+function packGallery() {
+  if (!gallery) return;
+
+  const styles = getComputedStyle(gallery);
+  const rowHeight =
+    parseFloat(styles.getPropertyValue('--grid-row')) || 8;
+  const rowGap = parseFloat(styles.rowGap) || 0;
+
+  gallery.querySelectorAll('.project-item').forEach(item => {
+    item.style.gridRowEnd = 'auto';
+  });
+
+  requestAnimationFrame(() => {
+    gallery.querySelectorAll('.project-item').forEach(item => {
+      const height = item.getBoundingClientRect().height;
+
+      const rows = Math.ceil(
+        (height + rowGap) / (rowHeight + rowGap)
+      );
+
+      item.style.gridRowEnd = `span ${rows}`;
     });
+  });
+}
 
-    document.addEventListener('click', (e) => {
-      if (!toggle.contains(e.target) &&
-          !dropdown.contains(e.target)) {
-        dropdown.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
+gallery.querySelectorAll('img').forEach(img => {
+  if (img.complete && img.naturalWidth > 0) {
+    packGallery();
+  } else {
+    img.addEventListener('load', packGallery, { once: true });
+    img.addEventListener('error', packGallery, { once: true });
+  }
+});
 
+window.addEventListener('resize', packGallery);
+window.addEventListener('load', packGallery);
 
-    /* IMAGE VIEWER */
+/* IMAGE VIEWER */
 
-    const viewer = document.getElementById('viewer');
-    const viewerImg = document.getElementById('viewer-img');
-    const viewerPrev = document.getElementById('viewer-prev');
-    const viewerNext = document.getElementById('viewer-next');
-    const viewerClose = document.getElementById('viewer-close');
-    const viewerCounter = document.getElementById('viewer-counter');
+const viewer = document.getElementById('viewer');
+const viewerImg = document.getElementById('viewer-img');
+const viewerPrev = document.getElementById('viewer-prev');
+const viewerNext = document.getElementById('viewer-next');
+const viewerCounter = document.getElementById('viewer-counter');
 
-    const projectImages = Array.from(
-      document.querySelectorAll('.project-img')
-    );
+const projectImages = Array.from(
+  document.querySelectorAll('.project-img')
+);
 
-    let currentIndex = 0;
-    let previouslyFocusedElement = null;
+let currentIndex = 0;
+let previouslyFocusedElement = null;
 
-    function showImage(index) {
-      if (projectImages.length === 0) return;
+function showImage(index) {
+  if (projectImages.length === 0) return;
 
-      currentIndex =
-        (index + projectImages.length) % projectImages.length;
+  currentIndex =
+    (index + projectImages.length) % projectImages.length;
 
-      const image = projectImages[currentIndex];
+  const image = projectImages[currentIndex];
 
-      viewerImg.src = image.src;
-      viewerImg.alt = image.alt || 'Lie Soft project image';
+  viewerImg.src = image.currentSrc || image.src;
+  viewerImg.alt = image.alt || 'Lie Soft project image';
 
-      viewerCounter.textContent =
-        `${currentIndex + 1} / ${projectImages.length}`;
-    }
+  viewerCounter.textContent =
+    `${currentIndex + 1} / ${projectImages.length}`;
+}
 
-    function openViewer(index) {
-      previouslyFocusedElement = document.activeElement;
+function openViewer(index) {
+  previouslyFocusedElement = document.activeElement;
 
-      showImage(index);
+  showImage(index);
 
-      viewer.classList.add('open');
-      viewer.setAttribute('aria-hidden', 'false');
+  viewer.classList.add('open');
+  viewer.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
 
-      document.body.style.overflow = 'hidden';
+  viewerNext.focus();
+}
 
-      viewerClose.focus();
-    }
+function closeViewer() {
+  viewer.classList.remove('open');
+  viewer.setAttribute('aria-hidden', 'true');
 
-    function closeViewer() {
-      viewer.classList.remove('open');
-      viewer.setAttribute('aria-hidden', 'true');
+  viewerImg.src = '';
+  viewerCounter.textContent = '';
 
-      viewerImg.src = '';
-      viewerCounter.textContent = '';
+  document.body.style.overflow = '';
 
-      document.body.style.overflow = '';
+  if (previouslyFocusedElement &&
+      typeof previouslyFocusedElement.focus === 'function') {
+    previouslyFocusedElement.focus();
+  }
+}
 
-      if (previouslyFocusedElement &&
-          typeof previouslyFocusedElement.focus === 'function') {
-        previouslyFocusedElement.focus();
-      }
-    }
+projectImages.forEach((image, index) => {
+  image.addEventListener('click', () => {
+    openViewer(index);
+  });
+});
 
-    projectImages.forEach((image, index) => {
-      image.addEventListener('click', () => {
-        openViewer(index);
-      });
-    });
+viewerPrev.addEventListener('click', (e) => {
+  e.stopPropagation();
+  showImage(currentIndex - 1);
+});
 
-    viewerPrev.addEventListener('click', (e) => {
-      e.stopPropagation();
-      showImage(currentIndex - 1);
-    });
+viewerNext.addEventListener('click', (e) => {
+  e.stopPropagation();
+  showImage(currentIndex + 1);
+});
 
-    viewerNext.addEventListener('click', (e) => {
-      e.stopPropagation();
-      showImage(currentIndex + 1);
-    });
+/* Click the dark background to close */
 
-    viewerClose.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeViewer();
-    });
+viewer.addEventListener('click', (e) => {
+  if (e.target === viewer) {
+    closeViewer();
+  }
+});
 
-    viewer.addEventListener('click', (e) => {
-      if (e.target === viewer) {
-        closeViewer();
-      }
-    });
+/* Keyboard controls */
 
-    document.addEventListener('keydown', (e) => {
-      if (!viewer.classList.contains('open')) return;
+document.addEventListener('keydown', (e) => {
+  if (!viewer.classList.contains('open')) return;
 
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        showImage(currentIndex - 1);
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        showImage(currentIndex + 1);
-      } else if (e.key === 'Escape') {
-        e.preventDefault();
-        closeViewer();
-      }
-    });
-  </script>
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    showImage(currentIndex - 1);
+  } else if (e.key === 'ArrowRight') {
+    e.preventDefault();
+    showImage(currentIndex + 1);
+  } else if (e.key === 'Escape') {
+    e.preventDefault();
+    closeViewer();
+  }
+});
+</script>
 
 </body>
 </html>
