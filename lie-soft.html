@@ -155,6 +155,7 @@ body {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 1600px;
   grid-auto-rows: var(--grid-row);
   grid-auto-flow: dense;
   gap: var(--grid-gap);
@@ -186,6 +187,15 @@ body {
 
 .span-2 {
   grid-column: span 2;
+}
+
+/* On wide screens, give the large images a little more breathing room. */
+@media (min-width: 1200px) {
+  .project-item.span-2 > .project-img {
+    width: 88%;
+    max-width: 88%;
+    margin-inline: auto;
+  }
 }
 
 /* PROJECT TEXT: HALF THE GALLERY */
@@ -536,6 +546,7 @@ body {
       src="optimized/Hooked-stone-thumbnail.webp"
       alt="Hooked stone"
       class="project-img"
+      data-no-viewer="true"
       loading="lazy"
       decoding="async">
   </div>
@@ -623,7 +634,7 @@ body {
 
   <div class="project-item span-2">
     <img
-      src="optimized/Cushion-P1100288.webp"
+      src="Cushion-P1100288.jpg"
       alt="Lie Soft project"
       class="project-img"
       loading="lazy"
@@ -741,7 +752,7 @@ const viewerNext = document.getElementById('viewer-next');
 const viewerCounter = document.getElementById('viewer-counter');
 
 const projectImages = Array.from(
-  document.querySelectorAll('.project-img')
+  document.querySelectorAll('.project-img:not([data-no-viewer="true"])')
 );
 
 let currentIndex = 0;
