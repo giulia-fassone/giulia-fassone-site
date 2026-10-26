@@ -118,6 +118,9 @@ body {
 .project-item:nth-child(5n + 3) img{width:88%;max-width:88%;margin-left:auto;margin-right:0}
 .project-item:nth-child(5n + 4) img{width:68%;max-width:68%;margin-left:16%;margin-right:auto}
 .project-item:nth-child(5n) img{width:92%;max-width:92%;margin-left:auto;margin-right:0}
+/* Text-bearing images must be legible at a glance */
+.project-item.item-text{width:100%;column-span:all;break-inside:avoid;margin:18px 0}
+.project-item.item-text img{display:block;width:100%;max-width:100%;height:auto;margin:0 auto}
 .span-2{grid-column:auto}
 .viewer {
   display: none;
