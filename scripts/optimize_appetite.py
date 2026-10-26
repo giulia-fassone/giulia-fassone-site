@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIR = ROOT / "originals" / "appetite"
 OUTPUT_DIR = ROOT / "optimized" / "appetite"
 REVIEW_PAGE = ROOT / "appetite-review.html"
-MAX_EDGE = 2400  # Re-run optimisation against the current originals whenever this script is updated
+MAX_EDGE = 2400  # Full regeneration after the latest Appetite originals upload
 
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff"}
 
