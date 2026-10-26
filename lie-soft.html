@@ -111,7 +111,7 @@ body {
 .project-item:nth-child(5n) img{width:92%;max-width:92%;margin-left:auto;margin-right:0}
 /* Text-bearing images must be legible at a glance */
 .project-item.item-text{width:100%;column-span:all;break-inside:avoid;margin:18px 0}
-.project-item.item-text img{display:block;width:112%;max-width:112%;height:auto;margin:-18px auto 0;position:relative;left:-6%}
+.project-item.item-text img{display:block;width:125%;max-width:125%;height:auto;margin:-34px auto 0;position:relative;left:-12.5%}
 .span-2 img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
 .project-item.enlarge img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
 .viewer {
@@ -339,6 +339,11 @@ body {
 }
 .dropdown a { padding: 6px 0; }
 
+
+/* Targeted size adjustments for the requested Lie Soft images */
+.project-item:has(img[src="optimized/Cast-Moss-Fingers.webp"]) img,
+.project-item:has(img[src="optimized/Givetake2.webp"]) img,
+.project-item:has(img[src="optimized/ClippedClamped.webp"]) img { width:100% !important; max-width:100% !important; margin-left:0 !important; margin-right:0 !important; }
 </style>
 </head>
 
