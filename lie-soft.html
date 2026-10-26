@@ -86,16 +86,7 @@ body {
 }
 
 .dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 10px;
-  padding: 0;
-  min-width: 240px;
-  background: none;
-  box-shadow: none;
-  z-index: 20;
+  display: none; position: absolute; top: 100%; left: 0; margin-top: 10px; min-width: 240px; z-index: 20;
 }
 
 .dropdown.open {
@@ -120,7 +111,7 @@ body {
 .project-item:nth-child(5n) img{width:92%;max-width:92%;margin-left:auto;margin-right:0}
 /* Text-bearing images must be legible at a glance */
 .project-item.item-text{width:100%;column-span:all;break-inside:avoid;margin:18px 0}
-.project-item.item-text img{display:block;width:100%;max-width:100%;height:auto;margin:0 auto}
+.project-item.item-text img{display:block;width:112%;max-width:112%;height:auto;margin:-18px auto 0;position:relative;left:-6%}
 .span-2 img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
 .project-item.enlarge img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
 .viewer {
@@ -334,6 +325,20 @@ body {
     font-size: 10px;
   }
 }
+
+/* Soft, frosted dropdown menu */
+.dropdown {
+  background: rgba(245, 242, 233, 0.68) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(115%);
+  backdrop-filter: blur(16px) saturate(115%);
+  border: 1px solid rgba(91, 44, 16, 0.07);
+  border-radius: 8px;
+  padding: 8px 14px !important;
+  box-shadow: 0 5px 18px rgba(30, 20, 10, 0.045) !important;
+  overflow: hidden;
+}
+.dropdown a { padding: 6px 0; }
+
 </style>
 </head>
 
