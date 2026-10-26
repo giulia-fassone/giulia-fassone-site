@@ -28,13 +28,7 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  background: transparent;
-}
+html,body{margin:0;padding:0;min-height:100%;background:#f5f2e9}
 
 body {
   font-family: Arial, sans-serif;
@@ -43,35 +37,7 @@ body {
 
 /* BACKGROUND */
 
-.bg {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.bg img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center bottom;
-}
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(120, 140, 210, 0.4);
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* HEADER */
-
+.bg,.overlay{display:none}
 .header {
   display: flex;
   align-items: center;
@@ -113,14 +79,7 @@ body {
   position: relative;
 }
 
-.menu a {
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  color: var(--yellow);
-  text-decoration: none;
-  cursor: pointer;
-  text-shadow: 2px 2px 6px #5454E5;
-}
+.menu a { font-family:Arial,sans-serif; font-size:20px; color:var(--text-colour); text-decoration:none; cursor:pointer; text-shadow:none; }
 
 .menu a:hover {
   color: var(--yellow);
@@ -152,70 +111,10 @@ body {
 
 /* PROJECT GALLERY */
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  max-width: 1600px;
-  grid-auto-rows: var(--grid-row);
-  grid-auto-flow: dense;
-  gap: var(--grid-gap);
-
-  width: 100%;
-  padding: var(--page-margin);
-  margin: 0 auto 100px;
-  align-items: start;
-}
-
-.project-item {
-  min-width: 0;
-  width: 100%;
-  align-self: start;
-  overflow: hidden;
-  cursor: zoom-in;
-}
-
-.project-item img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-
-/* Larger images */
-
-.span-2 {
-  grid-column: span 2;
-}
-
-/* On wide screens, give the large images a little more breathing room. */
-@media (min-width: 1200px) {
-  .project-item.span-2 > .project-img {
-    width: 88%;
-    max-width: 88%;
-    margin-inline: auto;
-  }
-}
-
-/* PROJECT TEXT: HALF THE GALLERY */
-
-.item-text {
-  grid-column: span 2;
-  width: 100%;
-  align-self: start;
-}
-
-.item-text img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: none;
-  object-fit: contain;
-}
-
-/* FULL-SCREEN IMAGE VIEWER */
-
+.project-grid{display:block;column-count:4;column-gap:var(--grid-gap);max-width:1600px;width:100%;padding:var(--page-margin);margin:0 auto 100px}
+.project-item{display:inline-block;vertical-align:top;width:100%;break-inside:avoid;min-width:0;margin:0 0 var(--grid-gap);padding:0;cursor:zoom-in}
+.project-item img{display:block;width:85%;max-width:85%;height:auto;object-fit:contain;margin:0 auto}
+.span-2{grid-column:auto}
 .viewer {
   display: none;
   position: fixed;
@@ -442,11 +341,7 @@ body {
 
 <!-- BACKGROUND -->
 
-<div class="bg">
-  <img src="P10907.jpg" alt="">
-</div>
 
-<div class="overlay"></div>
 
 <!-- HEADER -->
 
