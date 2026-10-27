@@ -102,8 +102,8 @@ body {
 
 /* PROJECT GALLERY */
 
-.project-grid{display:block;column-count:3;column-gap:18px;max-width:1600px;width:100%;padding:0.5in;margin:0 auto 100px;column-fill:balance}
-.project-item{display:inline-block;vertical-align:top;width:100%;break-inside:avoid;min-width:0;margin:0 0 18px;padding:0;cursor:zoom-in}
+.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:18px;max-width:1600px;width:100%;padding:0.5in;margin:0 auto 100px}
+.project-item{display:block;width:100%;min-width:0;margin:0;padding:0;cursor:zoom-in}
 .project-item img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;margin:0}
 .project-item:nth-child(5n + 2) img{width:78%;max-width:78%;margin-left:0}
 .project-item:nth-child(5n + 3) img{width:88%;max-width:88%;margin-left:auto;margin-right:0}
@@ -384,7 +384,7 @@ body {
       </div>
     </div>
 
-    <a href="archive.html">Archive</a>
+    <a href="sketchbook.html">Sketchbook</a>
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
   </nav>
