@@ -36,14 +36,17 @@ body { font-family:Arial,sans-serif; color:var(--text-colour); }
 }
 .dropdown.open { display:block; }
 .dropdown a { display:block; font-size:18px; padding:6px 0; white-space:nowrap; }
-.cv-wrap { width:min(1100px, calc(100% - 48px)); margin:26px auto 70px; }
-.cv-actions { display:flex; justify-content:flex-end; flex-wrap:wrap; gap:12px; margin:0 0 14px; }
-.cv-actions a {
-  color:var(--text-colour); border:1px solid var(--text-colour); padding:9px 14px;
-  text-decoration:none; font-size:14px; transition:background .2s,color .2s;
-}
-.cv-actions a:hover { background:var(--text-colour); color:var(--paper); }
-.cv-pdf { display:block; width:100%; height:calc(100vh - 205px); min-height:650px; border:1px solid rgba(91,44,16,.25); background:#fff; }
+.cv-wrap { width:min(920px, calc(100% - 48px)); margin:36px auto 70px; }
+
+.cv-name { font-family:'TaylorGothic',Arial,sans-serif; font-size:clamp(30px,4vw,44px); font-weight:normal; margin:0 0 10px; }
+.cv-bio { font-size:16px; line-height:1.55; max-width:800px; margin:0 0 30px; }
+.cv-section { border-top:1px solid var(--text-colour); border-bottom:1px solid var(--text-colour); padding:10px 0 12px; margin:28px 0 0; }
+.cv-section h2 { font-family:Arial,sans-serif; font-size:15px; font-weight:normal; letter-spacing:.08em; margin:0 0 12px; }
+.cv-entry { font-size:15px; line-height:1.5; margin:0 0 7px; }
+.cv-entry:last-child { margin-bottom:0; }
+.cv-entry em { font-style:italic; }
+.cv-note { font-size:13px; line-height:1.5; }
+
 .copyright { text-align:center; font-size:12px; padding:0 0 14px; color:var(--text-colour); }
 @media(max-width:700px) {
   .header { padding:6px 16px 10px; gap:8px; }
@@ -53,10 +56,11 @@ body { font-family:Arial,sans-serif; color:var(--text-colour); }
   .menu a { font-size:14px; }
   .dropdown { min-width:200px; }
   .dropdown a { font-size:14px; }
-  .cv-wrap { width:calc(100% - 24px); margin:18px auto 40px; }
-  .cv-actions { justify-content:flex-start; gap:8px; }
-  .cv-actions a { font-size:13px; padding:8px 10px; }
-  .cv-pdf { height:75vh; min-height:480px; }
+  .cv-wrap { width:calc(100% - 32px); margin:24px auto 40px; }
+  .cv-bio { font-size:14px; margin-bottom:24px; }
+  .cv-section { margin-top:22px; padding:9px 0 10px; }
+  .cv-section h2 { font-size:13px; }
+  .cv-entry { font-size:14px; }
   .copyright { font-size:10px; }
 }
 </style>
@@ -88,14 +92,68 @@ body { font-family:Arial,sans-serif; color:var(--text-colour); }
   </nav>
 </header>
 <main class="cv-wrap">
-  <div class="cv-actions">
-    <a href="Artist_CV_November_2026.pdf" target="_blank" rel="noopener">Open PDF</a>
-    <a href="Artist_CV_November_2026.pdf" download>Download PDF</a>
-    <a href="Artist_CV_November_2026.docx" download>Download Word document</a>
-  </div>
-  <iframe class="cv-pdf" src="Artist_CV_November_2026.pdf#view=FitH" title="Giulia Fassone artist CV">
-    <p>Your browser cannot display the PDF. Use the Open PDF or Download PDF button above.</p>
-  </iframe>
+  <h1 class="cv-name">Giulia Fassone</h1>
+  <p class="cv-bio">Italian-British post-disciplinary artist working across painting, sculpture, ceramics, installation, and performance to explore memory, ecology, and the transformation of matter.</p>
+
+  <section class="cv-section">
+    <h2>SOLO EXHIBITIONS</h2>
+    <p class="cv-entry">2025 — <em>Appetite</em>, Nunhead Cemetery Chapel, London, UK</p>
+  </section>
+
+  <section class="cv-section">
+    <h2>SELECTED EXHIBITIONS</h2>
+    <p class="cv-entry">2026 — <em>Uncut Hairitage</em>, The Bohemians Space, London, UK</p>
+    <p class="cv-entry">2025 — <em>Ruderal II</em>, Peckham, London, UK</p>
+    <p class="cv-entry">2025 — <em>False Starts</em>, Hartslane Gallery, London, UK</p>
+    <p class="cv-entry">2025 — <em>Ruderal I</em>, Forest Hill, London, UK</p>
+    <p class="cv-entry">2025 — <em>Redcar Contemporary Summer Show</em>, Redcar, UK</p>
+    <p class="cv-entry">2024 — <em>South Open 2</em>, OHSH Projects, Peckham Arches, London, UK</p>
+    <p class="cv-entry">2024 — <em>Structural Damage</em>, No Format Gallery, London, UK</p>
+    <p class="cv-entry">2023 — <em>Let Them Eat Fake II</em>, Brushes With Greatness Gallery, London, UK</p>
+    <p class="cv-entry">2023 — <em>Corporeal Spirit</em>, Goldsmiths University of London, UK</p>
+    <p class="cv-entry">2023 — <em>Ink &amp; Roll</em>, Art Hub Studios, London, UK</p>
+    <p class="cv-entry">2022 — <em>Let Them Eat Fake I</em> (Bad Art Presents), Bomb Factory Gallery, London, UK</p>
+    <p class="cv-entry">2022 — <em>The Way We Rise</em>, Hartslane Gallery, London, UK</p>
+  </section>
+
+  <section class="cv-section">
+    <h2>RESIDENCIES</h2>
+    <p class="cv-entry">2026 — La Ceiba Gráfica, Mexico</p>
+    <p class="cv-entry">2024 — Queille Chateau Residency, France</p>
+    <p class="cv-entry">2023 — Grund 1535, Austria</p>
+    <p class="cv-entry">2023 — Guldagergaard International Ceramic Research Centre, Denmark</p>
+  </section>
+
+  <section class="cv-section">
+    <h2>AWARDS &amp; SCHOLARSHIPS</h2>
+    <p class="cv-entry">2018 — Peter Kirk Fund Scholarship, research project on the lives and culture of Romani women across Europe</p>
+  </section>
+
+  <section class="cv-section">
+    <h2>EDUCATION</h2>
+    <p class="cv-entry">2025–2026 — MA Fine Art, Goldsmiths, University of London</p>
+    <p class="cv-entry">2023–2024 — Graduate Diploma in Fine Art, Goldsmiths, University of London</p>
+    <p class="cv-entry">2020–2021 — PGCE in Art and Design, Goldsmiths, University of London</p>
+    <p class="cv-entry">2016–2018 — MA in Cultural Studies, Goldsmiths, University of London</p>
+    <p class="cv-entry">2015–2016 — Graduate Diploma in History of Art, Courtauld Institute of Art, London</p>
+    <p class="cv-entry">2011–2014 — BA in Philosophy, Sapienza University of Rome, Italy</p>
+  </section>
+
+  <section class="cv-section">
+    <h2>PUBLICATIONS &amp; ARTIST TALKS</h2>
+    <p class="cv-entry">2026 — Artist Talk, Feminist Lecture Program</p>
+    <p class="cv-entry">2025 — Artist Talk, The Kiln Rooms, London, UK</p>
+    <p class="cv-entry">2025 — <em>Seedlings Magazine</em>, Winter 2024/25 issue</p>
+    <p class="cv-entry">2025 — <em>Thresholds Magazine</em>, Issue 1</p>
+    <p class="cv-entry">2024 — Artist Talk, No Format Gallery, London, UK</p>
+    <p class="cv-entry">2024 — <em>Kompost Kulturmagazin</em>, 2023 issue</p>
+    <p class="cv-entry">2021 — <em>Gobjaw Poetry Magazine</em>, No. 8</p>
+  </section>
+
+  <section class="cv-section">
+    <h2>ASSISTING &amp; FABRICATION</h2>
+    <p class="cv-entry">2022 — Installation Assistant, <em>Ozymandias</em>, site-specific installation, Royal Salines of Arc-et-Senans, France</p>
+  </section>
 </main>
 <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 <script>
