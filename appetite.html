@@ -20,11 +20,31 @@
 .dropdown.open{display:block}
 .dropdown a{display:block;font-size:18px;padding:6px 0;white-space:nowrap}
 
-/* CLEAN 3-COLUMN GRID */
-.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:var(--grid-gap);max-width:1600px;width:100%;padding:var(--page-margin);margin:0 auto 100px}
-.project-item{display:block;width:100%;min-width:0;margin:0;padding:0;cursor:zoom-in}
-.project-item.span-2{grid-column:span 2}
-.project-item img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;margin:0}
+/* MASONRY LAYOUT (Fills gaps automatically) */
+.project-grid {
+  column-count: 3;
+  column-gap: var(--grid-gap);
+  max-width: 1600px;
+  width: 100%;
+  padding: var(--page-margin);
+  margin: 0 auto 100px;
+}
+
+.project-item {
+  display: inline-block; /* Required for column layout */
+  width: 100%;
+  margin-bottom: var(--grid-gap);
+  padding: 0;
+  cursor: zoom-in;
+  break-inside: avoid; /* Stops images from splitting across columns */
+}
+
+.project-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 
 /* CAROUSEL */
 .viewer{display:none;position:fixed;inset:0;padding:60px 90px;background:rgba(30,20,10,.94);align-items:center;justify-content:center;z-index:99999;cursor:zoom-out}
@@ -50,8 +70,13 @@
   .menu a{font-size:14px}
   .dropdown{min-width:200px}
   .dropdown a{font-size:14px}
-  .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding-bottom:80px;gap:18px}
-  .project-item.span-2{grid-column:span 1}
+  
+  /* Change to 2 columns on mobile */
+  .project-grid {
+    column-count: 2;
+    padding-bottom: 80px;
+  }
+  
   .viewer{padding:50px 42px}
   .viewer-stage img{max-height:72vh}
   .prev{left:2px}
@@ -91,7 +116,7 @@
 
 <main class="project-grid" id="project-gallery">
   
-  <figure class="project-item span-2">
+  <figure class="project-item">
     <img src="optimized/appetite/P1090725-fotor-20250914114842.webp" alt="Appetite" class="project-img">
   </figure>
   
@@ -104,7 +129,7 @@
   </figure>
 
   <!-- THE FIXED IMAGE -->
-  <figure class="project-item span-2">
+  <figure class="project-item">
     <img src="result.jpg" alt="Appetite" class="project-img">
   </figure>
 
@@ -136,7 +161,7 @@
     <img src="optimized/appetite/Telling The Bees Performance nn.jpeg-2_result.webp" alt="Appetite" class="project-img">
   </figure>
 
-  <figure class="project-item span-2">
+  <figure class="project-item">
     <img src="optimized/appetite/IMG_0751-fotor-20250914191224.webp" alt="Appetite" class="project-img">
   </figure>
 
