@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5B2C10">
+<title>CV — Giulia Fassone</title>
+<style>
+@font-face {
+  font-family: 'TaylorGothic';
+  src: url('Taylor-Gothic.woff2') format('woff2'),
+       url('Taylor-Gothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+:root { --text-colour:#5B2C10; --yellow:#FFED00; --paper:#f5f2e9; }
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; min-height:100%; background:var(--paper); }
+body { font-family:Arial,sans-serif; color:var(--text-colour); }
+.header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:4px 20px; flex-wrap:wrap; gap:12px; position:relative; z-index:10;
+}
+.brand { display:flex; align-items:center; margin-left:-20px; text-decoration:none; }
+.symbol { height:54px; width:auto; display:block; margin-right:-10px; }
+.signature { height:108px; width:auto; display:block; }
+.menu { display:flex; gap:28px; align-items:baseline; }
+.menu-item { position:relative; }
+.menu a { font-family:Arial,sans-serif; font-size:20px; color:var(--text-colour); text-decoration:none; cursor:pointer; }
+.menu a:hover { color:var(--yellow); }
+.dropdown {
+  display:none; position:absolute; top:100%; left:0; margin-top:10px; min-width:240px; z-index:20;
+  background:rgba(245,242,233,.88); -webkit-backdrop-filter:blur(16px) saturate(115%);
+  backdrop-filter:blur(16px) saturate(115%); border:1px solid rgba(91,44,16,.07);
+  border-radius:8px; padding:8px 14px; box-shadow:0 5px 18px rgba(30,20,10,.045);
+}
+.dropdown.open { display:block; }
+.dropdown a { display:block; font-size:18px; padding:6px 0; white-space:nowrap; }
+.cv-wrap { width:min(1100px, calc(100% - 48px)); margin:26px auto 70px; }
+.cv-actions { display:flex; justify-content:flex-end; flex-wrap:wrap; gap:12px; margin:0 0 14px; }
+.cv-actions a {
+  color:var(--text-colour); border:1px solid var(--text-colour); padding:9px 14px;
+  text-decoration:none; font-size:14px; transition:background .2s,color .2s;
+}
+.cv-actions a:hover { background:var(--text-colour); color:var(--paper); }
+.cv-pdf { display:block; width:100%; height:calc(100vh - 205px); min-height:650px; border:1px solid rgba(91,44,16,.25); background:#fff; }
+.copyright { text-align:center; font-size:12px; padding:0 0 14px; color:var(--text-colour); }
+@media(max-width:700px) {
+  .header { padding:6px 16px 10px; gap:8px; }
+  .symbol { height:40px; margin-right:-6px; }
+  .signature { height:60px; }
+  .menu { gap:14px; }
+  .menu a { font-size:14px; }
+  .dropdown { min-width:200px; }
+  .dropdown a { font-size:14px; }
+  .cv-wrap { width:calc(100% - 24px); margin:18px auto 40px; }
+  .cv-actions { justify-content:flex-start; gap:8px; }
+  .cv-actions a { font-size:13px; padding:8px 10px; }
+  .cv-pdf { height:75vh; min-height:480px; }
+  .copyright { font-size:10px; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <a href="index.html" class="brand">
+    <img src="Symbol.png" alt="" class="symbol">
+    <img src="my_signature-2-thick.png" alt="Giulia Fassone" class="signature">
+  </a>
+  <nav class="menu">
+    <div class="menu-item">
+      <a id="projects-toggle" href="#projects-dropdown" aria-expanded="false" aria-controls="projects-dropdown">Projects</a>
+      <div class="dropdown" id="projects-dropdown">
+        <a href="appetite.html">Appetite</a>
+        <a href="lie-soft.html">Lie Soft</a>
+        <a href="archaeology-of-self.html">Archaeology Of Self</a>
+        <a href="ruderal-i.html">Ruderal I</a>
+        <a href="ruderal-ii.html">Ruderal II</a>
+        <a href="fruits-of-labour.html">Fruits of Labour</a>
+        <a href="the-remains-of-a-meal.html">The Remains Of A Meal</a>
+        <a href="tools.html">Tools</a>
+        <a href="sketchbook.html">Sketchbook</a>
+      </div>
+    </div>
+    <a href="sketchbook.html">Sketchbook</a>
+    <a href="cv.html" aria-current="page">CV</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<main class="cv-wrap">
+  <div class="cv-actions">
+    <a href="Artist_CV_November_2026.pdf" target="_blank" rel="noopener">Open PDF</a>
+    <a href="Artist_CV_November_2026.pdf" download>Download PDF</a>
+    <a href="Artist_CV_November_2026.docx" download>Download Word document</a>
+  </div>
+  <iframe class="cv-pdf" src="Artist_CV_November_2026.pdf#view=FitH" title="Giulia Fassone artist CV">
+    <p>Your browser cannot display the PDF. Use the Open PDF or Download PDF button above.</p>
+  </iframe>
+</main>
+<div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
+<script>
+const toggle = document.getElementById('projects-toggle');
+const dropdown = document.getElementById('projects-dropdown');
+toggle.addEventListener('click', (e) => {
+  e.preventDefault();
+  const isOpen = dropdown.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(isOpen));
+});
+document.addEventListener('click', (e) => {
+  if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+    dropdown.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>
+</body>
+</html>
