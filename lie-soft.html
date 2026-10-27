@@ -344,6 +344,18 @@ body {
 .project-item:has(img[src="optimized/Cast-Moss-Fingers.webp"]) img,
 .project-item:has(img[src="optimized/Givetake2.webp"]) img,
 .project-item:has(img[src="optimized/ClippedClamped.webp"]) img { width:100% !important; max-width:100% !important; margin-left:0 !important; margin-right:0 !important; }
+
+/* Pinterest-style masonry grid, matching Appetite */
+.project-grid{display:block!important;column-count:3;column-gap:var(--grid-gap);max-width:1600px;width:100%;padding:var(--page-margin);margin:0 auto 100px;}
+.project-grid .project-item{display:inline-block;width:100%;margin:0 0 var(--grid-gap);padding:0;break-inside:avoid;vertical-align:top;}
+.project-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain;}
+.project-grid .span-2,.project-grid .item-text{grid-column:auto!important;column-span:none!important;}
+.lie-soft-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--grid-gap);max-width:1600px;width:100%;padding:var(--page-margin);margin:0 auto;align-items:start;}
+.lie-soft-feature-grid .feature-image{grid-column:1;grid-row:1;}
+.lie-soft-feature-grid .feature-text{grid-column:2 / span 2;grid-row:1;}
+.lie-soft-feature-grid .project-item{display:block;width:100%;min-width:0;margin:0;padding:0;cursor:zoom-in;}
+.lie-soft-feature-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain;}
+@media(max-width:700px){.project-grid{column-count:2;padding-bottom:80px}.lie-soft-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px;gap:12px}.lie-soft-feature-grid .feature-image{grid-column:1;grid-row:1}.lie-soft-feature-grid .feature-text{grid-column:2;grid-row:1}}
 </style>
 </head>
 
@@ -392,9 +404,25 @@ body {
 
 <!-- PROJECT GALLERY -->
 
+<section class="lie-soft-feature-grid" aria-label="Featured Lie Soft images">
+<div class="project-item feature-image">
+    <img
+      src="optimized/Baton-P1100275-1-2.webp"
+      alt="Lie Soft project"
+      class="project-img"
+      loading="lazy"
+      decoding="async">
+  </div>
+<div class="project-item feature-text">
+    <img
+      src="optimized/Lie_soft_text.webp"
+      alt="Lie Soft — 2026"
+      class="project-img"
+      decoding="async">
+  </div>
+</section>
 <main class="project-grid" id="project-gallery">
-
-  <div class="project-item span-2">
+<div class="project-item span-2">
     <img
       src="optimized/Butter2.webp"
       alt="Lie Soft project"
@@ -403,7 +431,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item">
+<div class="project-item">
     <img
       src="optimized/Lie-Soft2.webp"
       alt="Lie Soft project"
@@ -412,15 +440,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item item-text">
-    <img
-      src="optimized/Lie_soft_text.webp"
-      alt="Lie Soft — 2026"
-      class="project-img"
-      decoding="async">
-  </div>
-
-  <div class="project-item span-2">
+<div class="project-item span-2">
     <img
       src="optimized/Cast-Moss-Fingers.webp"
       alt="Cast Moss Fingers"
@@ -429,7 +449,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item span-2">
+<div class="project-item span-2">
     <img
       src="optimized/Sin-Proof-2025.webp"
       alt="Sin Proof, 2025"
@@ -437,16 +457,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item span-2">
-    <img
-      src="optimized/Baton-P1100275-1-2.webp"
-      alt="Lie Soft project"
-      class="project-img"
-      loading="lazy"
-      decoding="async">
-  </div>
-
-  <div class="project-item">
+<div class="project-item">
     <img
       src="optimized/Hooked-stone-thumbnail.webp"
       alt="Hooked stone"
@@ -456,7 +467,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item span-2">
+<div class="project-item span-2">
     <img
       src="optimized/Butter3.webp"
       alt="Lie Soft project"
@@ -465,7 +476,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item span-2">
+<div class="project-item span-2">
     <img
       src="optimized/Givetake2.webp"
       alt="Give Take"
@@ -474,7 +485,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item span-2">
+<div class="project-item span-2">
     <img
       src="optimized/1.webp"
       alt="Lie Soft project"
@@ -483,7 +494,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item">
+<div class="project-item">
     <img
       src="optimized/2.webp"
       alt="Lie Soft project"
@@ -492,7 +503,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item">
+<div class="project-item">
     <img
       src="optimized/Butter-Fingers.webp"
       alt="Butter Fingers"
@@ -501,7 +512,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item span-2">
+<div class="project-item span-2">
     <img
       src="optimized/ClippedClamped.webp"
       alt="Clipped Clamped"
@@ -510,7 +521,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item span-2">
+<div class="project-item span-2">
     <img
       src="optimized/Cushion.webp"
       alt="Lie Soft project"
@@ -519,7 +530,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item span-2">
+<div class="project-item span-2">
     <img
       src="optimized/Givetake.webp"
       alt="Give Take"
@@ -528,7 +539,7 @@ body {
       decoding="async">
   </div>
 
-  <div class="project-item">
+<div class="project-item">
     <img
       src="optimized/Joint-pain.webp"
       alt="Joint Pain"
@@ -536,8 +547,6 @@ body {
       loading="lazy"
       decoding="async">
   </div>
-
-
 </main>
 
 <!-- FULL-SCREEN IMAGE VIEWER: NO CLOSE BUTTON -->
@@ -598,47 +607,6 @@ document.addEventListener('click', (e) => {
     toggle.setAttribute('aria-expanded', 'false');
   }
 });
-
-/* DENSE GRID LAYOUT */
-
-const gallery = document.getElementById('project-gallery');
-
-function packGallery() {
-  if (!gallery) return;
-
-  const styles = getComputedStyle(gallery);
-  const rowHeight =
-    parseFloat(styles.getPropertyValue('--grid-row')) || 8;
-  const rowGap = parseFloat(styles.rowGap) || 0;
-
-  gallery.querySelectorAll('.project-item').forEach(item => {
-    item.style.gridRowEnd = 'auto';
-  });
-
-  requestAnimationFrame(() => {
-    gallery.querySelectorAll('.project-item').forEach(item => {
-      const height = item.getBoundingClientRect().height;
-
-      const rows = Math.ceil(
-        (height + rowGap) / (rowHeight + rowGap)
-      );
-
-      item.style.gridRowEnd = `span ${rows}`;
-    });
-  });
-}
-
-gallery.querySelectorAll('img').forEach(img => {
-  if (img.complete && img.naturalWidth > 0) {
-    packGallery();
-  } else {
-    img.addEventListener('load', packGallery, { once: true });
-    img.addEventListener('error', packGallery, { once: true });
-  }
-});
-
-window.addEventListener('resize', packGallery);
-window.addEventListener('load', packGallery);
 
 /* IMAGE VIEWER */
 
