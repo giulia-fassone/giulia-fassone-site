@@ -20,13 +20,10 @@
 .dropdown.open{display:block}
 .dropdown a{display:block;font-size:18px;padding:6px 0;white-space:nowrap}
 
-/* 4-COLUMN STAGGERED GRID */
+/* PINTEREST GRID (Flows to fill gaps) */
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-flow: dense;
-  align-items: start;
-  gap: var(--grid-gap);
+  column-count: 3;
+  column-gap: var(--grid-gap);
   max-width: 1600px;
   width: 100%;
   padding: var(--page-margin);
@@ -34,25 +31,19 @@
 }
 
 .project-item {
-  display: block;
+  display: inline-block;
   width: 100%;
-  min-width: 0;
-  margin: 0;
+  margin-bottom: var(--grid-gap);
   padding: 0;
   cursor: zoom-in;
-}
-
-.project-item.span-2 {
-  grid-column: span 2;
+  break-inside: avoid;
 }
 
 .project-item img {
   display: block;
   width: 100%;
-  max-width: 100%;
   height: auto;
   object-fit: contain;
-  margin: 0;
 }
 
 /* CAROUSEL */
@@ -81,10 +72,9 @@
   .dropdown a{font-size:14px}
   
   .project-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-count: 2;
     padding-bottom: 80px;
   }
-  .project-item.span-2 { grid-column: span 1; }
   
   .viewer{padding:50px 42px}
   .viewer-stage img{max-height:72vh}
@@ -125,7 +115,7 @@
 
 <main class="project-grid" id="project-gallery">
   
-  <figure class="project-item span-2">
+  <figure class="project-item">
     <img src="optimized/appetite/P1090725-fotor-20250914114842.webp" alt="Appetite" class="project-img">
   </figure>
   
@@ -137,8 +127,8 @@
     <img src="optimized/appetite/P1090744-fotor-20250913111443_result.webp" alt="Appetite" class="project-img">
   </figure>
 
-  <!-- YOUR RESULT IMAGE IS RIGHT HERE -->
-  <figure class="project-item span-2">
+  <!-- HERE IS YOUR RESULT IMAGE -->
+  <figure class="project-item">
     <img src="result.jpg" alt="Appetite" class="project-img">
   </figure>
 
@@ -170,7 +160,7 @@
     <img src="optimized/appetite/Telling The Bees Performance nn.jpeg-2_result.webp" alt="Appetite" class="project-img">
   </figure>
 
-  <figure class="project-item span-2">
+  <figure class="project-item">
     <img src="optimized/appetite/IMG_0751-fotor-20250914191224.webp" alt="Appetite" class="project-img">
   </figure>
 
