@@ -31,6 +31,13 @@
 .dropdown a { padding: 6px 0; }
 
 
+
+/* Pinterest-style masonry grid, matching Appetite */
+.project-grid{display:block!important;column-count:3;column-gap:var(--grid-gap,18px);max-width:1600px;width:100%;padding:var(--page-margin,.5in);margin:0 auto 100px;}
+.project-grid .project-item{display:inline-block;width:100%;margin:0 0 var(--grid-gap,18px);padding:0;break-inside:avoid;vertical-align:top;}
+.project-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain;}
+.project-grid .span-2,.project-grid .item-text{grid-column:auto!important;column-span:none!important;}
+@media(max-width:700px){.project-grid{column-count:2;padding-bottom:80px;column-gap:12px}.project-grid .project-item{margin-bottom:12px}}
 </style></head><body>
 <header class="header"><a href="index.html" class="brand"><img src="Symbol.png" alt="" class="symbol"><img src="my_signature-2-thick.png" alt="Giulia Fassone" class="signature"></a><nav class="menu"><div class="menu-item"><a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a><div class="dropdown" id="projects-dropdown"><a href="appetite.html">Appetite</a><a href="lie-soft.html">Lie Soft</a><a href="archaeology-of-self.html">Archaeology Of Self</a><a href="ruderal-i.html">Ruderal I</a><a href="ruderal-ii.html">Ruderal II</a><a href="fruits-of-labour.html">Fruits of Labour</a><a href="the-remains-of-a-meal.html">The Remains Of A Meal</a><a href="tools.html">Tools</a><a href="sketchbook.html">Sketchbook</a></div></div><a href="sketchbook.html">Sketchbook</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></nav></header>
 <main class="project-grid" id="project-gallery">
