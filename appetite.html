@@ -30,6 +30,15 @@
   margin: 0 auto 100px;
 }
 
+/* Featured image spans the full three-column gallery before the Pinterest feed */
+.featured-image {
+  display:block;
+  width:100%;
+  column-span:all;
+  margin-bottom:var(--grid-gap);
+}
+.featured-image img { width:100%; height:auto; }
+
 .project-item {
   display: inline-block;
   width: 100%;
@@ -114,6 +123,11 @@
 </header>
 
 <main class="project-grid" id="project-gallery">
+  <!-- HERE IS YOUR RESULT IMAGE -->
+  <figure class="project-item featured-image">
+    <img src="optimized/appetite/result.webp" alt="Appetite" class="project-img">
+  </figure>
+
   
   <figure class="project-item">
     <img src="optimized/appetite/P1090725-fotor-20250914114842.webp" alt="Appetite" class="project-img">
@@ -125,11 +139,6 @@
   
   <figure class="project-item">
     <img src="optimized/appetite/P1090744-fotor-20250913111443_result.webp" alt="Appetite" class="project-img">
-  </figure>
-
-  <!-- HERE IS YOUR RESULT IMAGE -->
-  <figure class="project-item">
-    <img src="optimized/appetite/result.webp" alt="Appetite" class="project-img">
   </figure>
 
   <figure class="project-item">
