@@ -1,109 +1,231 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#5B2C10"><title>Appetite — Giulia Fassone</title><style>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#5B2C10">
+<title>Appetite — Giulia Fassone</title>
+<style>
 @font-face{font-family:TaylorGothic;src:url('Taylor-Gothic.woff2') format('woff2'),url('Taylor-Gothic.woff') format('woff')}
 :root{--page-margin:.5in;--grid-gap:18px;--text:#5B2C10;--yellow:#FFED00}*{box-sizing:border-box}html,body{margin:0;padding:0;min-height:100%;background:#f5f2e9}body{font-family:Arial,sans-serif;color:var(--text)}
-.bg,.overlay{display:none}
-.header{display:flex;align-items:center;justify-content:space-between;padding:4px 20px;flex-wrap:wrap;gap:12px;position:relative;z-index:10}.brand{display:flex;align-items:center;margin-left:-20px;text-decoration:none}.symbol{height:54px;width:auto;display:block;margin-right:-10px}.signature{height:108px;width:auto;display:block}.menu{display:flex;gap:28px;align-items:baseline}.menu-item{position:relative}.menu a{font-size:20px;color:var(--text);text-decoration:none;text-shadow:none;cursor:pointer}.dropdown{display:none;position:absolute;top:100%;left:0;margin-top:10px;min-width:240px;z-index:20}.dropdown.open{display:block}.dropdown a{display:block;font-size:18px;padding:6px 0;white-space:nowrap}
-.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:18px;max-width:1600px;width:100%;padding:0.5in;margin:0 auto 100px}
-/* Keep every project image in one of the three desktop columns. */
-.project-item.span-2{grid-column:auto}
-.project-item{display:block;width:100%;min-width:0;margin:0;padding:0;cursor:zoom-in}.project-item.span-2{grid-column:span 2}
+
+.header{display:flex;align-items:center;justify-content:space-between;padding:4px 20px;flex-wrap:wrap;gap:12px;position:relative;z-index:10}
+.brand{display:flex;align-items:center;margin-left:-20px;text-decoration:none}
+.symbol{height:54px;width:auto;display:block;margin-right:-10px}
+.signature{height:108px;width:auto;display:block}
+.menu{display:flex;gap:28px;align-items:baseline}
+.menu-item{position:relative}
+.menu a{font-size:20px;color:var(--text);text-decoration:none;text-shadow:none;cursor:pointer}
+.dropdown{display:none;position:absolute;top:100%;left:0;margin-top:10px;min-width:240px;z-index:20}
+.dropdown.open{display:block}
+.dropdown a{display:block;font-size:18px;padding:6px 0;white-space:nowrap}
+
+/* CLEAN 3-COLUMN GRID */
+.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:var(--grid-gap);max-width:1600px;width:100%;padding:var(--page-margin);margin:0 auto 100px}
+.project-item{display:block;width:100%;min-width:0;margin:0;padding:0;cursor:zoom-in}
+.project-item.span-2{grid-column:span 2}
 .project-item img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;margin:0}
-.project-item:nth-child(5n + 2) img{width:78%;max-width:78%;margin-left:0}
-.project-item:nth-child(5n + 3) img{width:88%;max-width:88%;margin-left:auto;margin-right:0}
-.project-item:nth-child(5n + 4) img{width:68%;max-width:68%;margin-left:16%;margin-right:auto}
-.project-item:nth-child(5n) img{width:92%;max-width:92%;margin-left:auto;margin-right:0}
-.project-item.enlarge img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
-.span-2 img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
-.project-item.enlarge img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
-.viewer{display:none;position:fixed;inset:0;padding:60px 90px;background:rgba(30,20,10,.94);align-items:center;justify-content:center;z-index:99999;cursor:zoom-out}.viewer.open{display:flex}.viewer-stage{display:flex;width:100%;height:100%;align-items:center;justify-content:center}.viewer-stage img{display:block;width:auto;height:auto;max-width:100%;max-height:78vh;object-fit:contain}.viewer-arrow{position:absolute;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:34px;height:56px;padding:0;border:0;background:transparent;color:var(--yellow);cursor:pointer;z-index:100001}.viewer-arrow svg{width:23px;height:38px;fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}.prev{left:24px}.next{right:24px}.viewer-counter{position:absolute;bottom:18px;left:0;width:100%;color:var(--yellow);text-align:center;font:14px Arial,sans-serif;pointer-events:none}.copyright{position:fixed;bottom:14px;left:0;width:100%;text-align:center;font:12px Arial,sans-serif;color:var(--text);z-index:5;pointer-events:none}
-@media(min-width:701px) and (max-width:1100px){:root{--grid-gap:14px;--page-margin:18px}.project-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:700px){:root{--grid-gap:12px;--page-margin:12px}.header{padding:6px 16px 10px;gap:8px}.symbol{height:40px;margin-right:-6px}.signature{height:60px}.menu{gap:14px}.menu a{font-size:14px}.dropdown{min-width:200px}.dropdown a{font-size:14px}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding-bottom:80px;gap:18px}.span-2 img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
-.project-item.enlarge img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}.viewer{padding:50px 42px}.viewer-stage img{max-height:72vh}.prev{left:2px}.next{right:2px}.viewer-counter{bottom:14px;font-size:12px}.copyright{font-size:10px}}
+
+/* CAROUSEL */
+.viewer{display:none;position:fixed;inset:0;padding:60px 90px;background:rgba(30,20,10,.94);align-items:center;justify-content:center;z-index:99999;cursor:zoom-out}
+.viewer.open{display:flex}
+.viewer-stage{display:flex;width:100%;height:100%;align-items:center;justify-content:center}
+.viewer-stage img{display:block;width:auto;height:auto;max-width:100%;max-height:78vh;object-fit:contain}
+.viewer-arrow{position:absolute;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:34px;height:56px;padding:0;border:0;background:transparent;color:var(--yellow);cursor:pointer;z-index:100001}
+.viewer-arrow svg{width:23px;height:38px;fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+.prev{left:24px}
+.next{right:24px}
+.viewer-counter{position:absolute;bottom:18px;left:0;width:100%;color:var(--yellow);text-align:center;font:14px Arial,sans-serif;pointer-events:none}
+.copyright{position:fixed;bottom:14px;left:0;width:100%;text-align:center;font:12px Arial,sans-serif;color:var(--text);z-index:5;pointer-events:none}
 
 /* Soft, frosted dropdown menu */
-.dropdown {
-  background: rgba(245, 242, 233, 0.68) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(115%);
-  backdrop-filter: blur(16px) saturate(115%);
-  border: 1px solid rgba(91, 44, 16, 0.07);
-  border-radius: 8px;
-  padding: 8px 14px !important;
-  box-shadow: 0 5px 18px rgba(30, 20, 10, 0.045) !important;
-  overflow: hidden;
+.dropdown{background:rgba(245,242,233,0.68)!important;-webkit-backdrop-filter:blur(16px) saturate(115%);backdrop-filter:blur(16px) saturate(115%);border:1px solid rgba(91,44,16,0.07);border-radius:8px;padding:8px 14px!important;box-shadow:0 5px 18px rgba(30,20,10,0.045)!important;overflow:hidden}
+
+@media(max-width:700px){
+  :root{--grid-gap:12px;--page-margin:12px}
+  .header{padding:6px 16px 10px;gap:8px}
+  .symbol{height:40px;margin-right:-6px}
+  .signature{height:60px}
+  .menu{gap:14px}
+  .menu a{font-size:14px}
+  .dropdown{min-width:200px}
+  .dropdown a{font-size:14px}
+  .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding-bottom:80px;gap:18px}
+  .project-item.span-2{grid-column:span 1}
+  .viewer{padding:50px 42px}
+  .viewer-stage img{max-height:72vh}
+  .prev{left:2px}
+  .next{right:2px}
+  .viewer-counter{bottom:14px;font-size:12px}
+  .copyright{font-size:10px}
 }
-.dropdown a { padding: 6px 0; }
+</style>
+</head>
+<body>
 
+<header class="header">
+  <a href="index.html" class="brand">
+    <img src="Symbol.png" alt="" class="symbol">
+    <img src="signature.png" alt="Giulia Fassone" class="signature">
+  </a>
+  <nav class="menu">
+    <div class="menu-item">
+      <a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a>
+      <div class="dropdown" id="projects-dropdown">
+        <a href="appetite.html">Appetite</a>
+        <a href="lie-soft.html">Lie Soft</a>
+        <a href="archaeology-of-self.html">Archaeology Of Self</a>
+        <a href="ruderal-i.html">Ruderal I</a>
+        <a href="ruderal-ii.html">Ruderal II</a>
+        <a href="fruits-of-labour.html">Fruits of Labour</a>
+        <a href="the-remains-of-a-meal.html">The Remains Of A Meal</a>
+        <a href="tools.html">Tools</a>
+        <a href="sketchbook.html">Sketchbook</a>
+      </div>
+    </div>
+    <a href="sketchbook.html">Sketchbook</a>
+    <a href="cv.html">CV</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-</style></head><body>
-<header class="header"><a href="index.html" class="brand"><img src="Symbol.png" alt="" class="symbol"><img src="signature.png" alt="Giulia Fassone" class="signature"></a><nav class="menu"><div class="menu-item"><a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a><div class="dropdown" id="projects-dropdown"><a href="appetite.html">Appetite</a><a href="lie-soft.html">Lie Soft</a><a href="archaeology-of-self.html">Archaeology Of Self</a><a href="ruderal-i.html">Ruderal I</a><a href="ruderal-ii.html">Ruderal II</a><a href="fruits-of-labour.html">Fruits of Labour</a><a href="the-remains-of-a-meal.html">The Remains Of A Meal</a><a href="tools.html">Tools</a><a href="sketchbook.html">Sketchbook</a></div></div><a href="sketchbook.html">Sketchbook</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></nav></header>
-<main class="project-grid" id="project-gallery"><figure class="project-item span-2"><img src="optimized/appetite/P1090725-fotor-20250914114842.webp" alt="Appetite project image 1" class="project-img" fetchpriority="high" decoding="async"></figure>
+<main class="project-grid" id="project-gallery">
+  
+  <figure class="project-item span-2">
+    <img src="optimized/appetite/P1090725-fotor-20250914114842.webp" alt="Appetite" class="project-img">
+  </figure>
+  
+  <figure class="project-item">
+    <img src="optimized/appetite/P1090742-fotor-20250913104549_result.webp" alt="Appetite" class="project-img">
+  </figure>
+  
+  <figure class="project-item span-2">
+    <img src="optimized/appetite/P1090744-fotor-20250913111443_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/P1090759-fotor-2025091415284_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
-<figure class="project-item "><img src="optimized/appetite/P1090742-fotor-20250913104549_result.webp" alt="Appetite project image 3" class="project-img" fetchpriority="high" decoding="async"></figure>
-<figure class="project-item span-2 enlarge "><img src="optimized/appetite/P1090744-fotor-20250913111443_result.webp" alt="Appetite project image 4" class="project-img" loading="lazy" decoding="async"></figure>
+  <figure class="project-item span-2">
+    <img src="optimized/appetite/P1090810-fotor-20250914104424_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/P1090838-fotor-2025091413347_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <!-- RESULT IMAGE FIXED -->
+  <figure class="project-item">
+    <img src="optimized/appetite/result.webp" alt="Appetite" class="project-img">
+  </figure>
+  
+  <figure class="project-item span-2">
+    <img src="optimized/appetite/P1090849-fotor-20250913105225_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item span-2">
+    <img src="optimized/appetite/P1100024-fotor-20250912_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
-<figure class="project-item "><img src="optimized/appetite/P1090759-fotor-2025091415284_result.webp" alt="Appetite project image 5" class="project-img" loading="lazy" decoding="async"></figure>
+  <figure class="project-item">
+    <img src="optimized/appetite/P1100028-fotor-2025 (11)_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/Telling The Bees Performance nn.jpeg-2_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item span-2">
+    <img src="optimized/appetite/IMG_0751-fotor-20250914191224.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/IMG_0754-fotor-20250914192819.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/IMG_0668-fotor-2025091419317.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/P10907.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/P1090752-fotor-20250912143211_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
-<figure class="project-item span-2 enlarge span-2 enlarge"><img src="optimized/appetite/P1090810-fotor-20250914104424_result.webp" alt="Appetite project image 10" class="project-img" style="width:100%;max-width:100%" loading="lazy" decoding="async"></figure>
+  <figure class="project-item">
+    <img src="optimized/appetite/P1090758-fotor-20250914151011_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
-<figure class="project-item "><img src="optimized/appetite/P1090838-fotor-2025091413347_result.webp" alt="Appetite project image 11" class="project-img" loading="lazy" decoding="async"></figure>
+  <figure class="project-item">
+    <img src="optimized/appetite/P1090777-fotor-20250914113610_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/P1090803-fotor-2025091215232_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
-<figure class="project-item"><img src="optimized/appetite/_result.webp" alt="Appetite — _result" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item span-2 enlarge"><img src="optimized/appetite/P1090849-fotor-20250913105225_result.webp" alt="Appetite project image 13" class="project-img" loading="lazy" decoding="async"></figure>
+  <figure class="project-item">
+    <img src="optimized/appetite/P1090846 2-fotor-20250914132017_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/P1090850-fotor-20250914132653_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
-<figure class="project-item span-2 enlarge"><img src="optimized/appetite/P1100024-fotor-20250912_result.webp" alt="Appetite project image 14" class="project-img" style="width:100%;max-width:100%" loading="lazy" decoding="async"></figure>
-<figure class="project-item span-2 enlarge"><img src="optimized/appetite/P1100028-fotor-2025 (11)_result.webp" alt="Appetite project image 15" class="project-img" style="width:100%;max-width:100%" loading="lazy" decoding="async"></figure>
+  <figure class="project-item">
+    <img src="optimized/appetite/P1100015-fotor-20250914143620_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/P1100061-fotor-20250914144029_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
+  <figure class="project-item">
+    <img src="optimized/appetite/Sin Proof 1.webp" alt="Appetite" class="project-img">
+  </figure>
 
-<figure class="project-item "><img src="optimized/appetite/Telling The Bees Performance nn.jpeg-2_result.webp" alt="Appetite project image 20" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item span-2 enlarge"><img src="optimized/appetite/IMG_0751-fotor-20250914191224.webp" alt="Appetite — new image" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/IMG_0754-fotor-20250914192819.webp" alt="Appetite — new image" class="project-img" loading="lazy" decoding="async"></figure>
+  <figure class="project-item">
+    <img src="optimized/appetite/WhatsApp Image 2026-08-11 at 18.18.02 (1)_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
-<figure class="project-item"><img src="optimized/appetite/IMG_0668-fotor-2025091419317.webp" alt="IMG 0668 fotor 2025091419317" class="project-img" loading="lazy" decoding="async"></figure>
+  <figure class="project-item">
+    <img src="optimized/appetite/best_result.webp" alt="Appetite" class="project-img">
+  </figure>
 
-<figure class="project-item"><img src="optimized/appetite/P10907.webp" alt="P10907" class="project-img" loading="lazy" decoding="async"></figure>
-
-
-
-
-<figure class="project-item"><img src="optimized/appetite/P1090752-fotor-20250912143211_result.webp" alt="P1090752 fotor 20250912143211 result" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/P1090758-fotor-20250914151011_result.webp" alt="P1090758 fotor 20250914151011 result" class="project-img" loading="lazy" decoding="async"></figure>
-
-<figure class="project-item"><img src="optimized/appetite/P1090777-fotor-20250914113610_result.webp" alt="P1090777 fotor 20250914113610 result" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/P1090803-fotor-2025091215232_result.webp" alt="P1090803 fotor 2025091215232 result" class="project-img" loading="lazy" decoding="async"></figure>
-
-<figure class="project-item"><img src="optimized/appetite/P1090846 2-fotor-20250914132017_result.webp" alt="P1090846 2 fotor 20250914132017 result" class="project-img" loading="lazy" decoding="async"></figure>
-
-<figure class="project-item"><img src="optimized/appetite/P1090850-fotor-20250914132653_result.webp" alt="P1090850 fotor 20250914132653 result" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/P1100015-fotor-20250914143620_result.webp" alt="P1100015 fotor 20250914143620 result" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/P1100028-fotor-2025 (11).webp" alt="P1100028 fotor 2025 (11)" class="project-img" loading="lazy" decoding="async"></figure>
-
-<figure class="project-item span-2 enlarge"><img src="optimized/appetite/P1100061-fotor-20250914144029_result.webp" alt="P1100061 fotor 20250914144029 result" class="project-img" loading="lazy" decoding="async"></figure>
-
-
-
-
-<figure class="project-item"><img src="optimized/appetite/Sin Proof 1.webp" alt="Sin Proof 1" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/WhatsApp Image 2026-08-11 at 18.18.02 (1)_result.webp" alt="WhatsApp Image 2026 08 11 at 18.18.02 (1) result" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/best_result.webp" alt="best result" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/P1090740-fotor-20250912_result.webp" alt="Previously removed Appetite image" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/P1090766-fotor-20250914152617_result.webp" alt="Previously removed Appetite image" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/P1090774-fotor-20250914113758_result.webp" alt="Previously removed Appetite image" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/appetite/P1090802-fotor-20250912152628_result.webp" alt="Previously removed Appetite image" class="project-img" loading="lazy" decoding="async"></figure>
 </main>
-<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Appetite image gallery" aria-hidden="true"><button class="viewer-arrow prev" id="viewer-prev" aria-label="Previous image" type="button"><svg viewBox="0 0 24 40"><path d="M19 3 L5 20 L19 37"/></svg></button><div class="viewer-stage"><img id="viewer-img" src="" alt=""></div><button class="viewer-arrow next" id="viewer-next" aria-label="Next image" type="button"><svg viewBox="0 0 24 40"><path d="M5 3 L19 20 L5 37"/></svg></button><div class="viewer-counter" id="viewer-counter"></div></div><div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Appetite image gallery" aria-hidden="true">
+  <button class="viewer-arrow prev" id="viewer-prev" aria-label="Previous image" type="button">
+    <svg viewBox="0 0 24 40"><path d="M19 3 L5 20 L19 37"/></svg>
+  </button>
+  <div class="viewer-stage">
+    <img id="viewer-img" src="" alt="">
+  </div>
+  <button class="viewer-arrow next" id="viewer-next" aria-label="Next image" type="button">
+    <svg viewBox="0 0 24 40"><path d="M5 3 L19 20 L5 37"/></svg>
+  </button>
+  <div class="viewer-counter" id="viewer-counter"></div>
+</div>
+
+<div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
+
 <script>
-const toggle=document.getElementById('projects-toggle'),dropdown=document.getElementById('projects-dropdown');toggle.addEventListener('click',e=>{e.preventDefault();const open=dropdown.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});document.addEventListener('click',e=>{if(!toggle.contains(e.target)&&!dropdown.contains(e.target)){dropdown.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
-const images=Array.from(document.querySelectorAll('.project-img')),viewer=document.getElementById('viewer'),viewerImg=document.getElementById('viewer-img'),counter=document.getElementById('viewer-counter');let current=0;function showImage(i){current=(i+images.length)%images.length;viewerImg.src=images[current].src;viewerImg.alt=images[current].alt;counter.textContent=(current+1)+' / '+images.length;}images.forEach((img,i)=>img.addEventListener('click',()=>{showImage(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');}));document.getElementById('viewer-prev').addEventListener('click',e=>{e.stopPropagation();showImage(current-1)});document.getElementById('viewer-next').addEventListener('click',e=>{e.stopPropagation();showImage(current+1)});viewer.addEventListener('click',e=>{if(e.target===viewer){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}});document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape'){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}if(e.key==='ArrowLeft')showImage(current-1);if(e.key==='ArrowRight')showImage(current+1)});
-</script></body></html>
+const toggle=document.getElementById('projects-toggle'),dropdown=document.getElementById('projects-dropdown');
+toggle.addEventListener('click',e=>{e.preventDefault();const open=dropdown.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+document.addEventListener('click',e=>{if(!toggle.contains(e.target)&&!dropdown.contains(e.target)){dropdown.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
+
+const images=Array.from(document.querySelectorAll('.project-img')),viewer=document.getElementById('viewer'),viewerImg=document.getElementById('viewer-img'),counter=document.getElementById('viewer-counter');
+let current=0;
+function showImage(i){current=(i+images.length)%images.length;viewerImg.src=images[current].src;viewerImg.alt=images[current].alt;counter.textContent=(current+1)+' / '+images.length;}
+images.forEach((img,i)=>img.addEventListener('click',()=>{showImage(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');}));
+document.getElementById('viewer-prev').addEventListener('click',e=>{e.stopPropagation();showImage(current-1)});
+document.getElementById('viewer-next').addEventListener('click',e=>{e.stopPropagation();showImage(current+1)});
+viewer.addEventListener('click',e=>{if(e.target===viewer){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}});
+document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape'){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}if(e.key==='ArrowLeft')showImage(current-1);if(e.key==='ArrowRight')showImage(current+1)});
+</script>
+</body>
+</html>
