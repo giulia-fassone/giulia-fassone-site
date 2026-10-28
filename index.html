@@ -15,20 +15,22 @@
     font-style: normal;
   }
 
-  html, body { margin:0; padding:0; height:100%; overflow:hidden; background:transparent; }
+  html, body { margin:0; padding:0; min-height:100%; overflow-x:hidden; background:transparent; }
 
   body {
     font-family: Arial, sans-serif;
     color: #5B2C10;
+    min-height: max(100vh, 61.8vw);
+    overflow-y: auto;
   }
 
   .scene {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    width: max(100vw, 133.15vh);
-    height: max(100vh, 75.10vw);
-    transform: translateX(-50%);
+    position: absolute;
+    left: 50vw;
+    top: 0;
+    width: max(100vw, 161.8vh);
+    height: max(75.10vw, 121.5vh);
+    transform: translate(-50%, -17.72%);
     container-type: size;
     z-index: 0;
   }
@@ -69,6 +71,9 @@
     position: relative;
     z-index: 10;
   }
+
+  .header { pointer-events: none; }
+  .header a { pointer-events: auto; }
 
   .brand {
     display: flex;
@@ -174,7 +179,7 @@
   .fruits img { transform: rotate(10deg); }
   .ruderal-2 { right: 0.25cqw; top: 59.6cqh; width: 24.45cqw; }
   .ruderal-2 img { transform: rotate(-30deg) scaleY(0.6); }
-  .remains { left: 66%; top: 82cqh; width: 11.03cqw; }
+  .remains { left: 66%; top: 81cqh; width: 11.03cqw; }
   .stalactite { right: calc(33% - 6.6cqw); top: 20cqh; z-index: 50; }
   .tools { left: 38%; top: 88cqh; width: 8.2cqw; }
 
@@ -227,6 +232,7 @@
     .scene {
       position: relative;
       left: auto;
+      top: auto;
       bottom: auto;
       width: auto;
       height: auto;
