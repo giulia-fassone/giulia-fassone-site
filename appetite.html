@@ -21,7 +21,7 @@
 .dropdown a{display:block;font-size:18px;padding:6px 0;white-space:nowrap}
 
 /* PINTEREST GRID (Flows to fill gaps) */
-.project-grid {
+.project-grid{
   column-count: 3;
   column-gap: var(--grid-gap);
   max-width: 1600px;
@@ -92,6 +92,12 @@
   .viewer-counter{bottom:14px;font-size:12px}
   .copyright{font-size:10px}
 }
+
+/* Featured fourth image sits above the Pinterest feed */
+.project-grid{column-count:3;column-gap:var(--grid-gap,18px);}
+.project-grid .featured-image{display:block;width:100%;column-span:all;margin:0 0 var(--grid-gap,18px);break-inside:avoid;}
+.project-grid .featured-image img{display:block;width:100%;height:auto;max-width:100%;}
+@media(max-width:700px){.project-grid{column-count:2}.project-grid .featured-image{column-span:all}}
 </style>
 </head>
 <body>
