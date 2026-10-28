@@ -42,7 +42,7 @@
 .project-item {
   display: inline-block;
   width: 100%;
-  margin-bottom: var(--grid-gap);
+  margin: 0 0 var(--grid-gap);
   padding: 0;
   cursor: zoom-in;
   break-inside: avoid;
@@ -53,6 +53,38 @@
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+.featured-image figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.appetite-note {
+  column-span: all;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--grid-gap);
+  align-items: baseline;
+  margin: 20px 0;
+  padding: 18px 0;
+  border-top: 1px solid rgba(91, 44, 16, 0.3);
+  border-bottom: 1px solid rgba(91, 44, 16, 0.3);
+}
+
+.appetite-note h2,
+.appetite-note p {
+  margin: 0;
+}
+
+.appetite-note h2 {
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: normal;
+}
+
+.appetite-note p {
+  max-width: 40em;
+  line-height: 1.5;
 }
 
 /* CAROUSEL */
@@ -84,6 +116,8 @@
     column-count: 2;
     padding-bottom: 80px;
   }
+
+  .appetite-note { grid-template-columns: 1fr; gap: 8px; }
   
   .viewer{padding:50px 42px}
   .viewer-stage img{max-height:72vh}
@@ -119,7 +153,6 @@
         <a href="fruits-of-labour.html">Fruits of Labour</a>
         <a href="the-remains-of-a-meal.html">The Remains Of A Meal</a>
         <a href="tools.html">Tools</a>
-        <a href="sketchbook.html">Sketchbook</a>
       </div>
     </div>
     <a href="sketchbook.html">Sketchbook</a>
@@ -130,12 +163,18 @@
 
 <main class="project-grid" id="project-gallery">
   <figure class="project-item featured-image">
-    <img src="optimized/appetite/P1090744-fotor-20250913111443_result.webp" alt="Appetite" class="project-img">
+    <img src="optimized/appetite/result.webp" alt="Appetite" class="project-img">
+    <figcaption>Appetite, Nunhead Cemetery Chapel, London, 2025</figcaption>
   </figure>
+
+  <section class="appetite-note" aria-label="About Appetite">
+    <h2>Solo exhibition</h2>
+    <p>Nunhead Cemetery Chapel, London, 2025.</p>
+  </section>
 
   
   <figure class="project-item">
-    <img src="optimized/appetite/result.webp" alt="Appetite" class="project-img">
+    <img src="optimized/appetite/P1090744-fotor-20250913111443_result.webp" alt="Appetite" class="project-img">
   </figure>
 
   <figure class="project-item">
@@ -163,6 +202,11 @@
   <figure class="project-item">
     <img src="optimized/appetite/P1090849-fotor-20250913105225_result.webp" alt="Appetite" class="project-img">
   </figure>
+
+  <section class="appetite-note" aria-label="Installation views">
+    <h2>Installation views</h2>
+    <p>Selected views from the exhibition.</p>
+  </section>
 
   <figure class="project-item">
     <img src="optimized/appetite/P1100024-fotor-20250912_result.webp" alt="Appetite" class="project-img">
@@ -243,7 +287,7 @@
     <svg viewBox="0 0 24 40"><path d="M19 3 L5 20 L19 37"/></svg>
   </button>
   <div class="viewer-stage">
-    <img id="viewer-img" src="" alt="">
+    <img id="viewer-img" alt="">
   </div>
   <button class="viewer-arrow next" id="viewer-next" aria-label="Next image" type="button">
     <svg viewBox="0 0 24 40"><path d="M5 3 L19 20 L5 37"/></svg>
@@ -264,7 +308,7 @@ function showImage(i){current=(i+images.length)%images.length;viewerImg.src=imag
 images.forEach((img,i)=>img.addEventListener('click',()=>{showImage(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');}));
 document.getElementById('viewer-prev').addEventListener('click',e=>{e.stopPropagation();showImage(current-1)});
 document.getElementById('viewer-next').addEventListener('click',e=>{e.stopPropagation();showImage(current+1)});
-viewer.addEventListener('click',e=>{if(e.target===viewer){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}});
+viewer.addEventListener('click',e=>{if(!e.target.closest('.viewer img, .viewer-arrow')){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}});
 document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape'){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}if(e.key==='ArrowLeft')showImage(current-1);if(e.key==='ArrowRight')showImage(current+1)});
 </script>
 </body>

@@ -347,6 +347,7 @@ body {
 
 /* Pinterest-style masonry grid, matching Appetite */
 .project-grid{display:block!important;column-count:3;column-gap:var(--grid-gap);max-width:1600px;width:100%;padding:var(--page-margin);margin:0 auto 100px;}
+.lie-soft-interlude{column-span:all;padding:18px 0;margin:6px 0 18px;border-top:1px solid rgba(91,44,16,.3);border-bottom:1px solid rgba(91,44,16,.3);font-size:clamp(18px,2vw,26px)}
 .project-grid .project-item{display:inline-block;width:100%;margin:0 0 var(--grid-gap);padding:0;break-inside:avoid;vertical-align:top;}
 .project-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain;}
 .project-grid .span-2,.project-grid .item-text{grid-column:auto!important;column-span:none!important;}
@@ -392,7 +393,7 @@ body {
         <a href="ruderal-ii.html">Ruderal II</a>
         <a href="fruits-of-labour.html">Fruits of Labour</a>
         <a href="the-remains-of-a-meal.html">The Remains Of A Meal</a>
-        <a href="tools.html">Tools</a><a href="sketchbook.html">Sketchbook</a>
+        <a href="tools.html">Tools</a>
       </div>
     </div>
 
@@ -456,6 +457,8 @@ body {
       class="project-img"
       decoding="async">
   </div>
+
+<div class="lie-soft-interlude">Lie Soft · 2026</div>
 
 <div class="project-item">
     <img
@@ -566,7 +569,7 @@ body {
     aria-label="Previous image"><svg viewBox="0 0 24 40" aria-hidden="true"><path d="M19 3 L5 20 L19 37"/></svg></button>
 
   <div class="viewer-stage">
-    <img id="viewer-img" src="" alt="">
+    <img id="viewer-img" alt="">
   </div>
 
   <button
@@ -684,7 +687,7 @@ viewerNext.addEventListener('click', (e) => {
 /* Click the dark background to close */
 
 viewer.addEventListener('click', (e) => {
-  if (e.target === viewer) {
+  if (!e.target.closest('.viewer img, .viewer-arrow')) {
     closeViewer();
   }
 });
