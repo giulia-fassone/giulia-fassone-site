@@ -55,38 +55,6 @@
   object-fit: contain;
 }
 
-.featured-image figcaption {
-  margin-top: 8px;
-  font-size: 13px;
-}
-
-.appetite-note {
-  column-span: all;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-  gap: var(--grid-gap);
-  align-items: baseline;
-  margin: 20px 0;
-  padding: 18px 0;
-  border-top: 1px solid rgba(91, 44, 16, 0.3);
-  border-bottom: 1px solid rgba(91, 44, 16, 0.3);
-}
-
-.appetite-note h2,
-.appetite-note p {
-  margin: 0;
-}
-
-.appetite-note h2 {
-  font-size: clamp(18px, 2vw, 26px);
-  font-weight: normal;
-}
-
-.appetite-note p {
-  max-width: 40em;
-  line-height: 1.5;
-}
-
 /* CAROUSEL */
 .viewer{display:none;position:fixed;inset:0;padding:60px 90px;background:rgba(36,12,8,.94);align-items:center;justify-content:center;z-index:99999;cursor:zoom-out}
 .viewer.open{display:flex}
@@ -117,8 +85,7 @@
     padding-bottom: 80px;
   }
 
-  .appetite-note { grid-template-columns: 1fr; gap: 8px; }
-  
+
   .viewer{padding:50px 42px}
   .viewer-stage img{max-height:72vh}
   .prev{left:2px}
@@ -164,15 +131,8 @@
 <main class="project-grid" id="project-gallery">
   <figure class="project-item featured-image">
     <img src="optimized/appetite/result.webp" alt="Appetite" class="project-img">
-    <figcaption>Appetite, Nunhead Cemetery Chapel, London, 2025</figcaption>
   </figure>
 
-  <section class="appetite-note" aria-label="About Appetite">
-    <h2>Solo exhibition</h2>
-    <p>Nunhead Cemetery Chapel, London, 2025.</p>
-  </section>
-
-  
   <figure class="project-item">
     <img src="optimized/appetite/P1090744-fotor-20250913111443_result.webp" alt="Appetite" class="project-img">
   </figure>
@@ -202,11 +162,6 @@
   <figure class="project-item">
     <img src="optimized/appetite/P1090849-fotor-20250913105225_result.webp" alt="Appetite" class="project-img">
   </figure>
-
-  <section class="appetite-note" aria-label="Installation views">
-    <h2>Installation views</h2>
-    <p>Selected views from the exhibition.</p>
-  </section>
 
   <figure class="project-item">
     <img src="optimized/appetite/P1100024-fotor-20250912_result.webp" alt="Appetite" class="project-img">
