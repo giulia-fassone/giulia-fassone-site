@@ -41,26 +41,36 @@
 .project-grid{display:block!important;column-count:3;column-gap:28px;max-width:1600px;width:100%;padding:var(--page-margin,.5in);margin:0 auto 48px}
 .project-grid .project-item{display:inline-block;width:100%;margin:0 0 32px;padding:0;break-inside:avoid;vertical-align:top}
 .project-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain}
-.project-grid .ruderal-ii-note{column-span:all;break-inside:avoid}
-.ruderal-ii-breaker{max-width:1600px;width:100%;padding:0 var(--page-margin,.5in);margin:0 auto 48px}
-.ruderal-ii-breaker img{display:block;width:100%;height:clamp(220px,28vw,360px);object-fit:cover;object-position:center;cursor:zoom-in}
-.project-grid .ruderal-ii-note{grid-column:1/-1!important;display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:18px 0;border-top:1px solid rgba(91,44,16,.3);border-bottom:1px solid rgba(91,44,16,.3)}
-.ruderal-ii-note span{font-size:clamp(18px,2vw,26px)}
-.ruderal-ii-note p{margin:0}
-@media(max-width:700px){.project-grid{column-count:2;column-gap:20px;padding:12px 12px 48px}.project-grid .project-item{margin-bottom:24px}.project-grid .ruderal-ii-note{align-items:flex-start;flex-direction:column;gap:6px}.ruderal-ii-breaker{padding:0 12px;margin-bottom:32px}.ruderal-ii-breaker img{height:clamp(190px,42vw,280px)}}
+.ruderal-ii-feature-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:28px;max-width:1600px;width:100%;padding:var(--page-margin,.5in);margin:0 auto}
+.ruderal-ii-feature{grid-column:span 2;min-width:0;margin:0}
+.ruderal-ii-feature-side{min-width:0;margin:0}
+.ruderal-ii-feature-row img{display:block;width:100%;height:auto;object-fit:contain;cursor:zoom-in}
+.ruderal-ii-pair-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:28px;max-width:1600px;width:100%;padding:0 var(--page-margin,.5in);margin:0 auto}
+.ruderal-ii-pair-main,.ruderal-ii-pair-side{min-width:0;margin:0}
+.ruderal-ii-pair-main{grid-column:span 2}
+.ruderal-ii-pair-row img{display:block;width:100%;height:auto;object-fit:contain;cursor:zoom-in}
+.ruderal-ii-image-breaker{max-width:1600px;width:100%;padding:0 var(--page-margin,.5in);margin:28px auto 48px}
+.ruderal-ii-image-breaker img{display:block;width:100%;height:auto;padding:20px 4%;background:#fff;object-fit:contain;cursor:zoom-in}
+@media(max-width:700px){.project-grid{column-count:2;column-gap:20px;padding:12px 12px 48px}.project-grid .project-item{margin-bottom:24px}.ruderal-ii-feature-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:12px 12px 0}.ruderal-ii-feature,.ruderal-ii-feature-side{grid-column:1/-1}.ruderal-ii-pair-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:0 12px}.ruderal-ii-pair-main{grid-column:auto}.ruderal-ii-image-breaker{padding:0 12px;margin:20px auto 32px}.ruderal-ii-image-breaker img{padding:12px 3%}}
 </style></head><body>
 <header class="header"><a href="index.html" class="brand"><img src="Symbol.png" alt="" class="symbol"><img src="signature.png" alt="Giulia Fassone" class="signature"></a><nav class="menu"><div class="menu-item"><a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a><div class="dropdown" id="projects-dropdown"><a href="appetite.html">Appetite</a><a href="lie-soft.html">Lie Soft</a><a href="archaeology-of-self.html">Archaeology Of Self</a><a href="ruderal-i.html">Ruderal I</a><a href="ruderal-ii.html">Ruderal II</a><a href="fruits-of-labour.html">Fruits of Labour</a><a href="the-remains-of-a-meal.html">The Remains Of A Meal</a><a href="tools.html">Tools</a></div></div><a href="sketchbook.html">Sketchbook</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></nav></header>
 <main id="project-gallery">
+<section class="ruderal-ii-feature-row">
+<figure class="ruderal-ii-feature"><img src="originals/ruderal-ii/NU%20Wiggly%20plain.png" alt="Ruderal II — image 28" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="ruderal-ii-feature-side"><img src="originals/ruderal-ii/IMG_2216.jpg" alt="Ruderal II — image 24" class="project-img" fetchpriority="high" decoding="async"></figure>
+</section>
+<section class="ruderal-ii-pair-row">
+<figure class="ruderal-ii-pair-main"><img src="optimized/ruderal-ii/DSC00412_result.webp" alt="Ruderal II — image 1" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="ruderal-ii-pair-side"><img src="optimized/ruderal-ii/IMG_9778_result.webp" alt="Ruderal II — image 21" class="project-img" loading="lazy" decoding="async"></figure>
+</section>
+<figure class="ruderal-ii-image-breaker"><img src="optimized/ruderal-ii/DSC00419_result.webp" alt="Ruderal II — image 2" class="project-img" loading="lazy" decoding="async"></figure>
 <section class="project-grid">
-<figure class="project-item span-2"><img src="optimized/ruderal-ii/DSC00412_result.webp" alt="Ruderal II — image 1" class="project-img" fetchpriority="high" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-ii/DSC00419_result.webp" alt="Ruderal II — image 2" class="project-img" fetchpriority="high" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00433_result.webp" alt="Ruderal II — image 3" class="project-img" fetchpriority="high" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00439_result.webp" alt="Ruderal II — image 4" class="project-img" fetchpriority="high" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00453_result.webp" alt="Ruderal II — image 5" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00462-2_result.webp" alt="Ruderal II — image 6" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00463_result.webp" alt="Ruderal II — image 7" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00495_result.webp" alt="Ruderal II — image 8" class="project-img" loading="lazy" decoding="async"></figure>
-<div class="ruderal-ii-note"><span>Ruderal II</span><p>Peckham, London, 2025.</p></div>
 <figure class="project-item span-2"><img src="optimized/ruderal-ii/DSC06406_result.webp" alt="Ruderal II — image 9" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC06413_result.webp" alt="Ruderal II — image 10" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC06472_result.webp" alt="Ruderal II — image 11" class="project-img" loading="lazy" decoding="async"></figure>
@@ -73,16 +83,13 @@
 <figure class="project-item"><img src="optimized/ruderal-ii/Find%20us%20in%20the%20slip%20spaces%20II%20detail%202%20_result.webp" alt="Ruderal II — image 18" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/IMG_2323-2_result.webp" alt="Ruderal II — image 19" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/IMG_2356_result.webp" alt="Ruderal II — image 20" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-ii/IMG_9778_result.webp" alt="Ruderal II — image 21" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/IMG_9788_result.webp" alt="Ruderal II — image 22" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/IMG_9803_result.webp" alt="Ruderal II — image 23" class="project-img" loading="lazy" decoding="async"></figure>
 </section>
-<figure class="ruderal-ii-breaker"><img src="originals/ruderal-ii/IMG_2216.jpg" alt="Ruderal II — image 24" class="project-img" loading="lazy" decoding="async"></figure>
 <section class="project-grid">
 <figure class="project-item"><img src="originals/ruderal-ii/IMG_9137_result.jpg" alt="Ruderal II — image 25" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="originals/ruderal-ii/IMG_9138_result.jpg" alt="Ruderal II — image 26" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="originals/ruderal-ii/IMG_9139_result.jpg" alt="Ruderal II — image 27" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="originals/ruderal-ii/NU%20Wiggly%20plain.png" alt="Ruderal II — image 28" class="project-img" loading="lazy" decoding="async"></figure>
 </section>
 </main>
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Ruderal II image gallery" aria-hidden="true"><button class="viewer-arrow prev" id="viewer-prev" aria-label="Previous image" type="button"><svg viewBox="0 0 24 40"><path d="M19 3 L5 20 L19 37"/></svg></button><div class="viewer-stage"><img id="viewer-img" alt=""></div><button class="viewer-arrow next" id="viewer-next" aria-label="Next image" type="button"><svg viewBox="0 0 24 40"><path d="M5 3 L19 20 L5 37"/></svg></button><div class="viewer-counter" id="viewer-counter"></div></div><div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
