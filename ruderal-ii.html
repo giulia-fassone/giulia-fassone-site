@@ -42,57 +42,54 @@
 .project-grid .project-item{display:inline-block;width:100%;margin:0 0 32px;padding:0;break-inside:avoid;vertical-align:top}
 .project-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain}
 .ruderal-ii-opening-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:28px;max-width:1600px;width:100%;padding:0 var(--page-margin,.5in);margin:0 auto 48px}
+.ruderal-ii-gallery-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:8px;grid-auto-flow:row dense;align-items:start;column-gap:28px;row-gap:32px;column-count:initial;max-width:1600px;width:100%;padding:var(--page-margin,.5in);margin:0 auto 48px}
+.ruderal-ii-gallery-grid .project-item{display:block;width:auto;min-width:0;margin:0;padding:0;break-inside:initial;align-self:start}
+.ruderal-ii-gallery-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:100%!important;margin:0!important;object-fit:contain}
+.ruderal-ii-gallery-grid .span-2{grid-column:span 2!important}
+.ruderal-ii-gallery-grid .crop-centered img,.ruderal-ii-gallery-grid .crop-top img{object-fit:cover}
+.ruderal-ii-gallery-grid .crop-top img{object-position:center top}
+@media(max-width:700px){.ruderal-ii-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:12px}.ruderal-ii-gallery-grid .span-2{grid-column:span 2!important}}
 .ruderal-ii-opening-grid figure{min-width:0;margin:0}
 .ruderal-ii-opening-grid img{display:block;width:100%;height:auto;object-fit:contain;cursor:zoom-in}
-.ruderal-ii-image-one{grid-column:1/span 2;grid-row:1}
-.ruderal-ii-image-twenty-two{grid-column:3;grid-row:1}
-.ruderal-ii-feature{grid-column:1/span 2;grid-row:2}
+.ruderal-ii-wiggly{grid-column:1/span 2;grid-row:1}
+.ruderal-ii-img-2323{grid-column:3;grid-row:1}
+.ruderal-ii-image-three{grid-column:1;grid-row:2}
+.ruderal-ii-image-four{grid-column:2;grid-row:2}
 .ruderal-ii-feature-side{grid-column:3;grid-row:2}
-.ruderal-ii-image-three{grid-column:1;grid-row:3}
-.ruderal-ii-image-four{grid-column:2;grid-row:3}
-.ruderal-ii-image-breaker{grid-column:1/-1;grid-row:4;display:flex;align-items:center;justify-content:center;min-height:320px;padding:24px;background:#fff}
-.ruderal-ii-image-breaker img{width:auto;height:auto;max-width:100%;max-height:min(52vh,560px);object-fit:contain}
-@media(max-width:700px){.project-grid{column-count:2;column-gap:20px;padding:12px 12px 48px}.project-grid .project-item{margin-bottom:24px}.ruderal-ii-opening-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:0 12px;margin-bottom:32px}.ruderal-ii-image-one,.ruderal-ii-image-twenty-two,.ruderal-ii-feature,.ruderal-ii-feature-side,.ruderal-ii-image-breaker{grid-column:1/-1;grid-row:auto}.ruderal-ii-image-three,.ruderal-ii-image-four{grid-row:auto}.ruderal-ii-image-breaker{min-height:220px;padding:12px}.ruderal-ii-image-breaker img{max-height:70vh}}
+.ruderal-ii-image-breaker{grid-column:1/-1;grid-row:3;display:flex;align-items:center;justify-content:center;min-height:320px;padding:24px;background:#fff}
+.ruderal-ii-image-breaker img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
+@media(max-width:700px){.project-grid{column-count:2;column-gap:20px;padding:12px 12px 48px}.project-grid .project-item{margin-bottom:24px}.ruderal-ii-opening-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:0 12px;margin-bottom:32px}.ruderal-ii-wiggly,.ruderal-ii-img-2323,.ruderal-ii-feature-side,.ruderal-ii-image-breaker{grid-column:1/-1;grid-row:auto}.ruderal-ii-image-three,.ruderal-ii-image-four{grid-row:auto}.ruderal-ii-image-breaker{min-height:220px;padding:12px}.ruderal-ii-image-breaker img{max-height:70vh}}
 </style></head><body>
 <header class="header"><a href="index.html" class="brand"><img src="Symbol.png" alt="" class="symbol"><img src="signature.png" alt="Giulia Fassone" class="signature"></a><nav class="menu"><div class="menu-item"><a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a><div class="dropdown" id="projects-dropdown"><a href="appetite.html">Appetite</a><a href="lie-soft.html">Lie Soft</a><a href="archaeology-of-self.html">Archaeology Of Self</a><a href="ruderal-i.html">Ruderal I</a><a href="ruderal-ii.html">Ruderal II</a><a href="fruits-of-labour.html">Fruits of Labour</a><a href="the-remains-of-a-meal.html">The Remains Of A Meal</a><a href="tools.html">Tools</a></div></div><a href="sketchbook.html">Sketchbook</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></nav></header>
 <main id="project-gallery">
 <section class="ruderal-ii-opening-grid">
-<figure class="ruderal-ii-image-one"><img src="optimized/ruderal-ii/DSC00412_result.webp" alt="Ruderal II — image 1" class="project-img" fetchpriority="high" decoding="async"></figure>
-<figure class="ruderal-ii-image-twenty-two"><img src="optimized/ruderal-ii/IMG_9788_result.webp" alt="Ruderal II — image 22" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="ruderal-ii-feature"><img src="originals/ruderal-ii/NU%20Wiggly%20plain.png" alt="Ruderal II — image 28" class="project-img" fetchpriority="high" decoding="async"></figure>
-<figure class="ruderal-ii-feature-side"><img src="originals/ruderal-ii/IMG_2216.jpg" alt="Ruderal II — image 24" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="ruderal-ii-wiggly"><img src="originals/ruderal-ii/NU%20Wiggly%20plain.png" alt="Ruderal II — image 28" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="ruderal-ii-img-2323"><img src="optimized/ruderal-ii/IMG_2323-2_result.webp" alt="Ruderal II — image 19" class="project-img" fetchpriority="high" decoding="async"></figure>
 <figure class="ruderal-ii-image-three"><img src="optimized/ruderal-ii/DSC00433_result.webp" alt="Ruderal II — image 3" class="project-img" fetchpriority="high" decoding="async"></figure>
 <figure class="ruderal-ii-image-four"><img src="optimized/ruderal-ii/DSC00439_result.webp" alt="Ruderal II — image 4" class="project-img" fetchpriority="high" decoding="async"></figure>
-<figure class="ruderal-ii-image-breaker"><img src="optimized/ruderal-ii/DSC00419_result.webp" alt="Ruderal II — image 2" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="ruderal-ii-feature-side"><img src="optimized/ruderal-ii/DSC00453_result.webp" alt="Ruderal II — image 5" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="ruderal-ii-image-breaker"><img src="originals/ruderal-ii/IMG_2216.png" alt="Ruderal II — image 24" class="project-img" loading="lazy" decoding="async"></figure>
 </section>
-<section class="project-grid">
-<figure class="project-item"><img src="optimized/ruderal-ii/DSC00453_result.webp" alt="Ruderal II — image 5" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-ii/DSC00462-2_result.webp" alt="Ruderal II — image 6" class="project-img" loading="lazy" decoding="async"></figure>
+<section class="project-grid ruderal-ii-gallery-grid">
+<figure class="project-item span-2"><img src="optimized/ruderal-ii/DSC00462-2_result.webp" alt="Ruderal II — image 6" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00463_result.webp" alt="Ruderal II — image 7" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00495_result.webp" alt="Ruderal II — image 8" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item span-2"><img src="optimized/ruderal-ii/DSC06406_result.webp" alt="Ruderal II — image 9" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-ii/DSC06413_result.webp" alt="Ruderal II — image 10" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-ii/DSC06472_result.webp" alt="Ruderal II — image 11" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item crop-centered"><img src="optimized/ruderal-ii/DSC06413_result.webp" alt="Ruderal II — image 10" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC06491_result.webp" alt="Ruderal II — image 12" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC06492-2_result.webp" alt="Ruderal II — image 13" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC06505_result.webp" alt="Ruderal II — image 14" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC06542_result.webp" alt="Ruderal II — image 15" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-ii/DSC06559_result.webp" alt="Ruderal II — image 16" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item span-2"><img src="optimized/ruderal-ii/Fieldnote%202%20installed%202_result.webp" alt="Ruderal II — image 17" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item span-2"><img src="originals/ruderal-ii/IMG_9138_result.jpg" alt="Ruderal II — image 26" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/Find%20us%20in%20the%20slip%20spaces%20II%20detail%202%20_result.webp" alt="Ruderal II — image 18" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-ii/IMG_2323-2_result.webp" alt="Ruderal II — image 19" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/IMG_2356_result.webp" alt="Ruderal II — image 20" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-ii/IMG_9778_result.webp" alt="Ruderal II — image 21" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-ii/IMG_9803_result.webp" alt="Ruderal II — image 23" class="project-img" loading="lazy" decoding="async"></figure>
-</section>
-<section class="project-grid">
-<figure class="project-item"><img src="originals/ruderal-ii/IMG_9137_result.jpg" alt="Ruderal II — image 25" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="originals/ruderal-ii/IMG_9138_result.jpg" alt="Ruderal II — image 26" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="originals/ruderal-ii/IMG_9139_result.jpg" alt="Ruderal II — image 27" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item crop-top"><img src="optimized/ruderal-ii/IMG_9778_result.webp" alt="Ruderal II — image 21" class="project-img" loading="lazy" decoding="async"></figure>
 </section>
 </main>
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Ruderal II image gallery" aria-hidden="true"><button class="viewer-arrow prev" id="viewer-prev" aria-label="Previous image" type="button"><svg viewBox="0 0 24 40"><path d="M19 3 L5 20 L19 37"/></svg></button><div class="viewer-stage"><img id="viewer-img" alt=""></div><button class="viewer-arrow next" id="viewer-next" aria-label="Next image" type="button"><svg viewBox="0 0 24 40"><path d="M5 3 L19 20 L5 37"/></svg></button><div class="viewer-counter" id="viewer-counter"></div></div><div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 <script>
 const toggle=document.getElementById('projects-toggle'),dropdown=document.getElementById('projects-dropdown');toggle.addEventListener('click',e=>{e.preventDefault();const open=dropdown.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});document.addEventListener('click',e=>{if(!toggle.contains(e.target)&&!dropdown.contains(e.target)){dropdown.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
 const images=Array.from(document.querySelectorAll('.project-img')),viewer=document.getElementById('viewer'),viewerImg=document.getElementById('viewer-img'),counter=document.getElementById('viewer-counter');let current=0;function showImage(i){current=(i+images.length)%images.length;viewerImg.src=images[current].src;viewerImg.alt=images[current].alt;counter.textContent=(current+1)+' / '+images.length;}images.forEach((img,i)=>img.addEventListener('click',()=>{showImage(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');}));document.getElementById('viewer-prev').addEventListener('click',e=>{e.stopPropagation();showImage(current-1)});document.getElementById('viewer-next').addEventListener('click',e=>{e.stopPropagation();showImage(current+1)});viewer.addEventListener('click',e=>{if(!e.target.closest('.viewer img, .viewer-arrow')){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}});document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape'){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}if(e.key==='ArrowLeft')showImage(current-1);if(e.key==='ArrowRight')showImage(current+1)});
+const galleryGrids=Array.from(document.querySelectorAll('.ruderal-ii-gallery-grid')),rowHeight=8,rowGap=32;function layoutGalleryGrid(){galleryGrids.forEach(grid=>grid.querySelectorAll('.project-item').forEach(item=>{const img=item.querySelector('img');if(!img.naturalWidth||!img.naturalHeight)return;const cropped=item.classList.contains('crop-centered')||item.classList.contains('crop-top');const cropFactor=cropped ? .8 : 1;const itemWidth=item.getBoundingClientRect().width;const imageHeight=itemWidth*img.naturalHeight/img.naturalWidth*cropFactor;item.style.height=imageHeight+'px';item.style.gridRowEnd='span '+Math.max(1,Math.ceil((imageHeight+rowGap)/(rowHeight+rowGap)));}));}galleryGrids.forEach(grid=>{grid.querySelectorAll('img').forEach(img=>img.addEventListener('load',layoutGalleryGrid));new ResizeObserver(layoutGalleryGrid).observe(grid);});layoutGalleryGrid();
 </script></body></html>
