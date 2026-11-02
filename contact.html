@@ -109,10 +109,10 @@ body {
   .contact-portrait figcaption { font-size:10px; }
   .copyright { font-size:10px; }
 }
-@media(max-height:700px) {
+@media(min-width:701px) and (max-height:700px) {
   .contact-wrap { padding:8px 24px 12px; }
-  .contact-content { gap:12px; }
-  .contact-portrait { width:min(210px,40vh); }
+  .contact-content { grid-template-columns:minmax(0,300px) minmax(0,320px); gap:clamp(20px,3vw,32px); width:min(656px,100%); }
+  .contact-portrait { width:min(300px,48vh); }
 }
 .dropdown {
   background:rgba(245,242,233,.68);
