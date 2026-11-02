@@ -188,7 +188,7 @@
   .butter     { left: 30%; top: 23.5cqh; width: 13.2cqw; }
   .she-hath   { left: -6.5%; top: 59.5cqh; width: 40.28cqw; }
   .she-hath img { transform: scaleX(-1); }
-  .sin-eater  { left: calc(50% - 17.02cqw); top: 65.1cqh; width: 34.04cqw; }
+  .sin-eater  { left: calc(50% - 17.02cqw); top: 64.5cqh; width: 34.04cqw; }
 
   @media (min-width: 701px) and (max-width: 1515px) {
     .stalactite { right: 30cqw; }
@@ -213,6 +213,59 @@
     max-height: 88vh;
     object-fit: contain;
   }
+
+  .statement-modal {
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:200;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(30,20,10,.5);
+  }
+  .statement-modal.open { display:flex; }
+  .statement-panel {
+    position:relative;
+    width:min(760px,100%);
+    max-height:min(86vh,900px);
+    overflow-y:auto;
+    padding:clamp(24px,4vw,48px);
+    color:#004992;
+    background-color:#b4a8b5;
+    background-image:linear-gradient(rgba(180,168,181,.96),rgba(180,168,181,.96)),url('originals/ruderal-ii/texture-2.jpg');
+    background-position:center,center;
+    background-size:auto,cover;
+    box-shadow:0 12px 40px rgba(30,20,10,.2);
+  }
+  .statement-panel::before,.statement-panel::after {
+    content:"";
+    display:block;
+    height:1px;
+    background:#FFED00;
+  }
+  .statement-symbol {
+    display:block;
+    width:48px;
+    height:52px;
+    object-fit:contain;
+    margin:22px auto 26px;
+  }
+  .statement-copy { font:16px/1.65 Arial,sans-serif; }
+  .statement-copy p { margin:0 0 18px; }
+  .statement-copy p:last-child { margin-bottom:22px; }
+  .statement-close {
+    position:absolute;
+    top:10px;
+    right:14px;
+    border:0;
+    padding:4px;
+    background:transparent;
+    color:#004992;
+    font:24px/1 Arial,sans-serif;
+    cursor:pointer;
+  }
+  .sin-eater { cursor:pointer; }
 
   .copyright {
     position: fixed;
@@ -248,6 +301,9 @@
     .menu a { font-size: 14px; }
     .dropdown { min-width: 200px; }
     .dropdown a { font-size: 14px; }
+    .statement-modal { padding:14px; }
+    .statement-panel { max-height:90vh; padding:24px 20px; }
+    .statement-copy { font-size:14px; line-height:1.55; }
 
     .collage {
       position: relative;
@@ -333,12 +389,24 @@
     <div class="thumb apple"><img src="apple-thumbnail.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb butter size-300"><img src="Hooked-stone-thumbnail.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb she-hath size-400"><img src="she-hath-thumbnail.png" alt="" class="lightbox-trigger"></div>
-    <div class="thumb sin-eater size-130"><img src="Sin-Eater-Full-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb sin-eater size-130" id="statement-trigger" role="button" tabindex="0" aria-label="Read artist statement"><img src="Sin-Eater-Full-thumbnail.png" alt="" ></div>
   </div>
   </div>
 
   <div class="lightbox" id="lightbox">
     <img id="lightbox-img" alt="">
+  </div>
+
+  <div class="statement-modal" id="statement-modal" aria-hidden="true">
+    <section class="statement-panel" role="dialog" aria-modal="true" aria-label="Artist statement">
+      <button class="statement-close" id="statement-close" type="button" aria-label="Close statement">×</button>
+      <img class="statement-symbol" src="Symbol.png" alt="">
+      <div class="statement-copy">
+        <p>Giulia Fassone is an Italian-British post-disciplinary artist. She is also a gardener and a chef, and the materials and processes of these professions — plants, soil, food, fermentation — feed and inspire her artistic practice. Her spade often unearths whimsical findings, and she regularly picks up stray objects on her bike errands. Those found objects materialise how the past haunts the present, how memory is not just retrieval, but creation. Through introducing organic and often unstable materials to her work — butter, bread dough, potatoes — she amplifies the alchemical, vibrant quality of all matter.</p>
+        <p>Her recent works reference the archaeological finds from bogs across northern Europe: sacrificed human bodies, musical instruments, clothes, preserved hair and fingernails. Weaving her own narratives into this larger history, these works imagine – with poetic license – what bog bodies could tell at a time of disenchantment and ecological collapse.</p>
+        <p>Giulia set up <em>Ruderal Projects</em>, an art collective and curatorial platform for artists engaged in radical discourses around 'Nature' and the 'natural'.</p>
+      </div>
+    </section>
   </div>
 
   <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
@@ -360,6 +428,31 @@
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const statementModal = document.getElementById('statement-modal');
+    const statementTrigger = document.getElementById('statement-trigger');
+    const closeStatement = () => {
+      statementModal.classList.remove('open');
+      statementModal.setAttribute('aria-hidden', 'true');
+    };
+    const openStatement = () => {
+      statementModal.classList.add('open');
+      statementModal.setAttribute('aria-hidden', 'false');
+      document.getElementById('statement-close').focus();
+    };
+    statementTrigger.addEventListener('click', openStatement);
+    statementTrigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openStatement();
+      }
+    });
+    document.getElementById('statement-close').addEventListener('click', closeStatement);
+    statementModal.addEventListener('click', (e) => {
+      if (e.target === statementModal) closeStatement();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && statementModal.classList.contains('open')) closeStatement();
+    });
 
     document.querySelectorAll('.thumb').forEach(thumb => {
       thumb.addEventListener('mouseenter', () => document.body.classList.add('thumbnail-hover'));
@@ -373,7 +466,8 @@
       });
     });
 
-    lightbox.addEventListener('click', () => {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightbox) return;
       lightbox.classList.remove('open');
       lightboxImg.src = '';
     });

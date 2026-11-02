@@ -42,14 +42,40 @@
 .project-grid .span-2{column-span:none!important;grid-column:auto!important;}
 .project-item.smaller-image img{width:75%!important;max-width:75%!important;margin:0 auto!important;}
 @media(max-width:700px){.project-grid{column-count:2;padding:12px 12px 80px;column-gap:12px}.project-grid .project-item{margin-bottom:12px}}
+.ruderal-opening{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:28px;max-width:1600px;margin:0 auto 48px;padding:0 36px}
+.ruderal-opening figure{margin:0;min-width:0}
+.ruderal-opening img{display:block;width:100%;height:auto;cursor:zoom-in}
+.ruderal-opening .image-37{grid-column:2 / span 2}
+.ruderal-opening .image-21{grid-column:1;grid-row:1}
+.ruderal-placeholder{width:calc(100% - 72px);max-width:1528px;aspect-ratio:2.5/1;margin:0 auto 56px;background:#fff}
+.ruderal-carousel.project-grid{display:block!important;column-count:initial!important;columns:initial!important;max-width:1700px;width:100%;margin:0 auto 100px;padding:0 18px}
+.ruderal-carousel-track{display:flex;width:100%;min-width:0;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:rgba(91,44,16,.35) transparent;padding:8px 0 24px}
+.ruderal-carousel .project-item{display:flex!important;flex:0 0 calc((100% - 36px)/3.2);align-items:center;justify-content:center;width:auto!important;height:clamp(300px,38vw,480px);margin:0!important;scroll-snap-align:center;cursor:zoom-in}
+.ruderal-carousel .project-item img{display:block;width:100%!important;height:100%!important;max-height:480px;margin:0!important;object-fit:cover}
+.ruderal-carousel-controls{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 0 4px}
+.ruderal-carousel-controls button{border:0;background:none;color:var(--text);font:22px Arial,sans-serif;padding:6px 10px;cursor:pointer}
+.ruderal-carousel-controls button:hover{opacity:.6}
+.ruderal-carousel-count{min-width:5ch;text-align:center;font-size:13px;font-variant-numeric:tabular-nums}
+@media(max-width:700px){.ruderal-opening,.ruderal-carousel{padding-left:12px;padding-right:12px}.ruderal-opening{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ruderal-opening .image-37{grid-column:2;grid-row:1}.ruderal-opening .image-21{grid-column:1;grid-row:1}.ruderal-placeholder{width:calc(100% - 24px);aspect-ratio:1.7/1;margin-bottom:40px}.ruderal-carousel-track{gap:10px}.ruderal-carousel .project-item{flex-basis:calc((100% - 30px)/3.2);height:clamp(220px,58vw,340px)}.ruderal-carousel-controls{gap:12px}.ruderal-carousel-count{flex:1;text-align:center}}
+@media(prefers-reduced-motion:reduce){.ruderal-carousel-track{scroll-behavior:auto}}
+</style><style>
+body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;animation:texture-pan 8s ease-in-out infinite alternate}
+@keyframes texture-pan{0%{background-position:center,48.5% 49%}20%{background-position:center,51.5% 48.5%}42%{background-position:center,50% 51.5%}66%{background-position:center,48.5% 51%}84%{background-position:center,51.5% 49%}100%{background-position:center,48.5% 49%}}
+@media(prefers-reduced-motion:reduce){body{animation:none}}
 </style></head><body>
 <header class="header"><a href="index.html" class="brand"><img src="Symbol.png" alt="" class="symbol"><img src="signature.png" alt="Giulia Fassone" class="signature"></a><nav class="menu"><div class="menu-item"><a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a><div class="dropdown" id="projects-dropdown"><a href="appetite.html">Appetite</a><a href="lie-soft.html">Lie Soft</a><a href="archaeology-of-self.html">Archaeology Of Self</a><a href="ruderal-i.html">Ruderal I</a><a href="ruderal-ii.html">Ruderal II</a><a href="fruits-of-labour.html">Fruits of Labour</a><a href="the-remains-of-a-meal.html">The Remains Of A Meal</a><a href="tools.html">Tools</a></div></div><a href="sketchbook.html">Sketchbook</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></nav></header>
-<main class="project-grid" id="project-gallery">
+<section class="ruderal-opening" aria-label="Ruderal I selected images">
+<figure class="image-21"><img src="optimized/ruderal-i/DSC_0329_result.webp" alt="Ruderal I — image 21" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="image-37"><img src="optimized/ruderal-i/IMG_9942.webp" alt="Ruderal I — image 37" class="project-img" fetchpriority="high" decoding="async"></figure>
+</section>
+<div class="ruderal-placeholder" aria-hidden="true"></div>
+<main class="project-grid ruderal-carousel" id="project-gallery">
+<div class="ruderal-carousel-track" id="ruderal-track">
 <figure class="project-item span-2"><img src="optimized/ruderal-i/DSC_0007_result.webp" alt="Ruderal I — image 1" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="project-item"><img src="optimized/ruderal-i/DSC_0070_result.webp" alt="Ruderal I — image 4" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item"><img src="optimized/ruderal-i/DSC_0041_result.webp" alt="Ruderal I — image 2" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/Poster-2.webp" alt="Ruderal I — image 39" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item span-2"><img src="optimized/ruderal-i/DSC_0041_result.webp" alt="Ruderal I — image 2" class="project-img" fetchpriority="high" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0069_result.webp" alt="Ruderal I — image 3" class="project-img" fetchpriority="high" decoding="async"></figure>
-<figure class="project-item span-2"><img src="optimized/ruderal-i/DSC_0070_result.webp" alt="Ruderal I — image 4" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0115_result.webp" alt="Ruderal I — image 5" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item span-2"><img src="optimized/ruderal-i/DSC_0125_result.webp" alt="Ruderal I — image 6" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0132_result.webp" alt="Ruderal I — image 7" class="project-img" loading="lazy" decoding="async"></figure>
@@ -65,7 +91,6 @@
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0310_result.webp" alt="Ruderal I — image 18" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0314_result.webp" alt="Ruderal I — image 19" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0327_result.webp" alt="Ruderal I — image 20" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-i/DSC_0329_result.webp" alt="Ruderal I — image 21" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0339_result.webp" alt="Ruderal I — image 23" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item smaller-image"><img src="optimized/ruderal-i/DSC_0372_result.webp" alt="Ruderal I — image 25" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0373_result.webp" alt="Ruderal I — image 26" class="project-img" loading="lazy" decoding="async"></figure>
@@ -79,11 +104,19 @@
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0485_result.webp" alt="Ruderal I — image 34" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0521_result.webp" alt="Ruderal I — image 35" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/IMG_9923.webp" alt="Ruderal I — image 36" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-i/IMG_9942.webp" alt="Ruderal I — image 37" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item span-2"><img src="optimized/ruderal-i/Matchstick perf edited_result.webp" alt="Ruderal I — image 38" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item"><img src="originals/ruderal-i/IMG_9172_result.jpg" alt="Ruderal I — IMG_9172" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item"><img src="originals/ruderal-i/IMG_9173_result.jpg" alt="Ruderal I — IMG_9173" class="project-img" loading="lazy" decoding="async"></figure>
+</div>
+<div class="ruderal-carousel-controls"><button id="ruderal-prev" type="button" aria-label="Previous image">←</button><span class="ruderal-carousel-count" id="ruderal-count" aria-live="polite"></span><button id="ruderal-next" type="button" aria-label="Next image">→</button></div>
 </main>
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Ruderal I image gallery" aria-hidden="true"><button class="viewer-arrow prev" id="viewer-prev" aria-label="Previous image" type="button"><svg viewBox="0 0 24 40"><path d="M19 3 L5 20 L19 37"/></svg></button><div class="viewer-stage"><img id="viewer-img" alt=""></div><button class="viewer-arrow next" id="viewer-next" aria-label="Next image" type="button"><svg viewBox="0 0 24 40"><path d="M5 3 L19 20 L5 37"/></svg></button><div class="viewer-counter" id="viewer-counter"></div></div><div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 <script>
 const toggle=document.getElementById('projects-toggle'),dropdown=document.getElementById('projects-dropdown');toggle.addEventListener('click',e=>{e.preventDefault();const open=dropdown.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});document.addEventListener('click',e=>{if(!toggle.contains(e.target)&&!dropdown.contains(e.target)){dropdown.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
-const images=Array.from(document.querySelectorAll('.project-img')),viewer=document.getElementById('viewer'),viewerImg=document.getElementById('viewer-img'),counter=document.getElementById('viewer-counter');let current=0;function showImage(i){current=(i+images.length)%images.length;viewerImg.src=images[current].src;viewerImg.alt=images[current].alt;counter.textContent=(current+1)+' / '+images.length;}images.forEach((img,i)=>img.addEventListener('click',()=>{showImage(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');}));document.getElementById('viewer-prev').addEventListener('click',e=>{e.stopPropagation();showImage(current-1)});document.getElementById('viewer-next').addEventListener('click',e=>{e.stopPropagation();showImage(current+1)});viewer.addEventListener('click',e=>{if(!e.target.closest('.viewer img, .viewer-arrow')){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}});document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape'){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}if(e.key==='ArrowLeft')showImage(current-1);if(e.key==='ArrowRight')showImage(current+1)});
+const images=Array.from(document.querySelectorAll('.project-img')),viewer=document.getElementById('viewer'),viewerImg=document.getElementById('viewer-img'),counter=document.getElementById('viewer-counter');let current=0;function showImage(i){current=(i+images.length)%images.length;viewerImg.src=images[current].src;viewerImg.alt=images[current].alt;counter.textContent=(current+1)+' / '+images.length;}images.forEach((img,i)=>img.addEventListener('click',()=>{showImage(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');}));document.getElementById('viewer-prev').addEventListener('click',e=>{e.stopPropagation();showImage(current-1)});document.getElementById('viewer-next').addEventListener('click',e=>{e.stopPropagation();showImage(current+1)});viewer.addEventListener('click',e=>{if(!e.target.closest('.viewer img, .viewer-arrow')){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}});
+const track=document.getElementById('ruderal-track'),slides=Array.from(track.querySelectorAll('.project-item')),carouselCount=document.getElementById('ruderal-count');let currentSlide=0;
+function updateCarouselCount(){const center=track.scrollLeft+track.clientWidth/2;currentSlide=slides.reduce((best,slide,index)=>Math.abs(slide.offsetLeft+slide.offsetWidth/2-center)<Math.abs(slides[best].offsetLeft+slides[best].offsetWidth/2-center)?index:best,0);carouselCount.textContent=(currentSlide+1)+' / '+slides.length;}
+function goToSlide(index){currentSlide=(index+slides.length)%slides.length;const slide=slides[currentSlide];track.scrollTo({left:slide.offsetLeft-track.offsetLeft-(track.clientWidth-slide.offsetWidth)/2,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});carouselCount.textContent=(currentSlide+1)+' / '+slides.length;}
+track.addEventListener('scroll',()=>requestAnimationFrame(updateCarouselCount),{passive:true});document.getElementById('ruderal-prev').addEventListener('click',()=>goToSlide(currentSlide-1));document.getElementById('ruderal-next').addEventListener('click',()=>goToSlide(currentSlide+1));updateCarouselCount();
+document.addEventListener('keydown',e=>{if(viewer.classList.contains('open')){if(e.key==='Escape'){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}if(e.key==='ArrowLeft')showImage(current-1);if(e.key==='ArrowRight')showImage(current+1)}});
 </script></body></html>

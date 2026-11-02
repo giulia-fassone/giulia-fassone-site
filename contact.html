@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5B2C10">
+<title>Contact — Giulia Fassone</title>
+<style>
+@font-face {
+  font-family: 'TaylorGothic';
+  src: url('Taylor-Gothic.woff2') format('woff2'),
+       url('Taylor-Gothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+:root { --text-colour:#004992; --yellow:#FFED00; }
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; min-height:100%; background:transparent; }
+body {
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  font-family:Arial,sans-serif;
+  color:var(--text-colour);
+  background-color:#b4a8b5;
+  background-image:linear-gradient(rgba(180,168,181,.96),rgba(180,168,181,.96)),url('originals/ruderal-ii/texture-2.jpg');
+  background-position:center,center;
+  background-size:auto,cover;
+  background-attachment:fixed,fixed;
+}
+.header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:4px 20px;
+  flex-wrap:wrap;
+  gap:12px;
+  position:relative;
+  z-index:10;
+}
+.brand { display:flex; align-items:center; margin-left:-20px; text-decoration:none; }
+.symbol { height:54px; width:auto; display:block; margin-right:-10px; }
+.signature { height:108px; width:auto; display:block; }
+.menu { display:flex; gap:28px; align-items:baseline; }
+.menu-item { position:relative; }
+.menu a { font-family:Arial,sans-serif; font-size:20px; color:var(--yellow); text-decoration:none; cursor:pointer; text-shadow:2px 2px 6px #5454E5; }
+.menu a:hover { color:var(--yellow); text-decoration:none; }
+.dropdown {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  margin-top:10px;
+  min-width:240px;
+  z-index:20;
+  background:none;
+  border:0;
+  padding:0;
+}
+.dropdown.open { display:block; }
+.dropdown a { display:block; font-size:18px; padding:6px 0; white-space:nowrap; }
+.contact-wrap {
+  flex:1;
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px 24px 64px;
+}
+.contact-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  width:min(440px,100%);
+}
+.contact-details { display:flex; align-items:center; justify-content:center; gap:26px; }
+.contact-email {
+  color:var(--text-colour);
+  font:18px Arial,sans-serif;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.contact-email:hover { text-decoration:underline; }
+.instagram-mark { display:block; width:28px; height:28px; color:var(--text-colour); }
+.contact-portrait { order:1; flex:none; width:min(300px,72vw); margin:0; }
+.contact-portrait img { display:block; width:100%; height:auto; }
+.contact-portrait figcaption { margin-top:7px; color:var(--yellow); font:11px Arial,sans-serif; text-align:center; }
+.contact-details { order:2; }
+.copyright { text-align:center; font-size:12px; padding:0 0 14px; color:var(--text-colour); }
+@media(max-width:700px) {
+  .header { padding:6px 16px 10px; gap:8px; }
+  .symbol { height:40px; margin-right:-6px; }
+  .signature { height:60px; }
+  .menu { gap:14px; }
+  .menu a { font-size:14px; }
+  .dropdown { min-width:200px; }
+  .dropdown a { font-size:14px; }
+  .contact-wrap { padding:20px 16px 50px; }
+  .contact-content { gap:16px; }
+  .contact-portrait { width:min(280px,72vw); }
+  .contact-details { gap:22px; }
+  .contact-email { font-size:16px; }
+  .instagram-mark { width:24px; height:24px; }
+  .contact-portrait figcaption { font-size:10px; }
+  .copyright { font-size:10px; }
+}
+.dropdown {
+  background:rgba(245,242,233,.68);
+  -webkit-backdrop-filter:blur(16px) saturate(115%);
+  backdrop-filter:blur(16px) saturate(115%);
+  border:1px solid rgba(91,44,16,.07);
+  border-radius:8px;
+  padding:8px 14px;
+  box-shadow:0 5px 18px rgba(30,20,10,.045);
+  overflow:hidden;
+}
+.dropdown a { color:var(--text-colour); text-shadow:none; }
+body { background-position:center,49.7% 49.8%; background-size:auto,140% auto; animation:texture-pan 8s ease-in-out infinite alternate; }
+@keyframes texture-pan {
+  0% { background-position:center,48.5% 49%; }
+  20% { background-position:center,51.5% 48.5%; }
+  42% { background-position:center,50% 51.5%; }
+  66% { background-position:center,48.5% 51%; }
+  84% { background-position:center,51.5% 49%; }
+  100% { background-position:center,48.5% 49%; }
+}
+@media(prefers-reduced-motion:reduce) { body { animation:none; } }
+</style>
+</head>
+<body>
+<header class="header">
+  <a href="index.html" class="brand">
+    <img src="Symbol.png" alt="" class="symbol">
+    <img src="signature.png" alt="Giulia Fassone" class="signature">
+  </a>
+  <nav class="menu">
+    <div class="menu-item">
+      <a id="projects-toggle" href="#projects-dropdown" aria-expanded="false" aria-controls="projects-dropdown">Projects</a>
+      <div class="dropdown" id="projects-dropdown">
+        <a href="appetite.html">Appetite</a>
+        <a href="lie-soft.html">Lie Soft</a>
+        <a href="archaeology-of-self.html">Archaeology Of Self</a>
+        <a href="ruderal-i.html">Ruderal I</a>
+        <a href="ruderal-ii.html">Ruderal II</a>
+        <a href="fruits-of-labour.html">Fruits of Labour</a>
+        <a href="the-remains-of-a-meal.html">The Remains Of A Meal</a>
+        <a href="tools.html">Tools</a>
+      </div>
+    </div>
+    <a href="sketchbook.html">Sketchbook</a>
+    <a href="cv.html">CV</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </nav>
+</header>
+<main class="contact-wrap" aria-label="Contact details">
+  <div class="contact-content">
+    <div class="contact-details">
+      <a class="contact-email" id="email-link" href="#" aria-label="Email Giulia">Email</a>
+      <a href="https://www.instagram.com/giulia_fassone/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg class="instagram-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/>
+          <circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/>
+          <circle cx="17.7" cy="6.5" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+    <figure class="contact-portrait">
+      <img src="contact-portrait.jpg" alt="Giulia Fassone at the Kiln Rooms">
+      <figcaption>Photo by Natalie Martinez</figcaption>
+    </figure>
+  </div>
+</main>
+<div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
+<script>
+const toggle=document.getElementById('projects-toggle'),dropdown=document.getElementById('projects-dropdown');
+toggle.addEventListener('click',e=>{e.preventDefault();const open=dropdown.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+document.addEventListener('click',e=>{if(!toggle.contains(e.target)&&!dropdown.contains(e.target)){dropdown.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
+document.getElementById('email-link').addEventListener('click',e=>{
+  e.preventDefault();
+  const recipient=[103,105,117,108,105,97,102,97,115,115,111,110,101,53,64,103,109,97,105,108,46,99,111,109].map(code=>String.fromCharCode(code)).join('');
+  window.location.href='mailto:'+recipient;
+});
+</script>
+</body>
+</html>
