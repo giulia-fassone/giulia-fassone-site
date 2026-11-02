@@ -68,14 +68,15 @@ body {
   padding:24px 24px 64px;
 }
 .contact-content {
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns:minmax(0,300px) minmax(0,320px);
   align-items:center;
   justify-content:center;
-  gap:18px;
-  width:min(440px,100%);
+  gap:clamp(28px,5vw,56px);
+  width:min(760px,100%);
 }
-.contact-details { display:flex; align-items:center; justify-content:center; gap:26px; }
+.contact-side { display:flex; flex-direction:column; align-items:flex-start; gap:22px; }
+.contact-details { display:flex; align-items:center; justify-content:flex-start; gap:26px; }
 .contact-email {
   color:var(--text-colour);
   font:18px Arial,sans-serif;
@@ -84,11 +85,10 @@ body {
 }
 .contact-email:hover { text-decoration:underline; }
 .instagram-mark { display:block; width:28px; height:28px; color:var(--text-colour); }
-.contact-portrait { order:1; flex:none; width:min(300px,72vw); margin:0; }
+.contact-portrait { flex:none; width:100%; margin:0; }
 .contact-portrait img { display:block; width:100%; height:auto; }
-.contact-portrait figcaption { margin-top:7px; color:var(--yellow); font:11px Arial,sans-serif; text-align:center; }
-.contact-intro { order:2; max-width:320px; margin:0; color:var(--text-colour); font:15px/1.5 Arial,sans-serif; text-align:center; }
-.contact-details { order:3; }
+.contact-portrait figcaption { margin-top:7px; color:var(--yellow); font:11px Arial,sans-serif; text-align:right; }
+.contact-intro { max-width:320px; margin:0; color:var(--text-colour); font:15px/1.5 Arial,sans-serif; text-align:left; }
 .copyright { text-align:center; font-size:12px; padding:0 0 14px; color:var(--text-colour); }
 @media(max-width:700px) {
   .header { padding:6px 16px 10px; gap:8px; }
@@ -99,8 +99,9 @@ body {
   .dropdown { min-width:200px; }
   .dropdown a { font-size:14px; }
   .contact-wrap { padding:20px 16px 50px; }
-  .contact-content { gap:16px; }
+  .contact-content { grid-template-columns:minmax(0,1fr); gap:18px; width:min(440px,100%); justify-items:start; }
   .contact-portrait { width:min(280px,72vw); }
+  .contact-side { gap:16px; }
   .contact-intro { max-width:300px; font-size:14px; }
   .contact-details { gap:22px; }
   .contact-email { font-size:16px; }
@@ -163,21 +164,23 @@ body { background-position:center,49.7% 49.8%; background-size:auto,140% auto; a
 </header>
 <main class="contact-wrap" aria-label="Contact details">
   <div class="contact-content">
-    <div class="contact-details">
-      <a class="contact-email" id="email-link" href="#" aria-label="Email Giulia">Email</a>
-      <a href="https://www.instagram.com/giulia_fassone/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg class="instagram-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/>
-          <circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/>
-          <circle cx="17.7" cy="6.5" r="1.1" fill="currentColor"/>
-        </svg>
-      </a>
-    </div>
     <figure class="contact-portrait">
       <img src="contact-portrait.jpg" alt="Giulia Fassone at the Kiln Rooms">
       <figcaption>Photo by Natalie Martinez</figcaption>
     </figure>
-    <p class="contact-intro">For exhibition, collaboration and general enquiries, please get in touch.</p>
+    <div class="contact-side">
+      <p class="contact-intro">For exhibition, collaboration and general enquiries, please get in touch.</p>
+      <div class="contact-details">
+        <a class="contact-email" id="email-link" href="#" aria-label="Email Giulia">Email</a>
+        <a href="https://www.instagram.com/giulia_fassone/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg class="instagram-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="17.7" cy="6.5" r="1.1" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 </main>
 <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
