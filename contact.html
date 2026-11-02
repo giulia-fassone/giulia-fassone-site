@@ -87,7 +87,8 @@ body {
 .contact-portrait { order:1; flex:none; width:min(300px,72vw); margin:0; }
 .contact-portrait img { display:block; width:100%; height:auto; }
 .contact-portrait figcaption { margin-top:7px; color:var(--yellow); font:11px Arial,sans-serif; text-align:center; }
-.contact-details { order:2; }
+.contact-intro { order:2; max-width:320px; margin:0; color:var(--text-colour); font:15px/1.5 Arial,sans-serif; text-align:center; }
+.contact-details { order:3; }
 .copyright { text-align:center; font-size:12px; padding:0 0 14px; color:var(--text-colour); }
 @media(max-width:700px) {
   .header { padding:6px 16px 10px; gap:8px; }
@@ -100,11 +101,17 @@ body {
   .contact-wrap { padding:20px 16px 50px; }
   .contact-content { gap:16px; }
   .contact-portrait { width:min(280px,72vw); }
+  .contact-intro { max-width:300px; font-size:14px; }
   .contact-details { gap:22px; }
   .contact-email { font-size:16px; }
   .instagram-mark { width:24px; height:24px; }
   .contact-portrait figcaption { font-size:10px; }
   .copyright { font-size:10px; }
+}
+@media(max-height:700px) {
+  .contact-wrap { padding:8px 24px 12px; }
+  .contact-content { gap:12px; }
+  .contact-portrait { width:min(210px,40vh); }
 }
 .dropdown {
   background:rgba(245,242,233,.68);
@@ -170,6 +177,7 @@ body { background-position:center,49.7% 49.8%; background-size:auto,140% auto; a
       <img src="contact-portrait.jpg" alt="Giulia Fassone at the Kiln Rooms">
       <figcaption>Photo by Natalie Martinez</figcaption>
     </figure>
+    <p class="contact-intro">For exhibition, collaboration and general enquiries, please get in touch.</p>
   </div>
 </main>
 <div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
