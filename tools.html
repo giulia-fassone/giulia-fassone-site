@@ -41,6 +41,7 @@
 .project-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:24px;max-width:1200px;width:100%;padding:var(--page-margin,.5in);margin:0 auto 100px}
 .project-grid .project-item{display:block;width:100%;margin:0}
 .project-grid .project-item.tools-wide{grid-column:span 2!important}
+@media(min-width:701px){.project-grid .tools-feature{grid-column:1 / span 2!important;grid-row:1}.project-grid .tools-third{grid-column:3!important;grid-row:1}.project-grid .tools-second{grid-column:1 / span 2!important;grid-row:2}.project-grid .tools-seven{grid-column:1 / span 2!important;grid-row:3}.project-grid .tools-four{grid-column:1!important;grid-row:4}.project-grid .tools-six{grid-column:2 / span 2!important;grid-row:4}.project-grid .tools-five{grid-column:1!important;grid-row:5}}
 @media(max-width:700px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:12px 12px 80px}}
 </style><style>
 body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;animation:texture-pan 8s ease-in-out infinite alternate}
@@ -49,13 +50,13 @@ body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;anima
 </style></head><body>
 <header class="header"><a href="index.html" class="brand"><img src="Symbol.png" alt="" class="symbol"><img src="signature.png" alt="Giulia Fassone" class="signature"></a><nav class="menu"><div class="menu-item"><a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a><div class="dropdown" id="projects-dropdown"><a href="appetite.html">Appetite</a><a href="lie-soft.html">Lie Soft</a><a href="archaeology-of-self.html">Archaeology Of Self</a><a href="ruderal-i.html">Ruderal I</a><a href="ruderal-ii.html">Ruderal II</a><a href="fruits-of-labour.html">Fruits of Labour</a><a href="the-remains-of-a-meal.html">The Remains Of A Meal</a><a href="tools.html">Tools</a></div></div><a href="sketchbook.html">Sketchbook</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></nav></header>
 <main class="project-grid" id="project-gallery">
-<figure class="project-item tools-wide"><img src="originals/tools/Gutted%2C%202022.%20Glazed%20stoneware.%20I.%2013%20x%209%20x%2020%20cm.%20II.%2029%20x%205%20x%204%20cm._result.jpg" alt="Tools — Gutted, 2022" class="project-img" fetchpriority="high" decoding="async"></figure>
-<figure class="project-item tools-wide"><img src="originals/tools/IMG_8948_result.jpg" alt="Tools — image 8" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/tools/384320c3-9404-42a5-a976-519a0fd8be4a_result.webp" alt="Tools — image 1" class="project-img" fetchpriority="high" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/tools/b8f22e32-e4bd-4908-b88d-b31e1e4bc7f3_result.webp" alt="Tools — image 3" class="project-img" fetchpriority="high" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/tools/IMG_8938 1_result.webp" alt="Tools — image 5" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item tools-wide"><img src="optimized/tools/IMG_8940 1_result.webp" alt="Tools — image 6" class="project-img" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="originals/tools/IMG_8956_result.jpg" alt="Tools — image 9" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item tools-wide tools-feature"><img src="originals/tools/Gutted%2C%202022.%20Glazed%20stoneware.%20I.%2013%20x%209%20x%2020%20cm.%20II.%2029%20x%205%20x%204%20cm._result.jpg" alt="Tools — Gutted, 2022" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="project-item tools-wide tools-second"><img src="originals/tools/IMG_8948_result.jpg" alt="Tools — image 8" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item tools-third"><img src="optimized/tools/384320c3-9404-42a5-a976-519a0fd8be4a_result.webp" alt="Tools — image 1" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="project-item tools-four"><img src="optimized/tools/b8f22e32-e4bd-4908-b88d-b31e1e4bc7f3_result.webp" alt="Tools — image 3" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="project-item tools-five"><img src="optimized/tools/IMG_8938 1_result.webp" alt="Tools — image 5" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item tools-wide tools-six"><img src="optimized/tools/IMG_8940 1_result.webp" alt="Tools — image 6" class="project-img" loading="lazy" decoding="async"></figure>
+<figure class="project-item tools-wide tools-seven"><img src="originals/tools/IMG_8956_result.jpg" alt="Tools — image 9" class="project-img" loading="lazy" decoding="async"></figure>
 </main>
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Tools image gallery" aria-hidden="true"><button class="viewer-arrow prev" id="viewer-prev" aria-label="Previous image" type="button"><svg viewBox="0 0 24 40"><path d="M19 3 L5 20 L19 37"/></svg></button><div class="viewer-stage"><img id="viewer-img" alt=""></div><button class="viewer-arrow next" id="viewer-next" aria-label="Next image" type="button"><svg viewBox="0 0 24 40"><path d="M5 3 L19 20 L5 37"/></svg></button><div class="viewer-counter" id="viewer-counter"></div></div><div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 <script>
