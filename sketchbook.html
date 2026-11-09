@@ -44,6 +44,9 @@
 .book-navigation button:hover{border-color:var(--text)}
 .book-position{min-width:120px;text-align:center;font-size:12px;letter-spacing:.04em;font-variant-numeric:tabular-nums}
 @media(max-width:700px){.sketchbook-stage{width:calc(100% - 24px);margin:10px auto 90px}.book-spread{aspect-ratio:1.38/1}.book-page,.page-face{padding:10px}.book-navigation{margin-top:14px}}
+@media(max-width:700px){.book-spread{max-width:calc(138vh - 276px)}}
+@supports (height:100dvh){.book-spread{max-width:calc(148dvh - 325.6px)}}
+@supports (height:100dvh){@media(max-width:700px){.book-spread{max-width:calc(138dvh - 276px)}}}
 @media(prefers-reduced-motion:reduce){.turning-next,.turning-prev{animation-duration:1ms}}
 
 
