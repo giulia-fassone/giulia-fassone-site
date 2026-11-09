@@ -349,13 +349,29 @@ body {
 .project-grid{display:block!important;column-count:3;column-gap:var(--grid-gap);max-width:1600px;width:100%;padding:var(--page-margin);margin:0 auto 100px;}
 .project-grid .project-item{display:inline-block;width:100%;margin:0 0 var(--grid-gap);padding:0;break-inside:avoid;vertical-align:top;}
 .project-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain;}
-.project-grid .span-2,.project-grid .item-text{grid-column:auto!important;column-span:none!important;}
+.project-grid .span-2,.project-grid .item-text{column-span:none!important;}
+.project-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1px;column-gap:var(--grid-gap);row-gap:0;column-count:initial!important;columns:initial!important;}
+.project-grid>.project-item,.project-grid>.lie-soft-stack{display:block;width:auto;min-width:0;height:auto;margin:0;padding:0;break-inside:auto;vertical-align:initial;}
+.project-grid>.lie-soft-pair{display:grid;}
 .lie-soft-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--grid-gap);max-width:1600px;width:100%;padding:var(--page-margin);margin:0 auto;align-items:start;}
 .lie-soft-feature-grid .feature-image{grid-column:1;grid-row:1;}
 .lie-soft-feature-grid .feature-text{grid-column:2 / span 2;grid-row:1;}
 .lie-soft-feature-grid .project-item{display:block;width:100%;min-width:0;margin:0;padding:0;cursor:zoom-in;}
 .lie-soft-feature-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain;}
-@media(max-width:700px){.project-grid{column-count:2;padding-bottom:80px}.lie-soft-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px;gap:12px}.lie-soft-feature-grid .feature-image{grid-column:1;grid-row:1}.lie-soft-feature-grid .feature-text{grid-column:2;grid-row:1}}
+.lie-soft-feature-grid .feature-stone{grid-column:1;grid-row:2;width:72%;aspect-ratio:1;overflow:hidden;margin-top:-96px;}
+.lie-soft-feature-grid .feature-stone img{height:100%!important;object-fit:contain!important;transform:scale(1.55);}
+.lie-soft-stack{display:block;grid-column:span 1;}
+.lie-soft-stack .project-item{display:block;width:100%;margin:0 0 var(--grid-gap);padding:0;}
+.lie-soft-stack .project-item:last-child{margin-bottom:0;}
+.lie-soft-stack .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain;}
+.lie-soft-pair{display:grid;grid-column:span 2;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--grid-gap);width:100%;margin:0;align-items:start;}
+.lie-soft-pair .project-item{display:block;width:auto;min-width:0;margin:0;padding:0;cursor:zoom-in;}
+.lie-soft-pair .project-item img{display:block;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;object-fit:contain;}
+.lie-soft-pair .crop-square{aspect-ratio:1;overflow:hidden;}
+.lie-soft-pair .crop-square img{height:100%!important;object-fit:cover!important;object-position:center bottom!important;transform:scale(1.6);}
+@media(max-width:700px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--grid-gap);padding:12px 12px 80px}.lie-soft-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px;gap:12px}.lie-soft-feature-grid .feature-image{grid-column:1;grid-row:1}.lie-soft-feature-grid .feature-text{grid-column:2;grid-row:1}}
+@media(max-width:700px){.lie-soft-pair{grid-column:span 2;grid-template-columns:repeat(2,minmax(0,1fr));}.lie-soft-pair .project-item:last-child{grid-column:auto}}
+@media(max-width:700px){.lie-soft-feature-grid .feature-stone{margin-top:12px}}
 </style>
 </head>
 
@@ -371,7 +387,7 @@ body {
   <a href="index.html" class="brand">
     <img src="Symbol.png" alt="" class="symbol">
     <img
-      src="signature.png"
+      src="signature.png?v=20261109-224198"
       alt="Giulia Fassone"
       class="signature">
   </a>
@@ -410,6 +426,16 @@ body {
       src="optimized/Baton-P1100275-1-2.webp"
       alt="Lie Soft project"
       class="project-img"
+      data-viewer-order="1"
+      loading="lazy"
+      decoding="async">
+  </div>
+<div class="project-item feature-stone">
+    <img
+      src="optimized/Hooked-stone-thumbnail.webp"
+      alt="Hooked stone"
+      class="project-img"
+      data-no-viewer="true"
       loading="lazy"
       decoding="async">
   </div>
@@ -418,6 +444,7 @@ body {
       src="optimized/Lie_soft_text.webp"
       alt="Lie Soft — 2026"
       class="project-img"
+      data-viewer-order="2"
       decoding="async">
   </div>
 </section>
@@ -427,6 +454,7 @@ body {
       src="optimized/Butter2.webp"
       alt="Lie Soft project"
       class="project-img"
+      data-viewer-order="3"
       fetchpriority="high"
       decoding="async">
   </div>
@@ -436,6 +464,7 @@ body {
       src="optimized/Lie-Soft2.webp"
       alt="Lie Soft project"
       class="project-img"
+      data-viewer-order="4"
       fetchpriority="high"
       decoding="async">
   </div>
@@ -445,6 +474,7 @@ body {
       src="optimized/Cast-Moss-Fingers.webp"
       alt="Cast Moss Fingers"
       class="project-img"
+      data-viewer-order="5"
       fetchpriority="high"
       decoding="async">
   </div>
@@ -454,33 +484,58 @@ body {
       src="optimized/Sin-Proof-2025.webp"
       alt="Sin Proof, 2025"
       class="project-img"
+      data-viewer-order="6"
       decoding="async">
   </div>
+
+<div class="lie-soft-pair">
+  <div class="project-item crop-square">
+      <img
+        src="optimized/Givetake2.webp"
+        alt="Give Take"
+        class="project-img"
+        data-viewer-order="8"
+        loading="lazy"
+        decoding="async">
+    </div>
+  <div class="project-item">
+      <img
+        src="optimized/Givetake.webp"
+        alt="Give Take"
+        class="project-img"
+        data-viewer-order="14"
+        loading="lazy"
+        decoding="async">
+    </div>
+</div>
+
+<div class="lie-soft-stack">
+  <div class="project-item">
+      <img
+        src="optimized/Butter3.webp"
+        alt="Lie Soft project"
+        class="project-img"
+        data-viewer-order="7"
+        loading="lazy"
+        decoding="async">
+    </div>
+  <div class="project-item">
+      <img
+        src="optimized/Butter-Fingers.webp"
+        alt="Butter Fingers"
+        class="project-img"
+        data-viewer-order="11"
+        loading="lazy"
+        decoding="async">
+    </div>
+</div>
 
 <div class="project-item">
     <img
-      src="optimized/Hooked-stone-thumbnail.webp"
-      alt="Hooked stone"
-      class="project-img"
-      data-no-viewer="true"
-      loading="lazy"
-      decoding="async">
-  </div>
-
-<div class="project-item span-2">
-    <img
-      src="optimized/Butter3.webp"
+      src="optimized/Cushion.webp"
       alt="Lie Soft project"
       class="project-img"
-      loading="lazy"
-      decoding="async">
-  </div>
-
-<div class="project-item span-2">
-    <img
-      src="optimized/Givetake2.webp"
-      alt="Give Take"
-      class="project-img"
+      data-viewer-order="13"
       loading="lazy"
       decoding="async">
   </div>
@@ -490,6 +545,7 @@ body {
       src="optimized/1.webp"
       alt="Lie Soft project"
       class="project-img"
+      data-viewer-order="9"
       loading="lazy"
       decoding="async">
   </div>
@@ -499,42 +555,7 @@ body {
       src="optimized/2.webp"
       alt="Lie Soft project"
       class="project-img"
-      loading="lazy"
-      decoding="async">
-  </div>
-
-<div class="project-item">
-    <img
-      src="optimized/Butter-Fingers.webp"
-      alt="Butter Fingers"
-      class="project-img"
-      loading="lazy"
-      decoding="async">
-  </div>
-
-<div class="project-item span-2">
-    <img
-      src="optimized/ClippedClamped.webp"
-      alt="Clipped Clamped"
-      class="project-img"
-      loading="lazy"
-      decoding="async">
-  </div>
-
-<div class="project-item span-2">
-    <img
-      src="optimized/Cushion.webp"
-      alt="Lie Soft project"
-      class="project-img"
-      loading="lazy"
-      decoding="async">
-  </div>
-
-<div class="project-item span-2">
-    <img
-      src="optimized/Givetake.webp"
-      alt="Give Take"
-      class="project-img"
+      data-viewer-order="10"
       loading="lazy"
       decoding="async">
   </div>
@@ -544,6 +565,17 @@ body {
       src="optimized/Joint-pain.webp"
       alt="Joint Pain"
       class="project-img"
+      data-viewer-order="15"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+<div class="project-item span-2">
+    <img
+      src="optimized/ClippedClamped.webp"
+      alt="Clipped Clamped"
+      class="project-img"
+      data-viewer-order="12"
       loading="lazy"
       decoding="async">
   </div>
@@ -618,7 +650,7 @@ const viewerCounter = document.getElementById('viewer-counter');
 
 const projectImages = Array.from(
   document.querySelectorAll('.project-img:not([data-no-viewer="true"])')
-);
+).sort((a, b) => Number(a.dataset.viewerOrder) - Number(b.dataset.viewerOrder));
 
 let currentIndex = 0;
 let previouslyFocusedElement = null;
@@ -705,6 +737,84 @@ document.addEventListener('keydown', (e) => {
     closeViewer();
   }
 });
+
+const masonryGrid = document.getElementById('project-gallery');
+
+function layoutLieSoftMasonry() {
+  const items = [...masonryGrid.children];
+  items.forEach(item => {
+    item.style.gridColumn = '';
+    item.style.gridRow = '';
+    item.style.height = '';
+    item.querySelectorAll('.project-item').forEach(child => {
+      child.style.height = '';
+    });
+  });
+  const styles = getComputedStyle(masonryGrid);
+  const rowHeight = parseFloat(styles.gridAutoRows) || 1;
+  const gutter = parseFloat(styles.columnGap);
+  const columnCount = styles.gridTemplateColumns.split(' ').length;
+  const columnRows = Array(columnCount).fill(0);
+
+  function sizeItem(item, width) {
+    const image = item.querySelector('img');
+    if (!image.naturalWidth || !width) return 0;
+    const height = item.classList.contains('crop-square')
+      ? width
+      : width * image.naturalHeight / image.naturalWidth;
+    item.style.height = `${height}px`;
+    return height;
+  }
+
+  function placeItem(item, height, column, columnSpan = 1, leadingOverlap = 0) {
+    const rowSpan = Math.max(1, Math.ceil((height + gutter) / rowHeight));
+    const startRow = Math.max(...columnRows.slice(column, column + columnSpan)) -
+      Math.ceil(leadingOverlap / rowHeight);
+    item.style.gridColumn = `${column + 1} / span ${columnSpan}`;
+    item.style.gridRow = `${startRow + 1} / span ${rowSpan}`;
+    for (let index = column; index < column + columnSpan; index++) {
+      columnRows[index] = startRow + rowSpan;
+    }
+  }
+
+  for (const item of items) {
+    if (item.classList.contains('lie-soft-pair')) {
+      let pairHeight = 0;
+      for (const pairItem of item.querySelectorAll('.project-item')) {
+        pairHeight = Math.max(pairHeight, sizeItem(pairItem, pairItem.clientWidth));
+      }
+      item.style.height = `${pairHeight}px`;
+      let column = 0;
+      for (let index = 1; index < columnCount - 1; index++) {
+        if (Math.max(columnRows[index], columnRows[index + 1]) < Math.max(columnRows[column], columnRows[column + 1])) {
+          column = index;
+        }
+      }
+      placeItem(item, pairHeight, column, 2, gutter);
+    } else if (item.classList.contains('lie-soft-stack')) {
+      let stackHeight = 0;
+      const stackItems = [...item.querySelectorAll('.project-item')];
+      stackItems.forEach((stackItem, index) => {
+        stackHeight += sizeItem(stackItem, stackItem.clientWidth);
+        if (index < stackItems.length - 1) stackHeight += gutter;
+      });
+      item.style.height = `${stackHeight}px`;
+      const column = columnRows.indexOf(Math.min(...columnRows));
+      placeItem(item, stackHeight, column);
+    } else {
+      const height = sizeItem(item, item.clientWidth);
+      const column = columnRows.indexOf(Math.min(...columnRows));
+      placeItem(item, height, column);
+    }
+  }
+}
+
+masonryGrid.querySelectorAll('img').forEach(image => {
+  image.addEventListener('load', layoutLieSoftMasonry);
+});
+new ResizeObserver(layoutLieSoftMasonry).observe(masonryGrid);
+window.addEventListener('resize', layoutLieSoftMasonry);
+layoutLieSoftMasonry();
 </script>
 
 </body>
