@@ -766,10 +766,9 @@ function layoutLieSoftMasonry() {
     return height;
   }
 
-  function placeItem(item, height, column, columnSpan = 1, leadingOverlap = 0) {
+  function placeItem(item, height, column, columnSpan = 1) {
     const rowSpan = Math.max(1, Math.ceil((height + gutter) / rowHeight));
-    const startRow = Math.max(...columnRows.slice(column, column + columnSpan)) -
-      Math.ceil(leadingOverlap / rowHeight);
+    const startRow = Math.max(...columnRows.slice(column, column + columnSpan));
     item.style.gridColumn = `${column + 1} / span ${columnSpan}`;
     item.style.gridRow = `${startRow + 1} / span ${rowSpan}`;
     for (let index = column; index < column + columnSpan; index++) {
@@ -790,7 +789,7 @@ function layoutLieSoftMasonry() {
           column = index;
         }
       }
-      placeItem(item, pairHeight, column, 2, gutter);
+      placeItem(item, pairHeight, column, 2);
     } else if (item.classList.contains('lie-soft-stack')) {
       let stackHeight = 0;
       const stackItems = [...item.querySelectorAll('.project-item')];
