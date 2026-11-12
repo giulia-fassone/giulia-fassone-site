@@ -8,16 +8,16 @@
 @media(max-width:850px){:root{--gap:16px}}
 @media(max-width:700px){.header{padding:6px 16px 10px;gap:8px}.symbol{height:40px;margin-right:-6px}.signature{height:60px}.menu{gap:14px}.menu a{font-size:14px}.dropdown{min-width:200px}.dropdown a{font-size:14px}.copyright{font-size:10px}}
 
-/* Soft, frosted dropdown menu */
+/* Transparent dropdown with a blurred backdrop */
 .dropdown {
-  background: rgba(245, 242, 233, 0.68) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(115%);
-  backdrop-filter: blur(16px) saturate(115%);
-  border: 1px solid rgba(91, 44, 16, 0.07);
-  border-radius: 8px;
+  background: transparent !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 0;
+  border-radius: 0;
   padding: 8px 14px !important;
-  box-shadow: 0 5px 18px rgba(30, 20, 10, 0.045) !important;
-  overflow: hidden;
+  box-shadow: none !important;
+  overflow: visible;
 }
 .dropdown a { padding: 6px 0; }
 .sketchbook-stage{width:min(1300px,calc(100% - 9vw));margin:12px auto 110px}

@@ -53,6 +53,7 @@
     width: 100%;
     height: 100%;
     display: block;
+    object-fit: cover;
   }
 
   .bg::after {
@@ -115,12 +116,12 @@
   .menu a {
     font-family: Arial, sans-serif;
     font-size: 20px;
-    color:#5B2C10; text-decoration:none; cursor:pointer;
+    color:#FFED00; text-decoration:none; cursor:pointer;
   }
 
   .menu a:hover {
     text-decoration: none;
-    color: #FFED00;
+    color: #5B2C10;
   }
 
   .dropdown {
@@ -129,13 +130,13 @@
     top: 100%;
     left: 0;
     margin-top: 10px;
-    background: rgba(245, 242, 233, 0.68);
+    background: transparent;
     padding: 8px 14px;
-    box-shadow: 0 5px 18px rgba(30, 20, 10, 0.045);
-    border-radius: 8px;
-    -webkit-backdrop-filter: blur(16px) saturate(115%);
-    backdrop-filter: blur(16px) saturate(115%);
-    border: 1px solid rgba(91, 44, 16, 0.07);
+    box-shadow: none;
+    border-radius: 0;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 0;
     min-width: 240px;
     z-index: 20;
   }
@@ -165,6 +166,7 @@
   .thumb {
     position: absolute;
     width: 10.25cqw;
+    z-index: 1;
   }
 
   .thumb img {
@@ -180,8 +182,8 @@
   .size-400 { width: 34.85cqw; }
 
   /* Desktop collage positions are tuned to the annotated homepage screenshot. */
-  .urn { left: 18%; top: 70cqh; width: 8.86cqw; }
-  .ruderal-1 { left: 18%; top: 38.5cqh; width: 20.03cqw; }
+  .urn { left: 18%; top: 70cqh; width: 8.86cqw; z-index: 2; }
+  .ruderal-1 { left: 21%; top: 38.5cqh; width: 20.03cqw; z-index: 1; }
   .ruderal-1 img { transform: scaleX(0.75); }
   .lie-soft { left: 22%; top: 80cqh; }
   .fruits { left: 78%; top: 86.5cqh; width: 9.65cqw; }
@@ -303,6 +305,7 @@
       z-index: auto;
     }
     .bg { position: fixed; inset: 0; z-index: -1; }
+    .bg img { object-position: center; }
     .header { padding: 6px 16px 10px; gap: 8px; }
     .symbol { height: 40px; margin-right: -6px; }
     .signature { height: 60px; }
@@ -320,8 +323,9 @@
       height: auto;
       padding: 40px 16px 120px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 20px;
     }
 
     .thumb,
@@ -330,6 +334,8 @@
       width: 100%;
       margin: 0;
     }
+
+    .thumb img { height: auto; object-fit: contain; }
 
     .copyright { font-size: 10px; }
   }
@@ -476,6 +482,60 @@
         lightbox.classList.add('open');
       });
     });
+
+    const collage = document.querySelector('.collage');
+    const alphaMasks = new WeakMap();
+    const thumbnailImages = Array.from(collage.querySelectorAll('.thumb img'));
+    const maskFor = (img) => {
+      if (alphaMasks.has(img)) return alphaMasks.get(img);
+      if (!img.complete || !img.naturalWidth) return null;
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      if (!context) throw new Error('Unable to inspect homepage thumbnail pixels');
+      context.drawImage(img, 0, 0);
+      const mask = {
+        data: context.getImageData(0, 0, canvas.width, canvas.height).data,
+        width: canvas.width,
+        height: canvas.height
+      };
+      alphaMasks.set(img, mask);
+      return mask;
+    };
+    const hitsThumbnail = (img, x, y) => {
+      const rect = img.getBoundingClientRect();
+      const transform = new DOMMatrix(getComputedStyle(img).transform);
+      const point = transform.inverse().transformPoint(new DOMPoint(x - (rect.left + rect.width / 2), y - (rect.top + rect.height / 2)));
+      const localX = point.x + img.offsetWidth / 2;
+      const localY = point.y + img.offsetHeight / 2;
+      if (localX < 0 || localY < 0 || localX >= img.offsetWidth || localY >= img.offsetHeight) return false;
+      const mask = maskFor(img);
+      if (!mask) return false;
+      const pixelX = Math.floor(localX / img.offsetWidth * mask.width);
+      const pixelY = Math.floor(localY / img.offsetHeight * mask.height);
+      return mask.data[(pixelY * mask.width + pixelX) * 4 + 3] > 16;
+    };
+    collage.addEventListener('click', (e) => {
+      const layers = thumbnailImages.slice().sort((a, b) => {
+        const aZ = Number(getComputedStyle(a.closest('.thumb')).zIndex) || 0;
+        const bZ = Number(getComputedStyle(b.closest('.thumb')).zIndex) || 0;
+        return bZ - aZ || thumbnailImages.indexOf(b) - thumbnailImages.indexOf(a);
+      });
+      const target = layers.find(img => hitsThumbnail(img, e.clientX, e.clientY));
+      e.preventDefault();
+      if (!target) return;
+      const thumb = target.closest('.thumb');
+      const link = thumb.querySelector('a');
+      if (link) {
+        window.location.href = link.href;
+      } else if (target.classList.contains('lightbox-trigger')) {
+        lightboxImg.src = target.src;
+        lightbox.classList.add('open');
+      } else if (thumb === statementTrigger) {
+        openStatement();
+      }
+    }, true);
 
     lightbox.addEventListener('click', (e) => {
       if (e.target !== lightbox) return;

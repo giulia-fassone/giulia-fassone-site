@@ -18,16 +18,16 @@ body{background-color:#b4a8b5;background-image:linear-gradient(rgba(180,168,181,
 @media(min-width:701px) and (max-width:1100px){:root{--grid-gap:14px;--page-margin:18px}.project-grid{column-count:3}}@media(max-width:700px){:root{--grid-gap:12px;--page-margin:12px}.header{padding:6px 16px 10px;gap:8px}.symbol{height:40px;margin-right:-6px}.signature{height:60px}.menu{gap:14px}.menu a{font-size:14px}.dropdown{min-width:200px}.dropdown a{font-size:14px}.project-grid{column-count:2;padding-bottom:80px;column-gap:18px}.span-2 img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
 .project-item.enlarge img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}.viewer{padding:50px 42px}.viewer-stage img{max-height:72vh}.prev{left:2px}.next{right:2px}.viewer-counter{bottom:14px;font-size:12px}.copyright{font-size:10px}}
 
-/* Soft, frosted dropdown menu */
+/* Transparent dropdown with a blurred backdrop */
 .dropdown {
-  background: rgba(245, 242, 233, 0.68) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(115%);
-  backdrop-filter: blur(16px) saturate(115%);
-  border: 1px solid rgba(91, 44, 16, 0.07);
-  border-radius: 8px;
+  background: transparent !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 0;
+  border-radius: 0;
   padding: 8px 14px !important;
-  box-shadow: 0 5px 18px rgba(30, 20, 10, 0.045) !important;
-  overflow: hidden;
+  box-shadow: none !important;
+  overflow: visible;
 }
 .dropdown a { padding: 6px 0; }
 
@@ -47,6 +47,7 @@ body{background-color:#b4a8b5;background-image:linear-gradient(rgba(180,168,181,
 .ruderal-ii-gallery-grid .project-item{display:block;width:auto;min-width:0;margin:0;padding:0;break-inside:initial;align-self:start}
 .ruderal-ii-gallery-grid .project-item img{display:block;width:100%!important;max-width:100%!important;height:100%!important;margin:0!important;object-fit:contain}
 .ruderal-ii-gallery-grid .span-2{grid-column:span 2!important}
+.ruderal-ii-gallery-grid .span-all{grid-column:1/-1!important}
 .ruderal-ii-gallery-grid .crop-centered img,.ruderal-ii-gallery-grid .crop-top img{object-fit:cover}
 .ruderal-ii-gallery-grid .crop-top img{object-position:center bottom}
 @media(max-width:700px){.ruderal-ii-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:12px}.ruderal-ii-gallery-grid .span-2{grid-column:span 2!important}}
@@ -61,7 +62,7 @@ body{background-color:#b4a8b5;background-image:linear-gradient(rgba(180,168,181,
 .ruderal-ii-image-four img,.ruderal-ii-feature-side img{height:100%;object-fit:cover}
 .ruderal-ii-image-breaker{grid-column:2/span 2;grid-row:3;display:flex;align-items:center;justify-content:center}
 .ruderal-ii-image-breaker img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
-@media(max-width:700px){.project-grid{column-count:2;column-gap:20px;padding:12px 12px 48px}.project-grid .project-item{margin-bottom:24px}.ruderal-ii-opening-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:0 12px;margin-bottom:32px}.ruderal-ii-wiggly,.ruderal-ii-img-2323,.ruderal-ii-feature-side,.ruderal-ii-image-breaker{grid-column:1/-1;grid-row:auto}.ruderal-ii-image-three,.ruderal-ii-image-four{grid-column:auto;grid-row:auto}.ruderal-ii-image-four img,.ruderal-ii-feature-side img{height:auto;object-fit:contain}}
+@media(max-width:700px){.project-grid{column-count:2;column-gap:20px;padding:12px 12px 48px}.project-grid .project-item{margin-bottom:24px}.ruderal-ii-opening-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:0 12px;margin-bottom:32px}.ruderal-ii-wiggly,.ruderal-ii-img-2323,.ruderal-ii-feature-side,.ruderal-ii-image-breaker,.ruderal-ii-rot-note{grid-column:1/-1;grid-row:auto}.ruderal-ii-image-three,.ruderal-ii-image-four{grid-column:auto;grid-row:auto}.ruderal-ii-image-four img,.ruderal-ii-feature-side img{height:auto;object-fit:contain}}
 </style><style>
 body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;animation:texture-pan 8s ease-in-out infinite alternate}
 @keyframes texture-pan{0%{background-position:center,48.5% 49%}20%{background-position:center,51.5% 48.5%}42%{background-position:center,50% 51.5%}66%{background-position:center,48.5% 51%}84%{background-position:center,51.5% 49%}100%{background-position:center,48.5% 49%}}
@@ -83,6 +84,7 @@ body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;anima
 <figure class="project-item"><img src="originals/ruderal-ii/DSC00419_result.jpg" alt="Ruderal II — image 2" class="project-img" data-caption="Delphine Tomes" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="originals/ruderal-ii/DSC00494_result.jpg" alt="Ruderal II — new Blue Phoenix image" class="project-img" data-caption="Blue Phoenix" loading="lazy" decoding="async"></figure>
 <figure class="project-item span-2"><img src="optimized/ruderal-ii/DSC00462-2_result.webp" alt="Ruderal II — image 6" class="project-img" data-caption="Giulia Fassone" loading="lazy" decoding="async"></figure>
+<figure class="project-item span-all ruderal-ii-rot-note"><img src="originals/ruderal-ii/rot-note.png" alt="Screenshot of a note about rot" class="project-img" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00463_result.webp" alt="Ruderal II — image 7" class="project-img" data-caption="Delphine Tomes" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-ii/DSC00495_result.webp" alt="Ruderal II — image 8" class="project-img" data-caption="Matilda Mercer" loading="lazy" decoding="async"></figure>
 <figure class="project-item span-2"><img src="optimized/ruderal-ii/DSC06406_result.webp" alt="Ruderal II — image 9" class="project-img" data-caption="Renata Minoldo" loading="lazy" decoding="async"></figure>

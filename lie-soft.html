@@ -326,16 +326,16 @@ body {
   }
 }
 
-/* Soft, frosted dropdown menu */
+/* Transparent dropdown with a blurred backdrop */
 .dropdown {
-  background: rgba(245, 242, 233, 0.68) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(115%);
-  backdrop-filter: blur(16px) saturate(115%);
-  border: 1px solid rgba(91, 44, 16, 0.07);
-  border-radius: 8px;
+  background: transparent !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 0;
+  border-radius: 0;
   padding: 8px 14px !important;
-  box-shadow: 0 5px 18px rgba(30, 20, 10, 0.045) !important;
-  overflow: hidden;
+  box-shadow: none !important;
+  overflow: visible;
 }
 .dropdown a { padding: 6px 0; }
 

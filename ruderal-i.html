@@ -19,16 +19,16 @@
 
 .project-item.smaller-image img{width:65%;max-width:65%;margin-left:auto;margin-right:auto}
 
-/* Soft, frosted dropdown menu */
+/* Transparent dropdown with a blurred backdrop */
 .dropdown {
-  background: rgba(245, 242, 233, 0.68) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(115%);
-  backdrop-filter: blur(16px) saturate(115%);
-  border: 1px solid rgba(91, 44, 16, 0.07);
-  border-radius: 8px;
+  background: transparent !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 0;
+  border-radius: 0;
   padding: 8px 14px !important;
-  box-shadow: 0 5px 18px rgba(30, 20, 10, 0.045) !important;
-  overflow: hidden;
+  box-shadow: none !important;
+  overflow: visible;
 }
 .dropdown a { padding: 6px 0; }
 
@@ -46,14 +46,16 @@
 .ruderal-opening figure{margin:0;min-width:0}
 .ruderal-opening img{display:block;width:100%;height:auto;cursor:zoom-in}
 .ruderal-opening .image-1{grid-column:2 / span 2;grid-row:1 / span 2}
+.ruderal-opening .image-1 img{width:75%;margin:0 auto}
 .ruderal-opening .image-2{grid-column:1;grid-row:1}
 .ruderal-opening .image-6{grid-column:1;grid-row:2}
-.ruderal-placeholder{width:calc(100% - 72px);max-width:1528px;aspect-ratio:2.5/1;margin:0 auto 56px;background:#fff}
+.ruderal-opening .image-37{grid-column:1;grid-row:3}
+.ruderal-opening .image-15{grid-column:2 / span 2;grid-row:3}
 .ruderal-carousel.project-grid{display:block!important;column-count:initial!important;columns:initial!important;max-width:1700px;width:100%;margin:0 auto 100px;padding:0 18px}
 .ruderal-carousel-track{display:grid;width:100%;min-width:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:8px 0 24px}
 .ruderal-carousel .project-item{display:flex!important;align-items:center;justify-content:center;width:auto!important;height:clamp(300px,38vw,480px);margin:0!important;cursor:zoom-in}
 .ruderal-carousel .project-item img{display:block;width:100%!important;height:100%!important;max-height:480px;margin:0!important;object-fit:cover}
-@media(max-width:700px){.ruderal-opening,.ruderal-carousel{padding-left:12px;padding-right:12px}.ruderal-opening{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ruderal-opening .image-1{grid-column:2;grid-row:1 / span 2}.ruderal-opening .image-2{grid-column:1;grid-row:1}.ruderal-opening .image-6{grid-column:1;grid-row:2}.ruderal-placeholder{width:calc(100% - 24px);aspect-ratio:1.7/1;margin-bottom:40px}.ruderal-carousel-track{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ruderal-carousel .project-item{height:clamp(220px,58vw,340px)}}
+@media(max-width:700px){.ruderal-opening,.ruderal-carousel{padding-left:12px;padding-right:12px}.ruderal-opening{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ruderal-opening .image-1{grid-column:1/-1;grid-row:auto}.ruderal-opening .image-1 img{width:75%;margin:0 auto}.ruderal-opening .image-2,.ruderal-opening .image-6{grid-column:auto;grid-row:auto}.ruderal-opening .image-15,.ruderal-opening .image-37{grid-column:1/-1;grid-row:auto}.ruderal-carousel-track{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ruderal-carousel .project-item{height:clamp(220px,58vw,340px)}}
 .viewer-caption{position:absolute;right:60px;bottom:44px;left:60px;color:var(--yellow);text-align:center;font:14px Arial,sans-serif;pointer-events:none}
 @media(max-width:700px){.viewer-caption{right:42px;bottom:38px;left:42px;font-size:12px}}
 </style><style>
@@ -64,10 +66,11 @@ body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;anima
 <header class="header"><a href="index.html" class="brand"><img src="Symbol.png" alt="" class="symbol"><img src="signature.png?v=20261109-224198" alt="Giulia Fassone" class="signature"></a><nav class="menu"><div class="menu-item"><a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a><div class="dropdown" id="projects-dropdown"><a href="appetite.html">Appetite</a><a href="lie-soft.html">Lie Soft</a><a href="archaeology-of-self.html">Archaeology Of Self</a><a href="ruderal-i.html">Ruderal I</a><a href="ruderal-ii.html">Ruderal II</a><a href="fruits-of-labour.html">Fruits of Labour</a><a href="the-remains-of-a-meal.html">The Remains Of A Meal</a><a href="tools.html">Tools</a></div></div><a href="sketchbook.html">Sketchbook</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></nav></header>
 <section class="ruderal-opening" aria-label="Ruderal I selected images">
 <figure class="image-1"><img src="optimized/ruderal-i/DSC_0329_result.webp" alt="Ruderal I — image 1" class="project-img" data-carousel-order="1" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
+<figure class="image-15"><img src="optimized/ruderal-i/DSC_0221_result.webp" alt="Ruderal I — image 15" class="project-img" data-carousel-order="15" data-caption="Zommer" fetchpriority="high" decoding="async"></figure>
 <figure class="image-2"><img src="optimized/ruderal-i/IMG_9942.webp" alt="Ruderal I — image 2" class="project-img" data-carousel-order="2" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
 <figure class="image-6"><img src="optimized/ruderal-i/Poster-2.webp" alt="Ruderal I — image 6" class="project-img" data-carousel-order="6" fetchpriority="high" decoding="async"></figure>
+<figure class="image-37"><img src="originals/ruderal-i/IMG_9172_result.jpg" alt="Ruderal I — image 37" class="project-img" data-carousel-order="37" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
 </section>
-<div class="ruderal-placeholder" aria-hidden="true"></div>
 <main class="project-grid ruderal-carousel" id="project-gallery">
 <div class="ruderal-carousel-track" id="ruderal-track">
 <figure class="project-item span-2"><img src="optimized/ruderal-i/DSC_0007_result.webp" alt="Ruderal I — image 3" class="project-img" data-carousel-order="3" data-caption="ZOMMER" fetchpriority="high" decoding="async"></figure>
@@ -81,7 +84,6 @@ body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;anima
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0152_result.webp" alt="Ruderal I — image 12" class="project-img" data-carousel-order="12" data-caption="Ingrid Pajo" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0161_result.webp" alt="Ruderal I — image 13" class="project-img" data-carousel-order="13" data-caption="Ingrid Pajo" loading="lazy" decoding="async"></figure>
 <figure class="project-item span-2"><img src="optimized/ruderal-i/DSC_0188_result.webp" alt="Ruderal I — image 14" class="project-img" data-carousel-order="14" data-caption="Giulia Fassone" loading="lazy" decoding="async"></figure>
-<figure class="project-item span-2"><img src="optimized/ruderal-i/DSC_0221_result.webp" alt="Ruderal I — image 15" class="project-img" data-carousel-order="15" data-caption="Zommer" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0223_result.webp" alt="Ruderal I — image 16" class="project-img" data-carousel-order="16" data-caption="Anna Usadi" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0229_result.webp" alt="Ruderal I — image 17" class="project-img" data-carousel-order="17" data-caption="Delphine Tomes" loading="lazy" decoding="async"></figure>
 <figure class="project-item smaller-image"><img src="optimized/ruderal-i/DSC_0281_result.webp" alt="Ruderal I — image 18" class="project-img" data-carousel-order="18" data-caption="Giulia Fassone" loading="lazy" decoding="async"></figure>
@@ -103,7 +105,6 @@ body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;anima
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0521_result.webp" alt="Ruderal I — image 34" class="project-img" data-carousel-order="34" data-caption="Giulia Fassone" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/IMG_9923.webp" alt="Ruderal I — image 35" class="project-img" data-carousel-order="35" loading="lazy" decoding="async"></figure>
 <figure class="project-item span-2"><img src="optimized/ruderal-i/Matchstick perf edited_result.webp" alt="Ruderal I — image 36" class="project-img" data-carousel-order="36" loading="lazy" decoding="async"></figure>
-<figure class="project-item"><img src="originals/ruderal-i/IMG_9172_result.jpg" alt="Ruderal I — image 37" class="project-img" data-carousel-order="37" data-caption="Giulia Fassone" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="originals/ruderal-i/IMG_9173_result.jpg" alt="Ruderal I — image 38" class="project-img" data-carousel-order="38" data-caption="Giulia Fassone" loading="lazy" decoding="async"></figure>
 </div>
 </main>
