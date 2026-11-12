@@ -21,9 +21,9 @@
 
 /* Transparent dropdown with a blurred backdrop */
 .dropdown {
-  background: transparent !important;
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  background: rgba(190, 130, 225, 0.30) !important;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   border: 0;
   border-radius: 0;
   padding: 8px 14px !important;
@@ -45,17 +45,16 @@
 .ruderal-opening{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:28px;max-width:1600px;margin:0 auto 48px;padding:0 36px}
 .ruderal-opening figure{margin:0;min-width:0}
 .ruderal-opening img{display:block;width:100%;height:auto;cursor:zoom-in}
-.ruderal-opening .image-1{grid-column:2 / span 2;grid-row:1 / span 2}
-.ruderal-opening .image-1 img{width:75%;margin:0 auto}
-.ruderal-opening .image-2{grid-column:1;grid-row:1}
-.ruderal-opening .image-6{grid-column:1;grid-row:2}
-.ruderal-opening .image-37{grid-column:1;grid-row:3}
+.ruderal-opening .image-37{grid-column:2 / span 2;grid-row:1 / span 2}
+.ruderal-opening .image-1{grid-column:1;grid-row:1}
+.ruderal-opening .image-2{grid-column:1;grid-row:2}
+.ruderal-opening .image-6{grid-column:1;grid-row:3}
 .ruderal-opening .image-15{grid-column:2 / span 2;grid-row:3}
 .ruderal-carousel.project-grid{display:block!important;column-count:initial!important;columns:initial!important;max-width:1700px;width:100%;margin:0 auto 100px;padding:0 18px}
 .ruderal-carousel-track{display:grid;width:100%;min-width:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:8px 0 24px}
 .ruderal-carousel .project-item{display:flex!important;align-items:center;justify-content:center;width:auto!important;height:clamp(300px,38vw,480px);margin:0!important;cursor:zoom-in}
 .ruderal-carousel .project-item img{display:block;width:100%!important;height:100%!important;max-height:480px;margin:0!important;object-fit:cover}
-@media(max-width:700px){.ruderal-opening,.ruderal-carousel{padding-left:12px;padding-right:12px}.ruderal-opening{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ruderal-opening .image-1{grid-column:1/-1;grid-row:auto}.ruderal-opening .image-1 img{width:75%;margin:0 auto}.ruderal-opening .image-2,.ruderal-opening .image-6{grid-column:auto;grid-row:auto}.ruderal-opening .image-15,.ruderal-opening .image-37{grid-column:1/-1;grid-row:auto}.ruderal-carousel-track{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ruderal-carousel .project-item{height:clamp(220px,58vw,340px)}}
+@media(max-width:700px){.ruderal-opening,.ruderal-carousel{padding-left:12px;padding-right:12px}.ruderal-opening{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ruderal-opening .image-37{grid-column:1/-1;grid-row:auto}.ruderal-opening .image-1,.ruderal-opening .image-2,.ruderal-opening .image-6,.ruderal-opening .image-15{grid-column:auto;grid-row:auto}.ruderal-carousel-track{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ruderal-carousel .project-item{height:clamp(220px,58vw,340px)}}
 .viewer-caption{position:absolute;right:60px;bottom:44px;left:60px;color:var(--yellow);text-align:center;font:14px Arial,sans-serif;pointer-events:none}
 @media(max-width:700px){.viewer-caption{right:42px;bottom:38px;left:42px;font-size:12px}}
 </style><style>
@@ -65,16 +64,16 @@ body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;anima
 </style></head><body>
 <header class="header"><a href="index.html" class="brand"><img src="Symbol.png" alt="" class="symbol"><img src="signature.png?v=20261109-224198" alt="Giulia Fassone" class="signature"></a><nav class="menu"><div class="menu-item"><a id="projects-toggle" href="#projects-dropdown" aria-expanded="false">Projects</a><div class="dropdown" id="projects-dropdown"><a href="appetite.html">Appetite</a><a href="lie-soft.html">Lie Soft</a><a href="archaeology-of-self.html">Archaeology Of Self</a><a href="ruderal-i.html">Ruderal I</a><a href="ruderal-ii.html">Ruderal II</a><a href="fruits-of-labour.html">Fruits of Labour</a><a href="the-remains-of-a-meal.html">The Remains Of A Meal</a><a href="tools.html">Tools</a></div></div><a href="sketchbook.html">Sketchbook</a><a href="cv.html">CV</a><a href="contact.html">Contact</a></nav></header>
 <section class="ruderal-opening" aria-label="Ruderal I selected images">
-<figure class="image-1"><img src="optimized/ruderal-i/DSC_0329_result.webp" alt="Ruderal I — image 1" class="project-img" data-carousel-order="1" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
-<figure class="image-15"><img src="optimized/ruderal-i/DSC_0221_result.webp" alt="Ruderal I — image 15" class="project-img" data-carousel-order="15" data-caption="Zommer" fetchpriority="high" decoding="async"></figure>
-<figure class="image-2"><img src="optimized/ruderal-i/IMG_9942.webp" alt="Ruderal I — image 2" class="project-img" data-carousel-order="2" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
-<figure class="image-6"><img src="optimized/ruderal-i/Poster-2.webp" alt="Ruderal I — image 6" class="project-img" data-carousel-order="6" fetchpriority="high" decoding="async"></figure>
-<figure class="image-37"><img src="originals/ruderal-i/IMG_9172_result.jpg" alt="Ruderal I — image 37" class="project-img" data-carousel-order="37" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
+<figure class="image-37"><img src="originals/ruderal-i/IMG_9172_result.jpg" alt="Ruderal I — image 37" class="project-img" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
+<figure class="image-1"><img src="optimized/ruderal-i/DSC_0329_result.webp" alt="Ruderal I — image 1" class="project-img" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
+<figure class="image-2"><img src="optimized/ruderal-i/IMG_9942.webp" alt="Ruderal I — image 2" class="project-img" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
+<figure class="image-6"><img src="optimized/ruderal-i/Poster-2.webp" alt="Ruderal I — image 6" class="project-img" fetchpriority="high" decoding="async"></figure>
+<figure class="image-15"><img src="optimized/ruderal-i/DSC_0221_result.webp" alt="Ruderal I — image 15" class="project-img" data-caption="Zommer" fetchpriority="high" decoding="async"></figure>
 </section>
 <main class="project-grid ruderal-carousel" id="project-gallery">
 <div class="ruderal-carousel-track" id="ruderal-track">
-<figure class="project-item span-2"><img src="optimized/ruderal-i/DSC_0007_result.webp" alt="Ruderal I — image 3" class="project-img" data-carousel-order="3" data-caption="ZOMMER" fetchpriority="high" decoding="async"></figure>
-<figure class="project-item"><img src="optimized/ruderal-i/DSC_0070_result.webp" alt="Ruderal I — image 4" class="project-img" data-carousel-order="4" data-caption="Giulia Fassone" loading="lazy" decoding="async"></figure>
+<figure class="project-item span-2"><img src="optimized/ruderal-i/DSC_0070_result.webp" alt="Ruderal I — image 3" class="project-img" data-carousel-order="3" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
+<figure class="project-item"><img src="optimized/ruderal-i/DSC_0007_result.webp" alt="Ruderal I — image 4" class="project-img" data-carousel-order="4" data-caption="ZOMMER" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0041_result.webp" alt="Ruderal I — image 5" class="project-img" data-carousel-order="5" data-caption="ZOMMER" loading="lazy" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0069_result.webp" alt="Ruderal I — image 7" class="project-img" data-carousel-order="7" data-caption="Giulia Fassone" fetchpriority="high" decoding="async"></figure>
 <figure class="project-item"><img src="optimized/ruderal-i/DSC_0115_result.webp" alt="Ruderal I — image 8" class="project-img" data-carousel-order="8" data-caption="Delphine Tomes" loading="lazy" decoding="async"></figure>
@@ -111,6 +110,6 @@ body{background-position:center,49.7% 49.8%;background-size:auto,140% auto;anima
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Ruderal I image gallery" aria-hidden="true"><button class="viewer-arrow prev" id="viewer-prev" aria-label="Previous image" type="button"><svg viewBox="0 0 24 40"><path d="M19 3 L5 20 L19 37"/></svg></button><div class="viewer-stage"><img id="viewer-img" alt=""></div><button class="viewer-arrow next" id="viewer-next" aria-label="Next image" type="button"><svg viewBox="0 0 24 40"><path d="M5 3 L19 20 L5 37"/></svg></button><div class="viewer-caption" id="viewer-caption" aria-live="polite"></div><div class="viewer-counter" id="viewer-counter"></div></div><div class="copyright">© Giulia Fassone 2026. All rights reserved.</div>
 <script>
 const toggle=document.getElementById('projects-toggle'),dropdown=document.getElementById('projects-dropdown');toggle.addEventListener('click',e=>{e.preventDefault();const open=dropdown.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});document.addEventListener('click',e=>{if(!toggle.contains(e.target)&&!dropdown.contains(e.target)){dropdown.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
-const images=Array.from(document.querySelectorAll('.project-img')).sort((a,b)=>Number(a.dataset.carouselOrder)-Number(b.dataset.carouselOrder)),viewer=document.getElementById('viewer'),viewerImg=document.getElementById('viewer-img'),caption=document.getElementById('viewer-caption'),counter=document.getElementById('viewer-counter');let current=0;function showImage(i){current=(i+images.length)%images.length;viewerImg.src=images[current].src;viewerImg.alt=images[current].alt;caption.textContent=images[current].dataset.caption||'';caption.hidden=!caption.textContent;counter.textContent=(current+1)+' / '+images.length;}images.forEach((img,i)=>img.addEventListener('click',()=>{showImage(i);viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');}));document.getElementById('viewer-prev').addEventListener('click',e=>{e.stopPropagation();showImage(current-1)});document.getElementById('viewer-next').addEventListener('click',e=>{e.stopPropagation();showImage(current+1)});viewer.addEventListener('click',e=>{if(!e.target.closest('.viewer img, .viewer-arrow')){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}});
+const images=Array.from(document.querySelectorAll('.project-img')),viewer=document.getElementById('viewer'),viewerImg=document.getElementById('viewer-img'),caption=document.getElementById('viewer-caption'),counter=document.getElementById('viewer-counter');let orderedImages=[],current=0;function sortImagesByPosition(){return images.slice().sort((a,b)=>{const aRect=a.getBoundingClientRect(),bRect=b.getBoundingClientRect();return Math.abs(aRect.top-bRect.top)>4?aRect.top-bRect.top:aRect.left-bRect.left;});}function showImage(i){orderedImages=sortImagesByPosition();current=(i+orderedImages.length)%orderedImages.length;viewerImg.src=orderedImages[current].src;viewerImg.alt=orderedImages[current].alt;caption.textContent=orderedImages[current].dataset.caption||'';caption.hidden=!caption.textContent;counter.textContent=(current+1)+' / '+orderedImages.length;}images.forEach(img=>img.addEventListener('click',()=>{orderedImages=sortImagesByPosition();showImage(orderedImages.indexOf(img));viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');}));document.getElementById('viewer-prev').addEventListener('click',e=>{e.stopPropagation();showImage(current-1)});document.getElementById('viewer-next').addEventListener('click',e=>{e.stopPropagation();showImage(current+1)});viewer.addEventListener('click',e=>{if(!e.target.closest('.viewer img, .viewer-arrow')){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}});
 document.addEventListener('keydown',e=>{if(viewer.classList.contains('open')){if(e.key==='Escape'){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true')}if(e.key==='ArrowLeft')showImage(current-1);if(e.key==='ArrowRight')showImage(current+1)}});
 </script></body></html>
