@@ -10,7 +10,7 @@
 
 /* Transparent dropdown with a blurred backdrop */
 .dropdown {
-  background: rgba(190, 130, 225, 0.30) !important;
+  background: transparent !important;
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   border: 0;
@@ -20,6 +20,7 @@
   overflow: visible;
 }
 .dropdown a { padding: 6px 0; }
+.dropdown a:hover { color:var(--yellow) !important; }
 .sketchbook-stage{width:min(1300px,calc(100% - 9vw));margin:12px auto 110px}
 .book-spread{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:min(1180px,100%);aspect-ratio:1.48/1;margin:0 auto;perspective:2200px;isolation:isolate}
 .book-page{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;min-width:0;height:100%;padding:clamp(12px,2.4vw,36px);overflow:hidden;border:0;background-color:#f8f7f2;background-image:linear-gradient(rgba(102,132,151,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(102,132,151,.15) 1px,transparent 1px);background-size:22px 22px;cursor:pointer}

@@ -115,7 +115,7 @@ body {
   .contact-portrait { width:min(300px,48vh); }
 }
 .dropdown {
-  background:rgba(190, 130, 225, 0.30);
+  background:transparent;
   -webkit-backdrop-filter:blur(3px);
   backdrop-filter:blur(3px);
   border:0;
@@ -125,6 +125,7 @@ body {
   overflow:visible;
 }
 .dropdown a { color:var(--text-colour); text-shadow:none; }
+.dropdown a:hover { color:var(--yellow) !important; }
 body { background-position:center,49.7% 49.8%; background-size:auto,140% auto; animation:texture-pan 8s ease-in-out infinite alternate; }
 @keyframes texture-pan {
   0% { background-position:center,48.5% 49%; }

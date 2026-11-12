@@ -185,7 +185,7 @@
   .urn { left: 18%; top: 70cqh; width: 8.86cqw; z-index: 2; }
   .ruderal-1 { left: 21%; top: 38.5cqh; width: 20.03cqw; z-index: 1; }
   .ruderal-1 img { transform: scaleX(0.75); }
-  .lie-soft { left: 22%; top: 80cqh; }
+  .lie-soft { left: 22%; top: 80cqh; z-index: 3; }
   .fruits { left: 78%; top: 86.5cqh; width: 9.65cqw; }
   .fruits img { transform: rotate(10deg); }
   .ruderal-2 { right: 0.25cqw; top: 59.6cqh; width: 24.45cqw; }
@@ -405,7 +405,7 @@
     </div>
     <div class="thumb apple"><img src="apple-thumbnail.png" alt="" class="lightbox-trigger"></div>
     <div class="thumb butter size-300"><img src="Hooked-stone-thumbnail.png" alt="" class="lightbox-trigger"></div>
-    <div class="thumb she-hath size-400"><img src="she-hath-thumbnail.png" alt="" class="lightbox-trigger"></div>
+    <div class="thumb she-hath size-400"><a href="appetite.html"><img src="she-hath-thumbnail.png" alt="She Hath"></a></div>
     <div class="thumb sin-eater size-130" id="statement-trigger" role="button" tabindex="0" aria-label="Read artist statement"><img src="Sin-Eater-Full-thumbnail.png" alt="" ></div>
   </div>
   </div>
@@ -523,8 +523,8 @@
         return bZ - aZ || thumbnailImages.indexOf(b) - thumbnailImages.indexOf(a);
       });
       const target = layers.find(img => hitsThumbnail(img, e.clientX, e.clientY));
-      e.preventDefault();
       if (!target) return;
+      e.preventDefault();
       const thumb = target.closest('.thumb');
       const link = thumb.querySelector('a');
       if (link) {

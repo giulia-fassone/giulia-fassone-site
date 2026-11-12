@@ -19,7 +19,7 @@
 
 /* Transparent dropdown with a blurred backdrop */
 .dropdown {
-  background: rgba(190, 130, 225, 0.30) !important;
+  background: transparent !important;
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   border: 0;
@@ -29,6 +29,7 @@
   overflow: visible;
 }
 .dropdown a { padding: 6px 0; }
+.dropdown a:hover { color:var(--yellow) !important; }
 
 
 
